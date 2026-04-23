@@ -867,6 +867,48 @@
       25% { transform: rotate(-3deg); }
       75% { transform: rotate(3deg); }
     }
+
+    /* ── ILLUSTRATIONS ── */
+    .hero-crowd {
+      position: absolute;
+      bottom: 48px;
+      left: 0; right: 0;
+      z-index: 3;
+      pointer-events: none;
+      display: flex;
+      justify-content: center;
+      overflow: visible;
+    }
+    .hero-crowd svg {
+      width: 100%;
+      max-width: 960px;
+      height: auto;
+    }
+
+    .yatai-illus-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 36px;
+    }
+    .yatai-illus-wrap svg {
+      width: 100%;
+      max-width: 480px;
+      height: auto;
+      filter: drop-shadow(6px 6px 0 rgba(22,32,94,0.15));
+    }
+
+    @keyframes dog-tail {
+      0%,100% { transform: rotate(-10deg); }
+      50%      { transform: rotate(20deg); }
+    }
+    @keyframes balloon-bob {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+    @keyframes wave-arm {
+      0%,100% { transform: rotate(0deg); }
+      50%      { transform: rotate(-30deg); }
+    }
   </style>
 </head>
 <body>
@@ -938,6 +980,251 @@
 
     <!-- 草 -->
     <div class="grass"></div>
+
+    <!-- 来場者イラスト -->
+    <div class="hero-crowd">
+      <svg viewBox="0 0 960 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <clipPath id="cc"><rect width="960" height="220"/></clipPath>
+        </defs>
+        <g clip-path="url(#cc)">
+
+        <!-- ══ DOG (ゴールデン, x≈90) ══ -->
+        <!-- tail (origin at body rear) -->
+        <g style="transform-origin:130px 180px; animation:dog-tail 0.7s ease-in-out infinite;">
+          <path d="M130,180 C148,160 162,145 155,134 C148,124 133,132 136,148" fill="none" stroke="#C8922A" stroke-width="13" stroke-linecap="round"/>
+        </g>
+        <!-- body -->
+        <ellipse cx="100" cy="186" rx="42" ry="25" fill="#E8B86D"/>
+        <!-- back legs -->
+        <rect x="117" y="198" width="15" height="22" rx="7" fill="#C8922A"/>
+        <rect x="100" y="201" width="13" height="17" rx="6" fill="#C8922A"/>
+        <!-- front legs -->
+        <rect x="74"  y="198" width="15" height="22" rx="7" fill="#C8922A"/>
+        <rect x="57"  y="201" width="13" height="17" rx="6" fill="#C8922A"/>
+        <!-- paws -->
+        <ellipse cx="124" cy="209" rx="11" ry="7" fill="#C8922A"/>
+        <ellipse cx="106" cy="210" rx="10" ry="6" fill="#C8922A"/>
+        <ellipse cx="81"  cy="209" rx="11" ry="7" fill="#C8922A"/>
+        <ellipse cx="63"  cy="210" rx="10" ry="6" fill="#C8922A"/>
+        <!-- ears (behind head) -->
+        <ellipse cx="46" cy="174" rx="13" ry="21" fill="#C8922A" transform="rotate(-18 46 174)"/>
+        <ellipse cx="82" cy="173" rx="13" ry="21" fill="#C8922A" transform="rotate(12 82 173)"/>
+        <!-- head -->
+        <circle cx="64" cy="166" r="27" fill="#E8B86D"/>
+        <!-- snout -->
+        <ellipse cx="64" cy="176" rx="15" ry="11" fill="#F2C07A"/>
+        <!-- nose -->
+        <ellipse cx="64" cy="170" rx="7" ry="5" fill="#2D1E0F"/>
+        <ellipse cx="66" cy="169" rx="2" ry="1.5" fill="white" opacity="0.5"/>
+        <!-- eyes -->
+        <circle cx="52" cy="161" r="5.5" fill="#2D1E0F"/>
+        <circle cx="76" cy="161" r="5.5" fill="#2D1E0F"/>
+        <circle cx="54" cy="159" r="2.5" fill="white"/>
+        <circle cx="78" cy="159" r="2.5" fill="white"/>
+        <!-- tongue -->
+        <ellipse cx="64" cy="185" rx="7" ry="8" fill="#FF8FAB"/>
+        <line x1="64" y1="180" x2="64" y2="185" stroke="#E06080" stroke-width="1.5"/>
+        <!-- collar -->
+        <rect x="47" y="184" width="34" height="9" rx="4.5" fill="#FF5C3A"/>
+        <circle cx="64" cy="188.5" r="4.5" fill="#FFD600"/>
+        <!-- leash -->
+        <path d="M88,188 C122,196 160,202 196,207" stroke="#7B5230" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+
+        <!-- ══ CHILD (男の子, x≈220) ══ -->
+        <!-- balloon (bouncing) -->
+        <g style="animation:balloon-bob 2s ease-in-out infinite;">
+          <ellipse cx="222" cy="46" rx="22" ry="27" fill="#FF5C3A"/>
+          <ellipse cx="216" cy="38" rx="6" ry="4" fill="rgba(255,255,255,0.35)"/>
+          <!-- knot -->
+          <circle cx="222" cy="73" r="4" fill="#E04020"/>
+        </g>
+        <!-- balloon string -->
+        <path d="M222,73 C220,90 222,108 224,125" stroke="#8B5E3C" stroke-width="2" fill="none" stroke-dasharray="4,3"/>
+        <!-- pants/legs -->
+        <rect x="205" y="204" width="15" height="14" rx="7" fill="#16205E"/>
+        <rect x="223" y="204" width="15" height="14" rx="7" fill="#16205E"/>
+        <!-- shoes -->
+        <ellipse cx="212" cy="212" rx="13" ry="7" fill="#2D1E0F"/>
+        <ellipse cx="230" cy="212" rx="13" ry="7" fill="#2D1E0F"/>
+        <!-- body/shirt -->
+        <rect x="198" y="155" width="48" height="54" rx="18" fill="#FFD600"/>
+        <!-- shirt pocket detail -->
+        <rect x="212" y="163" width="14" height="12" rx="4" fill="rgba(22,32,94,0.15)"/>
+        <!-- left arm (holding leash) -->
+        <rect x="176" y="163" width="25" height="14" rx="7" fill="#FFD600"/>
+        <circle cx="173" cy="170" r="9" fill="#FFDAB9"/>
+        <!-- right arm (holding balloon) -->
+        <rect x="243" y="158" width="24" height="13" rx="6" fill="#FFD600"/>
+        <circle cx="269" cy="164" r="9" fill="#FFDAB9"/>
+        <!-- neck -->
+        <rect x="214" y="143" width="16" height="15" rx="7" fill="#FFDAB9"/>
+        <!-- head -->
+        <circle cx="222" cy="124" r="33" fill="#FFDAB9"/>
+        <!-- hair (messy) -->
+        <ellipse cx="222" cy="96" rx="33" ry="19" fill="#2D1E0F"/>
+        <circle cx="197" cy="104" r="13" fill="#2D1E0F"/>
+        <circle cx="247" cy="104" r="13" fill="#2D1E0F"/>
+        <circle cx="222" cy="96"  r="11" fill="#2D1E0F"/>
+        <!-- eyes -->
+        <circle cx="210" cy="123" r="5.5" fill="#2D1E0F"/>
+        <circle cx="234" cy="123" r="5.5" fill="#2D1E0F"/>
+        <circle cx="212" cy="121" r="2.5" fill="white"/>
+        <circle cx="236" cy="121" r="2.5" fill="white"/>
+        <!-- big smile -->
+        <path d="M209,135 Q222,147 235,135" stroke="#2D1E0F" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <!-- blush -->
+        <ellipse cx="198" cy="131" rx="10" ry="6" fill="#FFB7A3" opacity="0.7"/>
+        <ellipse cx="246" cy="131" rx="10" ry="6" fill="#FFB7A3" opacity="0.7"/>
+
+        <!-- ══ MOM (ピンクワンピース, x≈420) ══ -->
+        <!-- skirt (trapezoid) -->
+        <path d="M394,188 L380,212 L464,212 L448,188 Z" fill="#FF4D93"/>
+        <!-- shoes -->
+        <ellipse cx="387" cy="212" rx="14" ry="8" fill="#C03060"/>
+        <ellipse cx="457" cy="212" rx="14" ry="8" fill="#C03060"/>
+        <!-- body (top) -->
+        <rect x="388" y="132" width="66" height="62" rx="20" fill="#FF4D93"/>
+        <!-- waist belt -->
+        <rect x="388" y="182" width="66" height="10" rx="5" fill="#E8392A"/>
+        <!-- left arm (waving, animated) -->
+        <g style="transform-origin:388px 142px; animation:wave-arm 1.2s ease-in-out infinite;">
+          <rect x="358" y="138" width="33" height="14" rx="7" fill="#FF4D93"/>
+          <circle cx="355" cy="145" r="10" fill="#FFDAB9"/>
+        </g>
+        <!-- right arm (holding bag) -->
+        <rect x="452" y="138" width="28" height="14" rx="7" fill="#FF4D93"/>
+        <circle cx="482" cy="145" r="10" fill="#FFDAB9"/>
+        <!-- bag -->
+        <rect x="476" y="136" width="26" height="30" rx="8" fill="#FFD600"/>
+        <rect x="484" y="128" width="10" height="12" rx="5" fill="none" stroke="#FFD600" stroke-width="3"/>
+        <!-- neck -->
+        <rect x="411" y="120" width="20" height="16" rx="8" fill="#FFDAB9"/>
+        <!-- head -->
+        <circle cx="421" cy="100" r="36" fill="#FFDAB9"/>
+        <!-- hair (bun) -->
+        <ellipse cx="421" cy="70" rx="36" ry="20" fill="#2D1E0F"/>
+        <rect x="385" y="70" width="72" height="26" rx="13" fill="#2D1E0F"/>
+        <!-- bun on top -->
+        <circle cx="421" cy="58" rx="18" ry="16" fill="#2D1E0F"/>
+        <!-- hair flower -->
+        <circle cx="440" cy="60" r="11" fill="#FFD600"/>
+        <circle cx="445" cy="53" r="9"  fill="#FF5C3A"/>
+        <circle cx="440" cy="60" r="6"  fill="#FFFDF0"/>
+        <!-- eyes (with lashes) -->
+        <circle cx="408" cy="98" r="6" fill="#2D1E0F"/>
+        <circle cx="434" cy="98" r="6" fill="#2D1E0F"/>
+        <circle cx="410" cy="96" r="2.8" fill="white"/>
+        <circle cx="436" cy="96" r="2.8" fill="white"/>
+        <!-- lashes -->
+        <path d="M402,92 L399,88" stroke="#2D1E0F" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M406,91 L404,87" stroke="#2D1E0F" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M428,91 L430,87" stroke="#2D1E0F" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M432,92 L435,88" stroke="#2D1E0F" stroke-width="2.2" stroke-linecap="round"/>
+        <!-- smile -->
+        <path d="M407,112 Q421,124 435,112" stroke="#2D1E0F" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <!-- blush -->
+        <ellipse cx="395" cy="109" rx="11" ry="7" fill="#FFB7A3" opacity="0.7"/>
+        <ellipse cx="447" cy="109" rx="11" ry="7" fill="#FFB7A3" opacity="0.7"/>
+
+        <!-- ══ DAD (はっぴ・はちまき, x≈620) ══ -->
+        <!-- pants -->
+        <rect x="594" y="180" width="22" height="30" rx="10" fill="#4A5568"/>
+        <rect x="620" y="180" width="22" height="30" rx="10" fill="#4A5568"/>
+        <!-- shoes -->
+        <ellipse cx="605" cy="210" rx="16" ry="8" fill="#2D1E0F"/>
+        <ellipse cx="631" cy="210" rx="16" ry="8" fill="#2D1E0F"/>
+        <!-- body (happi coat) -->
+        <rect x="582" y="118" width="72" height="68" rx="20" fill="#29B6F6"/>
+        <!-- happi center line -->
+        <line x1="618" y1="118" x2="618" y2="186" stroke="white" stroke-width="3" opacity="0.4"/>
+        <!-- left arm -->
+        <rect x="552" y="126" width="33" height="15" rx="7" fill="#29B6F6"/>
+        <circle cx="549" cy="133" r="11" fill="#FFDAB9"/>
+        <!-- right arm (waving / holding uchiwa) -->
+        <rect x="652" y="126" width="30" height="15" rx="7" fill="#29B6F6"/>
+        <circle cx="684" cy="133" r="11" fill="#FFDAB9"/>
+        <!-- uchiwa (うちわ) -->
+        <ellipse cx="700" cy="118" rx="22" ry="25" fill="#FF4D93"/>
+        <ellipse cx="694" cy="108" rx="8" ry="5" fill="rgba(255,255,255,0.3)"/>
+        <rect x="696" y="133" width="6" height="24" rx="3" fill="#8B5E3C"/>
+        <!-- neck -->
+        <rect x="607" y="106" width="22" height="16" rx="8" fill="#FFDAB9"/>
+        <!-- head -->
+        <circle cx="618" cy="86" r="38" fill="#FFDAB9"/>
+        <!-- hair (short) -->
+        <ellipse cx="618" cy="54" rx="38" ry="22" fill="#2D1E0F"/>
+        <rect x="580" y="54" width="76" height="28" rx="14" fill="#2D1E0F"/>
+        <!-- はちまき (headband) -->
+        <rect x="580" y="72" width="76" height="17" rx="4" fill="white"/>
+        <rect x="580" y="72" width="76" height="5"  rx="2" fill="#FF4D4D"/>
+        <!-- はちまき knot (side) -->
+        <ellipse cx="658" cy="81" rx="15" ry="9" fill="white" transform="rotate(-15 658 81)"/>
+        <path d="M650,77 L660,72 M650,85 L660,90" stroke="#FF4D4D" stroke-width="2" stroke-linecap="round"/>
+        <!-- eyebrows (thick, dad) -->
+        <path d="M604,78 Q611,73 618,78" stroke="#2D1E0F" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <path d="M618,78 Q625,73 632,78" stroke="#2D1E0F" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <!-- eyes -->
+        <circle cx="606" cy="87" r="6.5" fill="#2D1E0F"/>
+        <circle cx="630" cy="87" r="6.5" fill="#2D1E0F"/>
+        <circle cx="608" cy="85" r="3"   fill="white"/>
+        <circle cx="632" cy="85" r="3"   fill="white"/>
+        <!-- big grin -->
+        <path d="M602,101 Q618,116 634,101" stroke="#2D1E0F" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <!-- teeth -->
+        <path d="M608,103 Q618,114 628,103" fill="white" stroke="none"/>
+        <!-- blush -->
+        <ellipse cx="590" cy="98" rx="13" ry="8" fill="#FFB7A3" opacity="0.65"/>
+        <ellipse cx="646" cy="98" rx="13" ry="8" fill="#FFB7A3" opacity="0.65"/>
+
+        <!-- ══ SMALL CHILD 2 (baby/幼児, x≈760) ══ -->
+        <!-- held balloon -->
+        <g style="animation:balloon-bob 2.5s ease-in-out infinite 0.5s;">
+          <ellipse cx="762" cy="110" rx="16" ry="19" fill="#4AC74A"/>
+          <ellipse cx="757" cy="104" rx="4" ry="3" fill="rgba(255,255,255,0.4)"/>
+          <circle cx="762" cy="129" r="3" fill="#2D9430"/>
+        </g>
+        <path d="M762,129 C761,138 762,150 764,162" stroke="#8B5E3C" stroke-width="2" fill="none" stroke-dasharray="3,3"/>
+        <!-- small legs -->
+        <rect x="751" y="196" width="13" height="14" rx="6" fill="#16205E"/>
+        <rect x="766" y="196" width="13" height="14" rx="6" fill="#16205E"/>
+        <ellipse cx="757" cy="210" rx="11" ry="6" fill="#2D1E0F"/>
+        <ellipse cx="772" cy="210" rx="11" ry="6" fill="#2D1E0F"/>
+        <!-- small body -->
+        <rect x="745" y="160" width="40" height="40" rx="14" fill="#FF4D93"/>
+        <!-- arm holding balloon -->
+        <rect x="762" y="165" width="20" height="11" rx="5" fill="#FF4D93"/>
+        <circle cx="784" cy="170" r="8" fill="#FFDAB9"/>
+        <!-- other arm -->
+        <rect x="728" y="165" width="18" height="11" rx="5" fill="#FF4D93"/>
+        <circle cx="726" cy="170" r="8" fill="#FFDAB9"/>
+        <!-- neck -->
+        <rect x="758" y="151" width="14" height="12" rx="6" fill="#FFDAB9"/>
+        <!-- big round head (baby proportions) -->
+        <circle cx="765" cy="133" r="28" fill="#FFDAB9"/>
+        <!-- hair (wispy) -->
+        <path d="M748,116 Q758,108 765,112 Q772,108 782,116" fill="none" stroke="#2D1E0F" stroke-width="6" stroke-linecap="round"/>
+        <!-- eyes (big, cute) -->
+        <circle cx="755" cy="132" r="6"   fill="#2D1E0F"/>
+        <circle cx="775" cy="132" r="6"   fill="#2D1E0F"/>
+        <circle cx="757" cy="129" r="3"   fill="white"/>
+        <circle cx="777" cy="129" r="3"   fill="white"/>
+        <!-- smile (big baby smile) -->
+        <path d="M754,143 Q765,154 776,143" stroke="#2D1E0F" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- blush (big) -->
+        <ellipse cx="744" cy="141" rx="10" ry="7" fill="#FFB7A3" opacity="0.8"/>
+        <ellipse cx="786" cy="141" rx="10" ry="7" fill="#FFB7A3" opacity="0.8"/>
+
+        <!-- ══ SHADOW ELLIPSES (地面の影) ══ -->
+        <ellipse cx="93"  cy="214" rx="44" ry="7" fill="rgba(22,32,94,0.08)"/>
+        <ellipse cx="220" cy="216" rx="36" ry="6" fill="rgba(22,32,94,0.08)"/>
+        <ellipse cx="420" cy="216" rx="42" ry="6" fill="rgba(22,32,94,0.08)"/>
+        <ellipse cx="617" cy="216" rx="48" ry="7" fill="rgba(22,32,94,0.08)"/>
+        <ellipse cx="762" cy="216" rx="30" ry="5" fill="rgba(22,32,94,0.08)"/>
+
+        </g>
+      </svg>
+    </div>
 
     <div class="hero-content">
       <div class="hero-badge">🎉 糟屋郡 宇美町 夏の大イベント</div>
@@ -1022,6 +1309,210 @@
       <div class="section-tag">FOOD & SHOPS</div>
       <h2 class="section-title">🏮 屋台・出店</h2>
     </div>
+    <!-- 屋台イラスト -->
+    <div class="yatai-illus-wrap">
+      <svg viewBox="0 0 520 290" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <!-- 紅白縞 awning パターン -->
+          <pattern id="awning-stripe" x="0" y="0" width="28" height="1" patternUnits="userSpaceOnUse">
+            <rect x="0"  y="0" width="14" height="1" fill="#E8392A"/>
+            <rect x="14" y="0" width="14" height="1" fill="white"/>
+          </pattern>
+          <clipPath id="awning-shape">
+            <path d="M40,50 L480,50 L500,115 L20,115 Z"/>
+          </clipPath>
+        </defs>
+
+        <!-- ── 地面 ── -->
+        <rect x="0" y="270" width="520" height="20" rx="0" fill="#4AC74A"/>
+
+        <!-- ── 後壁 ── -->
+        <rect x="50" y="95" width="420" height="180" rx="6" fill="#F5E6C8"/>
+        <!-- 木目ライン -->
+        <line x1="50" y1="130" x2="470" y2="130" stroke="#E0C89A" stroke-width="2"/>
+        <line x1="50" y1="165" x2="470" y2="165" stroke="#E0C89A" stroke-width="2"/>
+        <line x1="50" y1="200" x2="470" y2="200" stroke="#E0C89A" stroke-width="2"/>
+        <line x1="50" y1="235" x2="470" y2="235" stroke="#E0C89A" stroke-width="2"/>
+
+        <!-- ── のれん (noren) ── -->
+        <rect x="90"  y="95" width="48" height="62" rx="4" fill="#E8392A"/>
+        <rect x="145" y="95" width="48" height="55" rx="4" fill="#E8392A"/>
+        <rect x="200" y="95" width="48" height="60" rx="4" fill="#E8392A"/>
+        <rect x="255" y="95" width="48" height="56" rx="4" fill="#E8392A"/>
+        <rect x="310" y="95" width="48" height="63" rx="4" fill="#E8392A"/>
+        <rect x="365" y="95" width="48" height="57" rx="4" fill="#E8392A"/>
+        <!-- のれん 白文字 -->
+        <text x="114" y="133" text-anchor="middle" fill="white" font-size="18" font-weight="800" font-family="M PLUS Rounded 1c,sans-serif">夏</text>
+        <text x="169" y="126" text-anchor="middle" fill="white" font-size="18" font-weight="800" font-family="M PLUS Rounded 1c,sans-serif">祭</text>
+        <text x="224" y="131" text-anchor="middle" fill="white" font-size="18" font-weight="800" font-family="M PLUS Rounded 1c,sans-serif">り</text>
+        <text x="279" y="127" text-anchor="middle" fill="white" font-size="18" font-weight="800" font-family="M PLUS Rounded 1c,sans-serif">2</text>
+        <text x="334" y="134" text-anchor="middle" fill="white" font-size="18" font-weight="800" font-family="M PLUS Rounded 1c,sans-serif">0</text>
+        <text x="389" y="128" text-anchor="middle" fill="white" font-size="18" font-weight="800" font-family="M PLUS Rounded 1c,sans-serif">2</text>
+
+        <!-- ── 幕 (awning stripe fill) ── -->
+        <path d="M40,50 L480,50 L500,115 L20,115 Z" fill="url(#awning-stripe)" clip-path="url(#awning-shape)"/>
+        <!-- awning border -->
+        <path d="M40,50 L480,50 L500,115 L20,115 Z" fill="none" stroke="#B02218" stroke-width="3"/>
+        <!-- awning top bar -->
+        <rect x="38" y="44" width="444" height="12" rx="6" fill="#8B3020"/>
+
+        <!-- ── フリンジ ── -->
+        <g fill="#E8392A">
+          <path d="M20,115 L28,130 L36,115"/>
+          <path d="M36,115 L44,130 L52,115"/>
+          <path d="M52,115 L60,130 L68,115"/>
+          <path d="M68,115 L76,130 L84,115"/>
+          <path d="M84,115 L92,130 L100,115"/>
+          <path d="M100,115 L108,130 L116,115"/>
+          <path d="M116,115 L124,130 L132,115"/>
+          <path d="M132,115 L140,130 L148,115"/>
+          <path d="M148,115 L156,130 L164,115"/>
+          <path d="M164,115 L172,130 L180,115"/>
+          <path d="M180,115 L188,130 L196,115"/>
+          <path d="M196,115 L204,130 L212,115"/>
+          <path d="M212,115 L220,130 L228,115"/>
+          <path d="M228,115 L236,130 L244,115"/>
+          <path d="M244,115 L252,130 L260,115"/>
+          <path d="M260,115 L268,130 L276,115"/>
+          <path d="M276,115 L284,130 L292,115"/>
+          <path d="M292,115 L300,130 L308,115"/>
+          <path d="M308,115 L316,130 L324,115"/>
+          <path d="M324,115 L332,130 L340,115"/>
+          <path d="M340,115 L348,130 L356,115"/>
+          <path d="M356,115 L364,130 L372,115"/>
+          <path d="M372,115 L380,130 L388,115"/>
+          <path d="M388,115 L396,130 L404,115"/>
+          <path d="M404,115 L412,130 L420,115"/>
+          <path d="M420,115 L428,130 L436,115"/>
+          <path d="M436,115 L444,130 L452,115"/>
+          <path d="M452,115 L460,130 L468,115"/>
+          <path d="M468,115 L476,130 L484,115"/>
+          <path d="M484,115 L492,130 L500,115"/>
+        </g>
+
+        <!-- ── 支柱 ── -->
+        <rect x="48"  y="115" width="14" height="160" rx="5" fill="#8B5E3C"/>
+        <rect x="458" y="115" width="14" height="160" rx="5" fill="#8B5E3C"/>
+        <!-- 脚 -->
+        <rect x="44"  y="258" width="22" height="15" rx="4" fill="#6B3A2A"/>
+        <rect x="454" y="258" width="22" height="15" rx="4" fill="#6B3A2A"/>
+
+        <!-- ── カウンター ── -->
+        <rect x="36"  y="218" width="448" height="16" rx="5" fill="#6B3A2A"/>
+        <rect x="40"  y="234" width="440" height="40" rx="5" fill="#8B5E3C"/>
+        <!-- カウンター前板 -->
+        <rect x="36"  y="234" width="448" height="6"  rx="3" fill="#A0724A"/>
+
+        <!-- ── 提灯 ── -->
+        <!-- 提灯1 (赤) -->
+        <line x1="130" y1="50" x2="130" y2="72" stroke="#7B4020" stroke-width="2"/>
+        <rect x="124" y="66" width="12" height="8" rx="3" fill="#7B4020"/>
+        <ellipse cx="130" cy="84" rx="16" ry="22" fill="#E8392A"/>
+        <rect x="126" y="66" width="8"  height="8"  rx="3" fill="#7B4020"/>
+        <rect x="126" y="100" width="8" height="6"  rx="3" fill="#7B4020"/>
+        <!-- 提灯 模様ライン -->
+        <line x1="130" y1="66" x2="130" y2="106" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+        <ellipse cx="130" cy="86" rx="16" ry="4"   fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+
+        <!-- 提灯2 (黄) -->
+        <line x1="260" y1="50" x2="260" y2="68" stroke="#7B4020" stroke-width="2"/>
+        <rect x="254" y="62" width="12" height="8" rx="3" fill="#7B4020"/>
+        <ellipse cx="260" cy="80" rx="16" ry="22" fill="#FFD600"/>
+        <rect x="256" y="62" width="8"  height="8"  rx="3" fill="#7B4020"/>
+        <rect x="256" y="96" width="8"  height="6"  rx="3" fill="#7B4020"/>
+        <line x1="260" y1="62" x2="260" y2="102" stroke="rgba(100,80,0,0.2)" stroke-width="1.5"/>
+
+        <!-- 提灯3 (赤) -->
+        <line x1="390" y1="50" x2="390" y2="72" stroke="#7B4020" stroke-width="2"/>
+        <rect x="384" y="66" width="12" height="8" rx="3" fill="#7B4020"/>
+        <ellipse cx="390" cy="84" rx="16" ry="22" fill="#E8392A"/>
+        <rect x="386" y="66" width="8"  height="8"  rx="3" fill="#7B4020"/>
+        <rect x="386" y="100" width="8" height="6"  rx="3" fill="#7B4020"/>
+        <line x1="390" y1="66" x2="390" y2="106" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+
+        <!-- ── カウンター上の食べ物 ── -->
+        <!-- たこ焼きトレー -->
+        <rect x="90" y="200" width="105" height="20" rx="5" fill="#7B4020"/>
+        <circle cx="108" cy="210" r="11" fill="#C87941"/>
+        <circle cx="126" cy="208" r="11" fill="#C87941"/>
+        <circle cx="144" cy="210" r="11" fill="#C87941"/>
+        <circle cx="162" cy="208" r="11" fill="#C87941"/>
+        <circle cx="180" cy="210" r="11" fill="#C87941"/>
+        <!-- たこ焼き トッピング -->
+        <path d="M103,206 Q108,204 113,206" stroke="#3D2B1F" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M121,204 Q126,202 131,204" stroke="#3D2B1F" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- ソース線 -->
+        <path d="M100,214 Q108,210 116,214 Q124,210 132,214" stroke="#3D1A00" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+        <!-- かき氷 -->
+        <rect x="230" y="212" width="8" height="12" rx="3" fill="#A0724A"/>
+        <path d="M210,212 L234,212 L242,212 L250,212" stroke="none"/>
+        <path d="M222,176 L210,212 L250,212 Z" fill="#87CEEB"/>
+        <ellipse cx="236" cy="177" rx="20" ry="14" fill="#B2EBF2"/>
+        <!-- シロップ -->
+        <path d="M228,183 Q222,193 224,205" stroke="#FF4D93" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
+        <!-- 器 -->
+        <path d="M210,212 Q230,222 250,212" fill="#E0E0E0" stroke="#BDBDBD" stroke-width="2"/>
+
+        <!-- りんご飴 -->
+        <line x1="330" y1="180" x2="330" y2="210" stroke="#8B5E3C" stroke-width="4"/>
+        <circle cx="330" cy="172" r="22" fill="#E8392A"/>
+        <circle cx="330" cy="172" r="22" fill="none" stroke="#C02218" stroke-width="3"/>
+        <ellipse cx="322" cy="162" rx="7" ry="5" fill="rgba(255,255,255,0.4)" transform="rotate(-20 322 162)"/>
+        <!-- 葉 -->
+        <path d="M330,150 C325,140 335,138 333,148" fill="#4AC74A"/>
+
+        <!-- 綿あめ (cotton candy) -->
+        <rect x="402" y="195" width="6" height="25" rx="3" fill="#A0724A"/>
+        <circle cx="405" cy="185" r="28" fill="#FF9BCE" opacity="0.85"/>
+        <circle cx="415" cy="174" r="22" fill="#FFB3D4" opacity="0.7"/>
+        <circle cx="395" cy="178" r="20" fill="#FFB3D4" opacity="0.7"/>
+        <circle cx="405" cy="185" r="28" fill="#FF9BCE" opacity="0.5"/>
+
+        <!-- ── 値段札 ── -->
+        <rect x="65"  y="168" width="80" height="36" rx="8" fill="#FFD600"/>
+        <text x="105" y="192" text-anchor="middle" fill="#2D1E0F" font-size="15" font-weight="800" font-family="M PLUS Rounded 1c,sans-serif">たこ焼き</text>
+
+        <!-- ── 店員キャラクター ── -->
+        <!-- body (apron) -->
+        <rect x="208" y="138" width="52" height="68" rx="16" fill="white"/>
+        <rect x="216" y="140" width="36" height="64" rx="12" fill="#E8F4FD"/>
+        <!-- apron strings -->
+        <rect x="196" y="145" width="15" height="8" rx="4" fill="white"/>
+        <rect x="257" y="145" width="15" height="8" rx="4" fill="white"/>
+        <!-- head -->
+        <circle cx="234" cy="124" r="30" fill="#FFDAB9"/>
+        <!-- hachimaki -->
+        <rect x="204" y="115" width="60" height="15" rx="4" fill="white"/>
+        <rect x="204" y="115" width="60" height="5"  rx="2" fill="#E8392A"/>
+        <!-- hair (sides) -->
+        <circle cx="208" cy="128" r="10" fill="#5D3E28"/>
+        <circle cx="260" cy="128" r="10" fill="#5D3E28"/>
+        <!-- squint happy eyes -->
+        <path d="M220,122 Q226,118 232,122" stroke="#2D1E0F" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M236,122 Q242,118 248,122" stroke="#2D1E0F" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- big smile -->
+        <path d="M220,133 Q234,145 248,133" stroke="#2D1E0F" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- blush -->
+        <ellipse cx="213" cy="131" rx="9" ry="6" fill="#FFB7A3" opacity="0.7"/>
+        <ellipse cx="255" cy="131" rx="9" ry="6" fill="#FFB7A3" opacity="0.7"/>
+        <!-- 腕 (calling gesture) -->
+        <rect x="258" y="142" width="22" height="12" rx="6" fill="white"/>
+        <circle cx="282" cy="148" r="10" fill="#FFDAB9"/>
+        <!-- いらっしゃい吹き出し -->
+        <rect x="286" y="108" width="110" height="38" rx="12" fill="#FFD600"/>
+        <path d="M292,146 L300,136 L308,146" fill="#FFD600"/>
+        <text x="341" y="132" text-anchor="middle" fill="#2D1E0F" font-size="14" font-weight="900" font-family="M PLUS Rounded 1c,sans-serif">いらっしゃい！</text>
+
+        <!-- ── 旗 (flags) ── -->
+        <line x1="55" y1="40" x2="55" y2="15" stroke="#8B5E3C" stroke-width="3"/>
+        <path d="M55,15 L88,22 L55,30 Z" fill="#FF4D93"/>
+
+        <line x1="465" y1="40" x2="465" y2="15" stroke="#8B5E3C" stroke-width="3"/>
+        <path d="M465,15 L432,22 L465,30 Z" fill="#4AC74A"/>
+      </svg>
+    </div>
+
     <div class="yatai-grid" id="yatai-grid"></div>
     <p class="yatai-note">※出店内容は変更になる場合があります</p>
   </section>
