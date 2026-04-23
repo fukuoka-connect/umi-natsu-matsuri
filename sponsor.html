@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>協賛企業・協力一覧 ｜ 宇美町夏祭り 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800;900&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --sun:    #FFD600;
+      --sky:    #29B6F6;
+      --coral:  #FF5C3A;
+      --green:  #4AC74A;
+      --navy:   #16205E;
+      --cream:  #FFFDF0;
+      --white:  #FFFFFF;
+      --shadow: 4px 4px 0px rgba(22,32,94,0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+    }
+
+    /* ── HEADER ── */
+    .page-header {
+      background: var(--navy);
+      padding: 40px 24px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 14px;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--navy) 0px, var(--navy) 6px,
+        var(--sun)  6px, var(--sun)  12px
+      );
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      margin-bottom: 20px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--sun); }
+
+    .page-header h1 {
+      font-size: clamp(26px, 6vw, 40px);
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .page-header p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.1em;
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: clamp(48px, 8vw, 80px) clamp(20px, 5vw, 60px);
+    }
+
+    /* ── TIER BLOCK ── */
+    .tier-block {
+      margin-bottom: 64px;
+    }
+
+    .tier-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .tier-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .tier-label {
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+    }
+
+    .tier-label.platinum { background: var(--sun); color: var(--navy); }
+    .tier-label.gold     { background: #FFC107; color: var(--navy); }
+    .tier-label.silver   { background: #E0E0E0; color: var(--navy); }
+    .tier-label.bronze   { background: #C8966E; color: white; }
+    .tier-label.support  { background: var(--sky); color: white; }
+    .tier-label.cooperation { background: var(--green); color: white; }
+
+    .tier-title {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--navy);
+    }
+
+    .tier-line {
+      flex: 1;
+      height: 2px;
+      background: repeating-linear-gradient(
+        to right,
+        var(--navy) 0px, var(--navy) 5px,
+        transparent 5px, transparent 10px
+      );
+      opacity: 0.15;
+    }
+
+    /* ── LOGO GRID ── */
+    .logo-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .logo-grid.size-lg { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+    .logo-grid.size-md { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+    .logo-grid.size-sm { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+    .logo-grid.size-xs { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+
+    .logo-card {
+      background: var(--white);
+      border: 2.5px solid rgba(22,32,94,0.1);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 100px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .logo-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(22,32,94,0.25);
+    }
+
+    .logo-card.size-lg { min-height: 120px; }
+    .logo-card.size-sm { min-height: 80px;  }
+
+    .logo-card img {
+      max-width: 100%;
+      max-height: 70px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .logo-card.size-lg img { max-height: 90px; }
+    .logo-card.size-sm img { max-height: 50px; }
+
+    .logo-name {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--navy);
+      text-align: center;
+      opacity: 0.7;
+    }
+
+    /* ── PLACEHOLDER (ロゴ画像がない場合) ── */
+    .logo-placeholder {
+      width: 100%;
+      height: 60px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(22,32,94,0.05) 0%, rgba(22,32,94,0.08) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-placeholder.size-lg { height: 80px; }
+    .logo-placeholder.size-sm { height: 44px; }
+
+    .logo-placeholder span {
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--navy);
+      text-align: center;
+      padding: 0 8px;
+      line-height: 1.4;
+    }
+
+    .logo-placeholder.size-sm span { font-size: 11px; }
+
+    /* ── EMPTY STATE ── */
+    .tier-empty {
+      background: white;
+      border: 2.5px dashed rgba(22,32,94,0.12);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      color: rgba(22,32,94,0.35);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ── STRIPE ── */
+    .stripe-bar {
+      height: 10px;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--navy) 0px, var(--navy) 5px,
+        var(--sun)  5px, var(--sun)  10px
+      );
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <div>
+      <a href="index.html" class="back-link">← イベントトップページへ戻る</a>
+    </div>
+    <h1>🏅 協賛企業・協力一覧</h1>
+    <p>宇美町夏祭り 2026 ｜ UMI NATSU MATSURI 2026</p>
+  </div>
+
+  <div class="stripe-bar"></div>
+
+  <!-- MAIN -->
+  <main id="sponsor-main">
+    <div id="tiers-container">
+      <!-- JS で描画 -->
+      <div class="tier-empty">協賛企業情報を読み込み中…</div>
+    </div>
+  </main>
+
+  <div class="stripe-bar"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 宇美町夏祭り実行委員会. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const TIERS = [
+      { key: 'platinum',    label: '特別協賛',    cls: 'platinum',    size: 'lg' },
+      { key: 'gold',        label: 'ゴールド協賛', cls: 'gold',        size: 'lg' },
+      { key: 'silver',      label: 'シルバー協賛', cls: 'silver',      size: 'md' },
+      { key: 'bronze',      label: '協賛',         cls: 'bronze',      size: 'sm' },
+      { key: 'cooperation', label: '協力',          cls: 'cooperation', size: 'xs' }
+    ];
+
+    const TIER_TITLES = {
+      platinum:    '特別協賛',
+      gold:        'ゴールド協賛',
+      silver:      'シルバー協賛',
+      bronze:      '協賛',
+      cooperation: '協力'
+    };
+
+    fetch('data.json')
+      .then(r => r.json())
+      .then(data => {
+        const container = document.getElementById('tiers-container');
+        container.innerHTML = '';
+
+        let anyContent = false;
+
+        TIERS.forEach(tier => {
+          const sponsors = data.sponsors[tier.key];
+          if (!sponsors) return;
+
+          anyContent = true;
+          const block = document.createElement('div');
+          block.className = 'tier-block';
+
+          const heading = document.createElement('div');
+          heading.className = 'tier-heading';
+          heading.innerHTML = `
+            <div class="tier-label ${tier.cls}">${tier.label}</div>
+            <div class="tier-title">${TIER_TITLES[tier.key]}</div>
+            <div class="tier-line"></div>
+          `;
+          block.appendChild(heading);
+
+          if (sponsors.length === 0) {
+            const empty = document.createElement('div');
+            empty.className = 'tier-empty';
+            empty.textContent = '協賛企業を募集中です';
+            block.appendChild(empty);
+          } else {
+            const grid = document.createElement('div');
+            grid.className = `logo-grid size-${tier.size}`;
+
+            sponsors.forEach(sp => {
+              const card = document.createElement('div');
+              card.className = `logo-card ${tier.size === 'lg' ? 'size-lg' : tier.size === 'xs' ? 'size-sm' : ''}`;
+
+              if (sp.logo) {
+                card.innerHTML = `
+                  <img src="${sp.logo}" alt="${sp.name}" loading="lazy">
+                  <div class="logo-name">${sp.name}</div>
+                `;
+              } else {
+                const phClass = tier.size === 'lg' ? 'size-lg' : tier.size === 'xs' ? 'size-sm' : '';
+                card.innerHTML = `
+                  <div class="logo-placeholder ${phClass}">
+                    <span>${sp.name}</span>
+                  </div>
+                `;
+              }
+              grid.appendChild(card);
+            });
+
+            block.appendChild(grid);
+          }
+
+          container.appendChild(block);
+        });
+
+        if (!anyContent) {
+          container.innerHTML = `
+            <div class="tier-empty" style="margin:40px auto;max-width:500px;">
+              協賛企業情報は準備中です。<br>まもなく公開予定です。
+            </div>
+          `;
+        }
+      })
+      .catch(() => {
+        document.getElementById('tiers-container').innerHTML = `
+          <div class="tier-empty">情報の読み込みに失敗しました。</div>
+        `;
+      });
+  </script>
+</body>
+</html>

@@ -4,667 +4,679 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>宇美町夏祭り 2026</title>
-  <meta name="description" content="この夏、宇美がひとつになる。2026年夏、宇美町で開催される夏祭り特設サイト。">
+  <meta name="description" content="この夏は宇美町に集まろう！子どもも大人も楽しめる夏祭り。屋台・ステージ・花火が勢ぞろい。入場無料！">
   <meta property="og:title" content="宇美町夏祭り 2026">
-  <meta property="og:description" content="この夏、宇美がひとつになる。">
-  <meta property="og:type" content="website">
+  <meta property="og:description" content="この夏は宇美町に集まろう！入場無料の夏祭り">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Kaisei+Decol:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800;900&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0d0a05;
-      --bg2: #160e04;
-      --surface: #1e1407;
-      --surface2: #261a08;
-      --border: rgba(255,180,30,0.15);
-
-      --gold: #f5c842;
-      --amber: #e8920a;
-      --red: #d94f2b;
-      --indigo: #2b4fd9;
-      --sky: #45b5e8;
-      --cream: #f5ead0;
-      --text: #f0e6c8;
-      --text-sub: #b09a72;
-      --text-muted: #7a6a50;
-
-      --radius: 12px;
-      --section-pad: clamp(60px, 10vw, 120px) clamp(20px, 5vw, 80px);
+      --sun:    #FFD600;
+      --sky:    #29B6F6;
+      --coral:  #FF5C3A;
+      --pink:   #FF4D93;
+      --green:  #4AC74A;
+      --purple: #7B52DB;
+      --navy:   #16205E;
+      --cream:  #FFFDF0;
+      --white:  #FFFFFF;
+      --shadow: 4px 4px 0px rgba(22,32,94,0.15);
+      --shadow-big: 6px 6px 0px rgba(22,32,94,0.2);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Noto Sans JP', sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
       overflow-x: hidden;
-      line-height: 1.7;
     }
 
-    /* ─── HERO ─── */
+    /* ── CONFETTI ── */
+    #confetti-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--navy);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--sun);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 4px;
+    }
+
+    .nav-link {
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 100px;
+      transition: all 0.2s;
+    }
+    .nav-link:hover {
+      background: rgba(255,214,0,0.15);
+      color: var(--sun);
+    }
+
+    .nav-sponsor-btn {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--navy);
+      background: var(--sun);
+      text-decoration: none;
+      padding: 7px 14px;
+      border-radius: 100px;
+      letter-spacing: 0.05em;
+      transition: transform 0.2s;
+    }
+    .nav-sponsor-btn:hover { transform: scale(1.05); }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+    }
+
+    /* ── HERO ── */
     .hero {
       position: relative;
       min-height: 100svh;
+      background: var(--sky);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 40px 24px;
+      padding: 80px 24px 120px;
       overflow: hidden;
     }
 
-    .hero-bg {
+    /* 空のグラデーション */
+    .hero::before {
+      content: '';
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 60% 40% at 50% 70%, rgba(232,146,10,0.18) 0%, transparent 70%),
-        radial-gradient(ellipse 80% 60% at 20% 30%, rgba(217,79,43,0.12) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(43,79,217,0.10) 0%, transparent 60%),
-        var(--bg2);
+      background: linear-gradient(180deg, #87CEEB 0%, #B8E8FF 40%, #FFE57A 85%, #FF9B4E 100%);
     }
 
-    /* 花火エフェクト */
-    .firework {
+    /* 太陽 */
+    .sun-decor {
       position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 260px;
+      height: 260px;
+      background: var(--sun);
       border-radius: 50%;
-      pointer-events: none;
-    }
-    .firework-1 {
-      width: 400px; height: 400px;
-      top: -100px; right: -80px;
-      background: radial-gradient(circle, rgba(245,200,66,0.06) 0%, transparent 70%);
-      animation: pulse-slow 6s ease-in-out infinite;
-    }
-    .firework-2 {
-      width: 300px; height: 300px;
-      bottom: 100px; left: -60px;
-      background: radial-gradient(circle, rgba(217,79,43,0.07) 0%, transparent 70%);
-      animation: pulse-slow 8s ease-in-out infinite 2s;
-    }
-    @keyframes pulse-slow {
-      0%, 100% { transform: scale(1); opacity: 0.6; }
-      50% { transform: scale(1.2); opacity: 1; }
+      box-shadow: 0 0 0 20px rgba(255,214,0,0.2), 0 0 0 40px rgba(255,214,0,0.1);
+      animation: sun-spin 30s linear infinite;
     }
 
-    /* 流れ星 */
-    .stars {
+    .sun-ray {
       position: absolute;
-      inset: 0;
-      overflow: hidden;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      height: 8px;
+      background: rgba(255,214,0,0.25);
+      transform-origin: 0 50%;
+      border-radius: 100px;
     }
-    .star {
+
+    @keyframes sun-spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* 草 */
+    .grass {
       position: absolute;
-      width: 2px;
-      height: 2px;
-      background: rgba(245,200,66,0.5);
-      border-radius: 50%;
-      animation: twinkle var(--dur, 3s) ease-in-out infinite var(--delay, 0s);
-    }
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.2; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.5); }
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: var(--green);
+      clip-path: polygon(
+        0% 100%, 0% 60%, 2% 30%, 4% 60%, 6% 20%, 8% 55%, 10% 35%, 12% 65%,
+        14% 25%, 16% 60%, 18% 40%, 20% 65%, 22% 30%, 24% 60%, 26% 45%, 28% 70%,
+        30% 35%, 32% 60%, 34% 25%, 36% 65%, 38% 40%, 40% 60%, 42% 30%, 44% 65%,
+        46% 35%, 48% 55%, 50% 25%, 52% 60%, 54% 40%, 56% 65%, 58% 30%, 60% 60%,
+        62% 45%, 64% 70%, 66% 35%, 68% 60%, 70% 25%, 72% 65%, 74% 40%, 76% 60%,
+        78% 30%, 80% 65%, 82% 35%, 84% 55%, 86% 25%, 88% 60%, 90% 40%, 92% 65%,
+        94% 30%, 96% 60%, 98% 45%, 100% 65%, 100% 100%
+      );
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 700px;
-    }
-
-    .hero-label {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.3em;
-      color: var(--amber);
-      text-transform: uppercase;
-      margin-bottom: 24px;
+    /* 雲 */
+    .cloud {
+      position: absolute;
+      background: white;
+      border-radius: 100px;
       opacity: 0.9;
     }
-
-    .hero-title {
-      font-family: 'Kaisei Decol', serif;
-      font-size: clamp(52px, 12vw, 96px);
-      font-weight: 700;
-      line-height: 1.05;
-      color: var(--cream);
-      text-shadow: 0 0 60px rgba(245,200,66,0.3);
-      margin-bottom: 8px;
-    }
-
-    .hero-title-en {
-      font-family: 'Zen Maru Gothic', sans-serif;
-      font-size: clamp(11px, 2.5vw, 14px);
-      font-weight: 500;
-      letter-spacing: 0.35em;
-      color: var(--text-sub);
-      margin-bottom: 32px;
-      text-transform: uppercase;
-    }
-
-    .hero-catchcopy {
-      font-family: 'Kaisei Decol', serif;
-      font-size: clamp(18px, 4vw, 28px);
-      color: var(--gold);
-      margin-bottom: 48px;
-      text-shadow: 0 2px 20px rgba(245,200,66,0.4);
-    }
-
-    .hero-info {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px 24px;
-      margin-bottom: 48px;
-    }
-    .hero-info-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      color: var(--text-sub);
-    }
-    .hero-info-item .icon {
-      font-size: 18px;
-    }
-    .hero-info-item strong {
-      color: var(--cream);
-      font-weight: 500;
-    }
-
-    .hero-cta-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 32px;
-      background: linear-gradient(135deg, var(--amber) 0%, var(--gold) 100%);
-      color: #1a0d00;
-      font-weight: 700;
-      font-size: 14px;
-      border-radius: 100px;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 24px rgba(232,146,10,0.4);
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(232,146,10,0.5);
-    }
-
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 13px 28px;
-      border: 1.5px solid rgba(245,200,66,0.4);
-      color: var(--gold);
-      font-size: 14px;
-      font-weight: 500;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .btn-outline:hover {
-      border-color: var(--gold);
-      background: rgba(245,200,66,0.08);
-    }
-
-    /* ─── SCROLL INDICATOR ─── */
-    .scroll-hint {
+    .cloud::before, .cloud::after {
+      content: '';
       position: absolute;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
+      background: white;
+      border-radius: 50%;
+    }
+    .cloud-1 {
+      width: 120px; height: 40px;
+      top: 15%; left: 5%;
+      animation: float-cloud 18s linear infinite;
+    }
+    .cloud-1::before { width: 50px; height: 50px; top: -25px; left: 15px; }
+    .cloud-1::after  { width: 40px; height: 40px; top: -18px; left: 45px; }
+
+    .cloud-2 {
+      width: 90px; height: 30px;
+      top: 25%; right: 15%;
+      animation: float-cloud 24s linear infinite 4s;
+    }
+    .cloud-2::before { width: 40px; height: 40px; top: -20px; left: 10px; }
+    .cloud-2::after  { width: 30px; height: 30px; top: -14px; left: 35px; }
+
+    .cloud-3 {
+      width: 100px; height: 34px;
+      top: 10%; left: 40%;
+      animation: float-cloud 20s linear infinite 8s;
+    }
+    .cloud-3::before { width: 44px; height: 44px; top: -22px; left: 12px; }
+    .cloud-3::after  { width: 36px; height: 36px; top: -16px; left: 40px; }
+
+    @keyframes float-cloud {
+      from { transform: translateX(-200px); }
+      to   { transform: translateX(calc(100vw + 200px)); }
+    }
+
+    /* 提灯 */
+    .lantern-row {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-around;
+      padding: 0 40px;
+      pointer-events: none;
+    }
+
+    .lantern {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
-      color: var(--text-muted);
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      animation: bounce 2s ease-in-out infinite;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(6px); }
+      gap: 0;
     }
 
-    /* ─── SECTIONS ─── */
-    section {
-      padding: var(--section-pad);
+    .lantern-rope {
+      width: 1px;
+      height: 40px;
+      background: rgba(100,60,20,0.5);
+    }
+
+    .lantern-body {
+      width: 28px;
+      height: 40px;
+      border-radius: 50% / 45%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      box-shadow: inset 0 0 8px rgba(255,255,255,0.3), 0 2px 8px rgba(0,0,0,0.2);
+      animation: lantern-swing var(--sw, 3s) ease-in-out infinite var(--sd, 0s);
+      transform-origin: top center;
+    }
+
+    @keyframes lantern-swing {
+      0%, 100% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+    }
+
+    /* メインコンテンツ */
+    .hero-content {
       position: relative;
+      z-index: 2;
+      max-width: 700px;
     }
 
-    .section-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.35em;
-      color: var(--amber);
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--coral);
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      animation: bounce-in 0.6s cubic-bezier(0.34,1.56,0.64,1) both 0.2s;
+    }
+
+    @keyframes bounce-in {
+      from { opacity: 0; transform: scale(0.5) translateY(20px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .hero-title {
+      font-size: clamp(56px, 14vw, 110px);
+      font-weight: 900;
+      line-height: 1.0;
+      color: var(--navy);
+      text-shadow:
+        4px 4px 0 rgba(255,214,0,0.8),
+        8px 8px 0 rgba(22,32,94,0.15);
+      margin-bottom: 4px;
+      animation: bounce-in 0.6s cubic-bezier(0.34,1.56,0.64,1) both 0.4s;
+    }
+
+    .hero-year {
+      font-size: clamp(22px, 5vw, 36px);
+      font-weight: 900;
+      color: var(--coral);
+      letter-spacing: 0.15em;
+      text-shadow: 3px 3px 0 rgba(22,32,94,0.15);
+      margin-bottom: 24px;
+      animation: bounce-in 0.6s cubic-bezier(0.34,1.56,0.64,1) both 0.55s;
+    }
+
+    .hero-free-badge {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      font-size: clamp(18px, 3.5vw, 22px);
+      font-weight: 900;
+      padding: 10px 32px;
+      border-radius: 100px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-big);
+      transform: rotate(-2deg);
+      animation: bounce-in 0.6s cubic-bezier(0.34,1.56,0.64,1) both 0.7s;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 36px;
+      animation: bounce-in 0.6s cubic-bezier(0.34,1.56,0.64,1) both 0.85s;
+    }
+
+    .hero-meta-chip {
+      background: white;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 800;
+      padding: 10px 20px;
+      border-radius: 100px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--coral);
+      color: white;
+      font-size: 16px;
+      font-weight: 900;
+      padding: 16px 40px;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 6px 0 rgba(180,40,10,0.35);
+      transition: transform 0.15s, box-shadow 0.15s;
+      animation: bounce-in 0.6s cubic-bezier(0.34,1.56,0.64,1) both 1s;
+    }
+    .hero-cta:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 rgba(180,40,10,0.35);
+    }
+    .hero-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 9px 0 rgba(180,40,10,0.35);
+    }
+
+    /* ── WAVE DIVIDERS ── */
+    .wave-down {
+      display: block;
+      width: 100%;
+      height: 60px;
+      margin-top: -2px;
+    }
+
+    /* ── SECTIONS ── */
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
       margin-bottom: 12px;
     }
 
     .section-title {
-      font-family: 'Kaisei Decol', serif;
-      font-size: clamp(28px, 6vw, 48px);
-      font-weight: 700;
-      color: var(--cream);
+      font-size: clamp(28px, 6vw, 44px);
+      font-weight: 900;
       line-height: 1.2;
-      margin-bottom: 48px;
     }
 
-    .section-title span {
-      color: var(--gold);
+    /* ── INFO SECTION ── */
+    .info-section {
+      background: var(--white);
+      padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
+      position: relative;
     }
 
-    /* ─── INFO CARDS ─── */
-    .info-grid {
+    .info-section .section-tag { background: rgba(41,182,246,0.12); color: var(--sky); }
+    .info-section .section-title { color: var(--navy); }
+
+    .info-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
       max-width: 900px;
-      margin: 0 auto 64px;
+      margin: 0 auto 40px;
     }
 
     .info-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px 24px;
+      border-radius: 20px;
+      padding: 28px 20px;
       text-align: center;
+      box-shadow: var(--shadow-big);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+    .info-card:hover { transform: translateY(-4px) rotate(-1deg); }
+
+    .info-card::before {
+      content: '';
+      position: absolute;
+      top: -20px; right: -20px;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
     }
 
-    .info-card-icon {
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
+    .info-card.blue   { background: var(--sky);    color: white; }
+    .info-card.yellow { background: var(--sun);    color: var(--navy); }
+    .info-card.red    { background: var(--coral);  color: white; }
+    .info-card.green  { background: var(--green);  color: white; }
+
+    .info-card-icon { font-size: 40px; margin-bottom: 10px; display: block; }
 
     .info-card-label {
       font-size: 10px;
-      letter-spacing: 0.25em;
-      color: var(--text-muted);
+      font-weight: 800;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      opacity: 0.8;
+      margin-bottom: 6px;
     }
 
     .info-card-value {
-      font-family: 'Kaisei Decol', serif;
       font-size: clamp(20px, 4vw, 28px);
-      font-weight: 700;
-      color: var(--cream);
+      font-weight: 900;
+      line-height: 1.2;
     }
 
     .info-card-sub {
       font-size: 12px;
-      color: var(--text-sub);
+      font-weight: 700;
+      opacity: 0.8;
       margin-top: 4px;
     }
 
-    /* ─── PROGRAM ─── */
+    /* ── PROGRAM SECTION ── */
     .program-section {
-      background: var(--bg2);
-    }
-
-    .timetable {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .timetable-item {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 0 20px;
-      margin-bottom: 0;
-    }
-
-    .timetable-item + .timetable-item .timetable-time::before {
-      display: none;
-    }
-
-    .timetable-time {
-      font-family: 'Kaisei Decol', serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--amber);
-      padding-top: 2px;
-      text-align: right;
+      background: #FFF8E1;
+      padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
       position: relative;
     }
 
-    .timetable-line {
+    .program-section .section-tag { background: rgba(255,214,0,0.25); color: #B8860B; }
+
+    .timetable {
+      max-width: 620px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
+      gap: 0;
     }
 
-    .timetable-dot {
-      width: 10px;
-      height: 10px;
+    .tt-row {
+      display: grid;
+      grid-template-columns: 90px 24px 1fr;
+      align-items: stretch;
+      gap: 0 0;
+    }
+
+    .tt-time {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--coral);
+      text-align: right;
+      padding: 16px 16px 16px 0;
+      line-height: 1;
+      padding-top: 18px;
+    }
+
+    .tt-axis {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .tt-dot {
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
-      background: var(--amber);
-      margin-top: 8px;
+      background: var(--sun);
+      border: 3px solid var(--navy);
       flex-shrink: 0;
+      margin-top: 16px;
       position: relative;
       z-index: 1;
     }
 
-    .timetable-connector {
-      display: grid;
-      grid-template-columns: 80px 20px 1fr;
-      align-items: start;
-      padding: 16px 0;
-      gap: 0;
+    .tt-line {
+      width: 3px;
+      flex: 1;
+      background: repeating-linear-gradient(
+        to bottom,
+        var(--navy) 0px,
+        var(--navy) 5px,
+        transparent 5px,
+        transparent 10px
+      );
     }
 
-    .timetable-connector:not(:last-child) .tc-line {
-      border-left: 1.5px dashed rgba(232,146,10,0.3);
-      height: calc(100% + 16px);
+    .tt-row:last-child .tt-line { display: none; }
+
+    .tt-content {
+      padding: 14px 0 14px 20px;
     }
 
-    .tc-time {
-      font-family: 'Kaisei Decol', serif;
-      font-size: 20px;
+    .tt-content-text {
+      font-size: 16px;
       font-weight: 700;
-      color: var(--amber);
-      text-align: right;
-      padding-right: 20px;
-      line-height: 1.2;
+      color: var(--navy);
+      line-height: 1.4;
     }
 
-    .tc-dot-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .tt-content-note {
+      font-size: 12px;
+      font-weight: 400;
+      color: #888;
+      margin-top: 2px;
     }
 
-    .tc-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--amber);
-      flex-shrink: 0;
+    /* ── YATAI SECTION ── */
+    .yatai-section {
+      background: var(--coral);
+      padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
+      position: relative;
+    }
+
+    .yatai-section .section-tag { background: rgba(255,255,255,0.25); color: white; }
+    .yatai-section .section-title { color: white; }
+
+    .yatai-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+      max-width: 800px;
+      margin: 0 auto 16px;
+    }
+
+    .yatai-card {
+      background: white;
+      border-radius: 20px;
+      padding: 24px 16px;
+      text-align: center;
+      box-shadow: var(--shadow-big);
+      transition: transform 0.2s;
+    }
+    .yatai-card:hover { transform: translateY(-4px) rotate(1deg); }
+
+    .yatai-card-icon { font-size: 40px; margin-bottom: 8px; }
+    .yatai-card-name {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .yatai-card-genre {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--coral);
+      letter-spacing: 0.1em;
       margin-top: 4px;
     }
 
-    .tc-line {
-      width: 1.5px;
-      flex: 1;
-      background: linear-gradient(to bottom, rgba(232,146,10,0.3), transparent);
-      min-height: 20px;
-    }
-
-    .tc-content {
-      padding-left: 16px;
-      padding-top: 2px;
-    }
-
-    .tc-content-text {
-      font-size: 15px;
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    /* ─── SPONSOR ─── */
-    .sponsor-section {
-      background: var(--surface);
-    }
-
-    .sponsor-intro {
-      max-width: 600px;
-      margin: 0 auto 64px;
+    .yatai-note {
       text-align: center;
-      color: var(--text-sub);
-      font-size: 15px;
-      line-height: 1.9;
+      color: rgba(255,255,255,0.8);
+      font-size: 12px;
+      margin-top: 8px;
     }
 
-    .sponsor-packages {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      max-width: 1100px;
-      margin: 0 auto 80px;
+    /* ── ACCESS SECTION ── */
+    .access-section {
+      background: var(--white);
+      padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
     }
 
-    .sponsor-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px 28px;
-      position: relative;
-      transition: transform 0.2s, border-color 0.2s;
-    }
-
-    .sponsor-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .sponsor-card.platinum {
-      border-color: rgba(245,200,66,0.5);
-      background: linear-gradient(135deg, rgba(245,200,66,0.05) 0%, var(--bg) 100%);
-    }
-
-    .sponsor-card.gold {
-      border-color: rgba(232,146,10,0.4);
-    }
-
-    .sponsor-card.silver {
-      border-color: rgba(180,180,200,0.3);
-    }
-
-    .sponsor-card.bronze {
-      border-color: rgba(180,120,60,0.3);
-    }
-
-    .sponsor-card-badge {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 100px;
-      margin-bottom: 16px;
-      display: inline-block;
-    }
-
-    .platinum .sponsor-card-badge {
-      background: rgba(245,200,66,0.15);
-      color: var(--gold);
-      border: 1px solid rgba(245,200,66,0.3);
-    }
-    .gold .sponsor-card-badge {
-      background: rgba(232,146,10,0.12);
-      color: var(--amber);
-      border: 1px solid rgba(232,146,10,0.25);
-    }
-    .silver .sponsor-card-badge {
-      background: rgba(200,200,220,0.1);
-      color: #c0c0d0;
-      border: 1px solid rgba(200,200,220,0.2);
-    }
-    .bronze .sponsor-card-badge {
-      background: rgba(180,120,60,0.1);
-      color: #c8966e;
-      border: 1px solid rgba(180,120,60,0.2);
-    }
-
-    .sponsor-card-price {
-      font-family: 'Kaisei Decol', serif;
-      font-size: 36px;
-      font-weight: 700;
-      color: var(--cream);
-      margin-bottom: 4px;
-      line-height: 1;
-    }
-
-    .sponsor-card-price span {
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--text-muted);
-      margin-left: 4px;
-    }
-
-    .sponsor-card-price-sub {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-    }
-
-    .sponsor-benefits {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .sponsor-benefits li {
-      font-size: 13px;
-      color: var(--text-sub);
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      line-height: 1.5;
-    }
-
-    .sponsor-benefits li::before {
-      content: "✓";
-      color: var(--amber);
-      font-size: 11px;
-      margin-top: 2px;
-      flex-shrink: 0;
-    }
-
-    .sponsor-contact-wrap {
-      text-align: center;
-      padding: 48px;
-      background: var(--surface2);
-      border-radius: var(--radius);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .sponsor-contact-wrap h3 {
-      font-family: 'Kaisei Decol', serif;
-      font-size: 22px;
-      color: var(--cream);
-      margin-bottom: 12px;
-    }
-
-    .sponsor-contact-wrap p {
-      color: var(--text-sub);
-      font-size: 14px;
-      margin-bottom: 28px;
-    }
-
-    /* ─── YATAI ─── */
-    .yatai-section {
-      background: var(--bg2);
-    }
-
-    .yatai-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      max-width: 700px;
-      margin: 0 auto 48px;
-    }
-
-    .yatai-tag {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      font-size: 14px;
-      color: var(--text-sub);
-    }
-
-    .yatai-tag-genre {
-      font-size: 10px;
-      color: var(--amber);
-      letter-spacing: 0.1em;
-    }
-
-    /* ─── MAP ─── */
-    .map-section {}
+    .access-section .section-tag { background: rgba(75,199,74,0.15); color: var(--green); }
 
     #map {
       width: 100%;
-      height: 340px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
+      max-width: 800px;
+      height: 320px;
+      border-radius: 24px;
+      border: 4px solid var(--navy);
       overflow: hidden;
-      margin-bottom: 24px;
+      margin: 0 auto 32px;
+      display: block;
+      box-shadow: var(--shadow-big);
     }
 
-    .access-info {
+    .access-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 16px;
       max-width: 800px;
       margin: 0 auto;
     }
 
     .access-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px 24px;
+      background: var(--cream);
+      border: 3px solid var(--navy);
+      border-radius: 16px;
+      padding: 20px;
     }
 
     .access-card-label {
       font-size: 10px;
+      font-weight: 800;
       letter-spacing: 0.2em;
-      color: var(--text-muted);
+      color: var(--coral);
       text-transform: uppercase;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .access-card-value {
-      font-size: 15px;
-      color: var(--text);
-      font-weight: 500;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.5;
     }
 
-    /* ─── FAQ ─── */
+    /* ── FAQ SECTION ── */
     .faq-section {
-      background: var(--surface);
+      background: var(--purple);
+      padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
     }
+
+    .faq-section .section-tag { background: rgba(255,255,255,0.2); color: white; }
+    .faq-section .section-title { color: white; }
 
     .faq-list {
       max-width: 700px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 12px;
     }
 
     .faq-item {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+      background: white;
+      border-radius: 16px;
       overflow: hidden;
+      box-shadow: var(--shadow);
     }
 
-    .faq-question {
+    .faq-btn {
       width: 100%;
       background: none;
       border: none;
@@ -672,372 +684,409 @@
       padding: 20px 24px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 12px;
+      gap: 14px;
       text-align: left;
-      color: var(--text);
-      font-size: 14px;
-      font-weight: 500;
       font-family: inherit;
       transition: background 0.2s;
     }
+    .faq-btn:hover { background: rgba(123,82,219,0.06); }
 
-    .faq-question:hover { background: rgba(255,255,255,0.03); }
-
-    .faq-q-mark {
-      font-family: 'Kaisei Decol', serif;
-      font-size: 18px;
-      color: var(--amber);
-      font-weight: 700;
+    .faq-q-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--purple);
+      color: white;
+      font-size: 16px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
     }
 
-    .faq-question-text { flex: 1; }
+    .faq-q-text {
+      flex: 1;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--navy);
+    }
 
     .faq-chevron {
-      width: 20px; height: 20px;
-      color: var(--text-muted);
+      color: var(--purple);
       transition: transform 0.3s;
       flex-shrink: 0;
     }
-
-    .faq-item.open .faq-chevron {
-      transform: rotate(180deg);
-    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
 
     .faq-answer {
       display: none;
-      padding: 0 24px 20px 56px;
+      padding: 0 24px 20px 70px;
       font-size: 14px;
-      color: var(--text-sub);
+      color: #555;
       line-height: 1.8;
     }
-
     .faq-item.open .faq-answer { display: block; }
 
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      padding: 48px 24px;
+    /* ── SPONSOR SECTION ── */
+    .sponsor-section {
+      background: var(--sun);
+      padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
       text-align: center;
     }
 
-    .footer-title {
-      font-family: 'Kaisei Decol', serif;
+    .sponsor-section .section-tag { background: rgba(22,32,94,0.1); color: var(--navy); }
+    .sponsor-section .section-title { color: var(--navy); }
+
+    .sponsor-cta-box {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      background: white;
+      border: 4px solid var(--navy);
+      border-radius: 24px;
+      padding: 40px 48px;
+      box-shadow: var(--shadow-big);
+      margin-top: 24px;
+    }
+
+    .sponsor-cta-box p {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.8;
+    }
+
+    .sponsor-cta-box p em {
+      color: var(--coral);
+      font-style: normal;
+      font-weight: 900;
+    }
+
+    .btn-sponsor-list {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--navy);
+      color: white;
+      font-size: 15px;
+      font-weight: 900;
+      padding: 14px 32px;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 5px 0 rgba(0,0,0,0.25);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-sponsor-list:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 0 rgba(0,0,0,0.25);
+    }
+
+    .btn-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--coral);
+      color: white;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 12px 28px;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 4px 0 rgba(180,40,10,0.3);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-contact:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 rgba(180,40,10,0.3);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      padding: 48px 24px;
+      text-align: center;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .footer-logo {
       font-size: 22px;
-      color: var(--cream);
+      font-weight: 900;
+      color: var(--sun);
       margin-bottom: 8px;
     }
 
     .footer-sub {
-      font-size: 12px;
-      color: var(--text-muted);
+      font-size: 11px;
       letter-spacing: 0.2em;
       margin-bottom: 24px;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 32px;
-    }
-
-    .footer-link {
-      font-size: 12px;
-      color: var(--text-muted);
-      text-decoration: none;
-      letter-spacing: 0.1em;
-      transition: color 0.2s;
-    }
-    .footer-link:hover { color: var(--gold); }
-
-    .footer-copy {
-      font-size: 11px;
-      color: var(--text-muted);
       opacity: 0.5;
     }
 
-    /* ─── NAV ─── */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 16px 24px;
+    .footer-nav {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: background 0.3s, backdrop-filter 0.3s;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px 24px;
+      margin-bottom: 32px;
     }
 
-    nav.scrolled {
-      background: rgba(13,10,5,0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-family: 'Kaisei Decol', serif;
-      font-size: 16px;
-      color: var(--cream);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-    }
-
-    .nav-link {
+    .footer-nav a {
       font-size: 12px;
-      color: var(--text-sub);
+      color: rgba(255,255,255,0.5);
       text-decoration: none;
-      letter-spacing: 0.1em;
       transition: color 0.2s;
     }
-    .nav-link:hover { color: var(--gold); }
+    .footer-nav a:hover { color: var(--sun); }
 
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-    }
-
-    /* ─── UPCOMING BADGE ─── */
-    .upcoming-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      background: rgba(245,200,66,0.1);
-      border: 1px solid rgba(245,200,66,0.25);
-      border-radius: 100px;
+    .footer-copy {
       font-size: 11px;
-      color: var(--gold);
-      letter-spacing: 0.15em;
-      margin-bottom: 20px;
+      opacity: 0.35;
     }
 
-    .upcoming-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--amber);
-      animation: blink 1.5s ease-in-out infinite;
+    /* ── DECORATIVE DOTS ── */
+    .dots-bg {
+      background-image: radial-gradient(rgba(22,32,94,0.06) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
     }
 
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.2; }
+    /* ── STRIPE DIVIDER ── */
+    .stripe-bar {
+      height: 14px;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--navy) 0px, var(--navy) 6px,
+        var(--sun) 6px, var(--sun) 12px
+      );
     }
 
-    /* ─── DIVIDER ─── */
-    .divider {
-      width: 48px;
-      height: 2px;
-      background: linear-gradient(to right, var(--amber), var(--gold));
-      margin: 0 auto 48px;
+    /* ── SCROLL WOBBLE ANIMATION ── */
+    @keyframes wobble {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-3deg); }
+      75% { transform: rotate(3deg); }
     }
   </style>
 </head>
 <body>
 
   <!-- NAV -->
-  <nav id="main-nav">
-    <a href="#" class="nav-logo">宇美町夏祭り 2026</a>
+  <nav>
+    <a href="#top" class="nav-logo">🏮 宇美町夏祭り</a>
     <div class="nav-links">
-      <a href="#about" class="nav-link">イベント情報</a>
+      <a href="#info" class="nav-link">開催情報</a>
       <a href="#program" class="nav-link">プログラム</a>
-      <a href="#sponsor" class="nav-link">協賛</a>
+      <a href="#yatai" class="nav-link">屋台</a>
       <a href="#access" class="nav-link">アクセス</a>
     </div>
+    <a href="sponsor.html" target="_blank" class="nav-sponsor-btn">協賛企業一覧</a>
   </nav>
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <div class="hero-bg"></div>
-    <div class="firework firework-1"></div>
-    <div class="firework firework-2"></div>
-    <div class="stars" id="stars-container"></div>
+    <!-- 太陽 -->
+    <div class="sun-decor">
+      <div class="sun-ray" style="transform: rotate(0deg)"></div>
+      <div class="sun-ray" style="transform: rotate(30deg)"></div>
+      <div class="sun-ray" style="transform: rotate(60deg)"></div>
+      <div class="sun-ray" style="transform: rotate(90deg)"></div>
+      <div class="sun-ray" style="transform: rotate(120deg)"></div>
+      <div class="sun-ray" style="transform: rotate(150deg)"></div>
+    </div>
 
-    <div class="hero-content">
-      <div class="upcoming-badge">
-        <div class="upcoming-dot"></div>
-        2026 SUMMER EVENT
+    <!-- 雲 -->
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+
+    <!-- 提灯行列 -->
+    <div class="lantern-row">
+      <div class="lantern">
+        <div class="lantern-rope"></div>
+        <div class="lantern-body" style="background:#FF4D93;--sw:3.2s;--sd:0s;">🏮</div>
       </div>
-
-      <p class="hero-label">糟屋郡 宇美町 夏の祭典</p>
-
-      <h1 class="hero-title">宇美町<br>夏祭り</h1>
-      <p class="hero-title-en">UMI NATSU MATSURI 2026</p>
-
-      <p class="hero-catchcopy">この夏、宇美がひとつになる。</p>
-
-      <div class="hero-info">
-        <div class="hero-info-item">
-          <span class="icon">📅</span>
-          <strong id="hero-date">2026.8.XX（SAT）</strong>
-        </div>
-        <div class="hero-info-item">
-          <span class="icon">📍</span>
-          <strong id="hero-venue">宇美町〇〇公園</strong>
-        </div>
-        <div class="hero-info-item">
-          <span class="icon">🕔</span>
-          <strong id="hero-time">16:00 OPEN / 17:00 START</strong>
-        </div>
+      <div class="lantern">
+        <div class="lantern-rope"></div>
+        <div class="lantern-body" style="background:#FFD600;--sw:2.8s;--sd:0.4s;">🏮</div>
       </div>
-
-      <div class="hero-cta-group">
-        <a href="#about" class="btn-primary">イベント詳細を見る</a>
-        <a href="#sponsor" class="btn-outline">協賛・出店のご相談</a>
+      <div class="lantern">
+        <div class="lantern-rope"></div>
+        <div class="lantern-body" style="background:#FF5C3A;--sw:3.5s;--sd:0.8s;">🏮</div>
+      </div>
+      <div class="lantern">
+        <div class="lantern-rope"></div>
+        <div class="lantern-body" style="background:#4AC74A;--sw:3.0s;--sd:1.2s;">🏮</div>
+      </div>
+      <div class="lantern">
+        <div class="lantern-rope"></div>
+        <div class="lantern-body" style="background:#29B6F6;--sw:2.6s;--sd:0.2s;">🏮</div>
+      </div>
+      <div class="lantern">
+        <div class="lantern-rope"></div>
+        <div class="lantern-body" style="background:#7B52DB;--sw:3.3s;--sd:0.6s;">🏮</div>
+      </div>
+      <div class="lantern">
+        <div class="lantern-rope"></div>
+        <div class="lantern-body" style="background:#FF4D93;--sw:2.9s;--sd:1.0s;">🏮</div>
+      </div>
+      <div class="lantern">
+        <div class="lantern-rope"></div>
+        <div class="lantern-body" style="background:#FFD600;--sw:3.4s;--sd:0.3s;">🏮</div>
       </div>
     </div>
 
-    <div class="scroll-hint">
-      <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
-        <path d="M8 2L8 18M8 18L2 12M8 18L14 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      SCROLL
+    <!-- 草 -->
+    <div class="grass"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">🎉 糟屋郡 宇美町 夏の大イベント</div>
+
+      <h1 class="hero-title">宇美町<br>夏祭り</h1>
+      <p class="hero-year" id="hero-year">2026</p>
+
+      <div class="hero-free-badge">🎟 入場無料！</div>
+
+      <div class="hero-meta">
+        <div class="hero-meta-chip">📅 <span id="hero-date">2026.8.XX（SAT）</span></div>
+        <div class="hero-meta-chip">📍 <span id="hero-venue">宇美町〇〇公園</span></div>
+        <div class="hero-meta-chip">⏰ <span id="hero-time">16:00 OPEN</span></div>
+      </div>
+
+      <a href="#info" class="hero-cta">くわしく見る ▼</a>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-label">ABOUT</div>
-    <h2 class="section-title">この夏、宇美に<span>集まろう</span></h2>
+  <!-- STRIPE -->
+  <div class="stripe-bar"></div>
 
-    <div class="info-grid">
-      <div class="info-card">
-        <div class="info-card-icon">📅</div>
+  <!-- INFO -->
+  <section class="info-section dots-bg" id="info">
+    <div class="section-header">
+      <div class="section-tag">INFORMATION</div>
+      <h2 class="section-title">📋 開催情報</h2>
+    </div>
+
+    <div class="info-cards">
+      <div class="info-card blue">
+        <span class="info-card-icon">📅</span>
         <div class="info-card-label">DATE</div>
-        <div class="info-card-value" id="about-date">2026.8.XX</div>
-        <div class="info-card-sub" id="about-day">SAT</div>
+        <div class="info-card-value" id="info-date">2026.8.XX</div>
+        <div class="info-card-sub" id="info-day">SAT</div>
       </div>
-      <div class="info-card">
-        <div class="info-card-icon">📍</div>
+      <div class="info-card yellow">
+        <span class="info-card-icon">📍</span>
         <div class="info-card-label">VENUE</div>
-        <div class="info-card-value" id="about-venue" style="font-size:18px;">宇美町〇〇公園</div>
-        <div class="info-card-sub" id="about-addr">〒811-21XX 福岡県糟屋郡宇美町</div>
+        <div class="info-card-value" id="info-venue" style="font-size:18px;">宇美町<br>〇〇公園</div>
       </div>
-      <div class="info-card">
-        <div class="info-card-icon">⏰</div>
+      <div class="info-card red">
+        <span class="info-card-icon">⏰</span>
         <div class="info-card-label">TIME</div>
-        <div class="info-card-value" id="about-time" style="font-size:18px;">16:00 〜 21:00</div>
-        <div class="info-card-sub">OPEN 16:00 / START 17:00</div>
+        <div class="info-card-value" id="info-time">16:00〜21:00</div>
+        <div class="info-card-sub">OPEN〜END</div>
       </div>
-      <div class="info-card">
-        <div class="info-card-icon">🎟</div>
+      <div class="info-card green">
+        <span class="info-card-icon">🎟</span>
         <div class="info-card-label">ADMISSION</div>
-        <div class="info-card-value">無料</div>
-        <div class="info-card-sub">入場無料・どなたでも</div>
+        <div class="info-card-value">無料！</div>
+        <div class="info-card-sub">どなたでも入場OK</div>
       </div>
     </div>
 
-    <div style="max-width:620px;margin:0 auto;text-align:center;">
-      <p id="about-desc" style="font-size:16px;line-height:2;color:var(--text-sub);">
+    <div style="max-width:600px;margin:0 auto;text-align:center;">
+      <p id="info-desc" style="font-size:16px;font-weight:700;line-height:2;color:var(--navy);">
         宇美町を盛り上げる夏の一夜。<br>
         地域の人が集い、音楽と食と笑顔があふれる夏祭り。
       </p>
     </div>
   </section>
 
+  <!-- STRIPE -->
+  <div class="stripe-bar"></div>
+
   <!-- PROGRAM -->
   <section class="program-section" id="program">
-    <div class="section-label">PROGRAM</div>
-    <h2 class="section-title">当日の<span>プログラム</span></h2>
-
+    <div class="section-header">
+      <div class="section-tag">TIME TABLE</div>
+      <h2 class="section-title">🕐 当日のプログラム</h2>
+    </div>
     <div class="timetable" id="timetable"></div>
   </section>
 
+  <!-- STRIPE -->
+  <div class="stripe-bar"></div>
+
   <!-- YATAI -->
   <section class="yatai-section" id="yatai">
-    <div class="section-label">YATAI</div>
-    <h2 class="section-title">屋台・<span>出店エリア</span></h2>
-
+    <div class="section-header">
+      <div class="section-tag">FOOD & SHOPS</div>
+      <h2 class="section-title">🏮 屋台・出店</h2>
+    </div>
     <div class="yatai-grid" id="yatai-grid"></div>
-
-    <p style="text-align:center;font-size:13px;color:var(--text-muted);">
-      ※出店内容は変更になる場合があります
-    </p>
+    <p class="yatai-note">※出店内容は変更になる場合があります</p>
   </section>
 
-  <!-- SPONSOR -->
-  <section class="sponsor-section" id="sponsor">
-    <div class="section-label">SPONSOR</div>
-    <h2 class="section-title" style="text-align:center;">地域と一緒に<span>祭りをつくる</span></h2>
+  <!-- STRIPE -->
+  <div class="stripe-bar"></div>
 
-    <div class="sponsor-intro" id="sponsor-intro">
-      <p>
-        宇美町夏祭りは地域の企業・お店の協賛によって成り立っています。<br>
-        協賛いただくことで、祭り当日の<strong style="color:var(--cream);">数百〜数千人の来場者</strong>に貴社・貴店の名前をアピールできます。<br>
-        地域への貢献と、効果的な認知拡大を同時に実現しませんか。
-      </p>
+  <!-- ACCESS -->
+  <section class="access-section" id="access">
+    <div class="section-header">
+      <div class="section-tag">ACCESS</div>
+      <h2 class="section-title">🗺 アクセス</h2>
     </div>
+    <div id="map"></div>
+    <div class="access-cards" id="access-cards"></div>
+  </section>
 
-    <div class="sponsor-packages" id="sponsor-packages"></div>
+  <!-- STRIPE -->
+  <div class="stripe-bar"></div>
 
-    <div class="sponsor-contact-wrap">
-      <h3>協賛・出店のお問い合わせ</h3>
-      <p>ご不明点やご相談はお気軽にご連絡ください。<br>お見積もり・詳細資料をご用意しております。</p>
-      <a href="mailto:" class="btn-primary" id="contact-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-          <polyline points="22,6 12,12 2,6"/>
-        </svg>
-        お問い合わせはこちら
+  <!-- FAQ -->
+  <section class="faq-section" id="faq">
+    <div class="section-header">
+      <div class="section-tag">FAQ</div>
+      <h2 class="section-title">❓ よくある質問</h2>
+    </div>
+    <div class="faq-list" id="faq-list"></div>
+  </section>
+
+  <!-- STRIPE -->
+  <div class="stripe-bar"></div>
+
+  <!-- SPONSOR CTA -->
+  <section class="sponsor-section" id="sponsor">
+    <div class="section-header">
+      <div class="section-tag">SPONSOR</div>
+      <h2 class="section-title">🤝 協賛企業・協力</h2>
+    </div>
+    <div class="sponsor-cta-box">
+      <p>
+        宇美町夏祭りは地域の企業・お店の<br>
+        <em>ご支援・ご協力</em>によって開催されています。<br>
+        ご協賛いただいた企業・店舗の皆様に感謝申し上げます。
+      </p>
+      <a href="sponsor.html" target="_blank" class="btn-sponsor-list">
+        🏅 協賛企業・協力一覧を見る
+      </a>
+      <a href="mailto:" class="btn-contact" id="sponsor-contact-btn">
+        📩 協賛のお問い合わせ
       </a>
     </div>
   </section>
 
-  <!-- ACCESS -->
-  <section id="access">
-    <div class="section-label">ACCESS</div>
-    <h2 class="section-title">会場<span>アクセス</span></h2>
-
-    <div id="map"></div>
-
-    <div class="access-info">
-      <div class="access-card">
-        <div class="access-card-label">VENUE</div>
-        <div class="access-card-value" id="access-venue">宇美町〇〇公園</div>
-      </div>
-      <div class="access-card">
-        <div class="access-card-label">ADDRESS</div>
-        <div class="access-card-value" id="access-addr" style="font-size:13px;">〒811-21XX 福岡県糟屋郡宇美町</div>
-      </div>
-      <div class="access-card">
-        <div class="access-card-label">TRAIN</div>
-        <div class="access-card-value" style="font-size:13px;">西鉄バス 宇美バス停より徒歩〇分</div>
-      </div>
-      <div class="access-card">
-        <div class="access-card-label">PARKING</div>
-        <div class="access-card-value" style="font-size:13px;">近隣コインパーキングをご利用ください</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="faq-section" id="faq">
-    <div class="section-label">FAQ</div>
-    <h2 class="section-title" style="text-align:center;">よくある<span>ご質問</span></h2>
-
-    <div class="faq-list" id="faq-list"></div>
-  </section>
-
   <!-- FOOTER -->
   <footer>
-    <div class="footer-title">宇美町夏祭り 2026</div>
+    <div class="footer-logo">🏮 宇美町夏祭り 2026</div>
     <div class="footer-sub">UMI NATSU MATSURI 2026</div>
-    <div class="footer-links">
-      <a href="#about" class="footer-link">イベント情報</a>
-      <a href="#program" class="footer-link">プログラム</a>
-      <a href="#sponsor" class="footer-link">協賛について</a>
-      <a href="#access" class="footer-link">アクセス</a>
-      <a href="#faq" class="footer-link">FAQ</a>
-    </div>
+    <nav class="footer-nav">
+      <a href="#info">開催情報</a>
+      <a href="#program">プログラム</a>
+      <a href="#yatai">屋台・出店</a>
+      <a href="#access">アクセス</a>
+      <a href="#faq">FAQ</a>
+      <a href="sponsor.html" target="_blank">協賛企業一覧</a>
+    </nav>
     <div class="footer-copy">© 2026 宇美町夏祭り実行委員会. All rights reserved.</div>
   </footer>
 
@@ -1046,119 +1095,87 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <script>
-    // Stars
-    const starsContainer = document.getElementById('stars-container');
-    for (let i = 0; i < 60; i++) {
-      const star = document.createElement('div');
-      star.className = 'star';
-      star.style.cssText = `
-        left: ${Math.random() * 100}%;
-        top: ${Math.random() * 100}%;
-        --dur: ${2 + Math.random() * 4}s;
-        --delay: ${Math.random() * 4}s;
-        width: ${1 + Math.random() * 2}px;
-        height: ${1 + Math.random() * 2}px;
-      `;
-      starsContainer.appendChild(star);
-    }
+    const YATAI_ICONS = { 'フード':'🍢', 'ドリンク':'🍹', 'マルシェ':'🥬', '体験':'🎪', '雑貨':'🛍' };
 
-    // Nav scroll
-    window.addEventListener('scroll', () => {
-      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 60);
-    });
-
-    // Load data
     fetch('data.json')
       .then(r => r.json())
       .then(data => {
         const ev = data.event;
 
         // Hero
-        document.getElementById('hero-date').textContent = `${ev.date}（${ev.day}）`;
+        document.getElementById('hero-date').textContent  = `${ev.date}（${ev.day}）`;
         document.getElementById('hero-venue').textContent = ev.venue;
-        document.getElementById('hero-time').textContent = `${ev.open} OPEN / ${ev.start} START`;
+        document.getElementById('hero-time').textContent  = `${ev.open} OPEN`;
 
-        // About
-        document.getElementById('about-date').textContent = ev.date;
-        document.getElementById('about-day').textContent = ev.day;
-        document.getElementById('about-venue').textContent = ev.venue;
-        document.getElementById('about-addr').textContent = ev.venue_addr;
-        document.getElementById('about-time').textContent = `${ev.open} 〜 ${ev.end}`;
-        document.getElementById('about-desc').innerHTML = ev.description.replace(/\n/g, '<br>');
+        // Info
+        document.getElementById('info-date').textContent  = ev.date;
+        document.getElementById('info-day').textContent   = ev.day;
+        document.getElementById('info-venue').innerHTML   = ev.venue;
+        document.getElementById('info-time').textContent  = `${ev.open}〜${ev.end}`;
+        document.getElementById('info-desc').innerHTML    = ev.description.replace(/\n/g, '<br>');
 
         // Timetable
         const tt = document.getElementById('timetable');
         data.program.forEach((item, i) => {
           const isLast = i === data.program.length - 1;
-          const div = document.createElement('div');
-          div.className = 'timetable-connector';
-          div.innerHTML = `
-            <div class="tc-time">${item.time}</div>
-            <div class="tc-dot-wrap">
-              <div class="tc-dot"></div>
-              ${!isLast ? '<div class="tc-line"></div>' : ''}
+          const row = document.createElement('div');
+          row.className = 'tt-row';
+          row.innerHTML = `
+            <div class="tt-time">${item.time}</div>
+            <div class="tt-axis">
+              <div class="tt-dot"></div>
+              ${!isLast ? '<div class="tt-line"></div>' : ''}
             </div>
-            <div class="tc-content">
-              <div class="tc-content-text">${item.content}</div>
+            <div class="tt-content">
+              <div class="tt-content-text">${item.content}</div>
             </div>
           `;
-          tt.appendChild(div);
+          tt.appendChild(row);
         });
 
         // Yatai
         const yg = document.getElementById('yatai-grid');
-        const yataiIcons = { 'フード': '🍢', 'ドリンク': '🍹', 'マルシェ': '🥬' };
         data.yatai.forEach(y => {
-          const div = document.createElement('div');
-          div.className = 'yatai-tag';
-          div.innerHTML = `
-            <span>${yataiIcons[y.genre] || '🏮'}</span>
-            <span>${y.name}</span>
-            <span class="yatai-tag-genre">${y.genre}</span>
-          `;
-          yg.appendChild(div);
-        });
-
-        // Sponsor packages
-        const tierMap = ['platinum', 'gold', 'silver', 'bronze'];
-        const tierLabel = { platinum: 'Platinum', gold: 'Gold', silver: 'Silver', bronze: 'Bronze' };
-        const sp = document.getElementById('sponsor-packages');
-        data.sponsor_packages.forEach((pkg, i) => {
-          const tier = tierMap[i] || 'bronze';
           const card = document.createElement('div');
-          card.className = `sponsor-card ${tier}`;
+          card.className = 'yatai-card';
           card.innerHTML = `
-            <div class="sponsor-card-badge">${tierLabel[tier]}</div>
-            <div class="sponsor-card-price">¥${pkg.price.toLocaleString()}<span>（税別）</span></div>
-            <div class="sponsor-card-price-sub">協賛金</div>
-            <ul class="sponsor-benefits">
-              ${pkg.benefits.map(b => `<li>${b}</li>`).join('')}
-            </ul>
+            <div class="yatai-card-icon">${YATAI_ICONS[y.genre] || '🏮'}</div>
+            <div class="yatai-card-name">${y.name}</div>
+            <div class="yatai-card-genre">${y.genre}</div>
           `;
-          sp.appendChild(card);
+          yg.appendChild(card);
         });
 
         // Map
         const map = L.map('map', { zoomControl: true }).setView([ev.lat, ev.lng], 15);
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-          attribution: '© CartoDB',
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap contributors',
           maxZoom: 19
         }).addTo(map);
 
         const icon = L.divIcon({
           className: '',
-          html: `<div style="width:36px;height:36px;background:linear-gradient(135deg,#e8920a,#f5c842);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 4px 16px rgba(232,146,10,0.5);">🏮</div>`,
-          iconSize: [36, 36],
-          iconAnchor: [18, 18]
+          html: `<div style="width:44px;height:44px;background:var(--coral, #FF5C3A);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;border:3px solid #16205E;box-shadow:4px 4px 0 rgba(22,32,94,0.3);">🏮</div>`,
+          iconSize: [44, 44], iconAnchor: [22, 22]
         });
 
-        L.marker([ev.lat, ev.lng], { icon })
-          .addTo(map)
-          .bindPopup(`<b>${ev.venue}</b><br>${ev.venue_addr}`)
-          .openPopup();
+        L.marker([ev.lat, ev.lng], { icon }).addTo(map)
+          .bindPopup(`<b>${ev.venue}</b><br>${ev.venue_addr}`).openPopup();
 
-        document.getElementById('access-venue').textContent = ev.venue;
-        document.getElementById('access-addr').textContent = ev.venue_addr;
+        // Access cards
+        const ac = document.getElementById('access-cards');
+        const accessItems = [
+          { label: 'VENUE', value: ev.venue },
+          { label: 'ADDRESS', value: ev.venue_addr },
+          { label: 'TRAIN', value: '西鉄バス 宇美バス停より徒歩〇分' },
+          { label: 'PARKING', value: '近隣コインパーキングをご利用ください' }
+        ];
+        accessItems.forEach(item => {
+          const div = document.createElement('div');
+          div.className = 'access-card';
+          div.innerHTML = `<div class="access-card-label">${item.label}</div><div class="access-card-value">${item.value}</div>`;
+          ac.appendChild(div);
+        });
 
         // FAQ
         const faqList = document.getElementById('faq-list');
@@ -1166,18 +1183,16 @@
           const div = document.createElement('div');
           div.className = 'faq-item';
           div.innerHTML = `
-            <button class="faq-question">
-              <span class="faq-q-mark">Q</span>
-              <span class="faq-question-text">${item.q}</span>
-              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <button class="faq-btn">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">${item.q}</div>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
             </button>
             <div class="faq-answer">${item.a}</div>
           `;
-          div.querySelector('.faq-question').addEventListener('click', () => {
-            div.classList.toggle('open');
-          });
+          div.querySelector('.faq-btn').addEventListener('click', () => div.classList.toggle('open'));
           faqList.appendChild(div);
         });
       });
