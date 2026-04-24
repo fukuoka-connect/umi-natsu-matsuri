@@ -37,15 +37,6 @@
       overflow-x: hidden;
     }
 
-    /* ── CONFETTI ── */
-    #confetti-canvas {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
     /* ── NAV ── */
     nav {
       position: sticky;
@@ -118,7 +109,6 @@
       overflow: hidden;
     }
 
-    /* 空のグラデーション */
     .hero::before {
       content: '';
       position: absolute;
@@ -126,7 +116,6 @@
       background: linear-gradient(180deg, #87CEEB 0%, #B8E8FF 40%, #FFE57A 85%, #FF9B4E 100%);
     }
 
-    /* 太陽 */
     .sun-decor {
       position: absolute;
       top: -60px;
@@ -155,7 +144,6 @@
       to   { transform: rotate(360deg); }
     }
 
-    /* 草 */
     .grass {
       position: absolute;
       bottom: 0;
@@ -174,7 +162,6 @@
       );
     }
 
-    /* 雲 */
     .cloud {
       position: absolute;
       background: white;
@@ -187,27 +174,13 @@
       background: white;
       border-radius: 50%;
     }
-    .cloud-1 {
-      width: 120px; height: 40px;
-      top: 15%; left: 5%;
-      animation: float-cloud 18s linear infinite;
-    }
+    .cloud-1 { width: 120px; height: 40px; top: 15%; left: 5%; animation: float-cloud 18s linear infinite; }
     .cloud-1::before { width: 50px; height: 50px; top: -25px; left: 15px; }
     .cloud-1::after  { width: 40px; height: 40px; top: -18px; left: 45px; }
-
-    .cloud-2 {
-      width: 90px; height: 30px;
-      top: 25%; right: 15%;
-      animation: float-cloud 24s linear infinite 4s;
-    }
+    .cloud-2 { width: 90px; height: 30px; top: 25%; right: 15%; animation: float-cloud 24s linear infinite 4s; }
     .cloud-2::before { width: 40px; height: 40px; top: -20px; left: 10px; }
     .cloud-2::after  { width: 30px; height: 30px; top: -14px; left: 35px; }
-
-    .cloud-3 {
-      width: 100px; height: 34px;
-      top: 10%; left: 40%;
-      animation: float-cloud 20s linear infinite 8s;
-    }
+    .cloud-3 { width: 100px; height: 34px; top: 10%; left: 40%; animation: float-cloud 20s linear infinite 8s; }
     .cloud-3::before { width: 44px; height: 44px; top: -22px; left: 12px; }
     .cloud-3::after  { width: 36px; height: 36px; top: -16px; left: 40px; }
 
@@ -216,7 +189,6 @@
       to   { transform: translateX(calc(100vw + 200px)); }
     }
 
-    /* 提灯 */
     .lantern-row {
       position: absolute;
       top: 0;
@@ -228,26 +200,12 @@
       pointer-events: none;
     }
 
-    .lantern {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0;
-    }
-
-    .lantern-rope {
-      width: 1px;
-      height: 40px;
-      background: rgba(100,60,20,0.5);
-    }
-
+    .lantern { display: flex; flex-direction: column; align-items: center; }
+    .lantern-rope { width: 1px; height: 40px; background: rgba(100,60,20,0.5); }
     .lantern-body {
-      width: 28px;
-      height: 40px;
+      width: 28px; height: 40px;
       border-radius: 50% / 45%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       font-size: 12px;
       box-shadow: inset 0 0 8px rgba(255,255,255,0.3), 0 2px 8px rgba(0,0,0,0.2);
       animation: lantern-swing var(--sw, 3s) ease-in-out infinite var(--sd, 0s);
@@ -259,7 +217,6 @@
       50% { transform: rotate(5deg); }
     }
 
-    /* メインコンテンツ */
     .hero-content {
       position: relative;
       z-index: 2;
@@ -292,9 +249,7 @@
       font-weight: 900;
       line-height: 1.0;
       color: var(--navy);
-      text-shadow:
-        4px 4px 0 rgba(255,214,0,0.8),
-        8px 8px 0 rgba(22,32,94,0.15);
+      text-shadow: 4px 4px 0 rgba(255,214,0,0.8), 8px 8px 0 rgba(22,32,94,0.15);
       margin-bottom: 4px;
       animation: bounce-in 0.6s cubic-bezier(0.34,1.56,0.64,1) both 0.4s;
     }
@@ -360,22 +315,8 @@
       transition: transform 0.15s, box-shadow 0.15s;
       animation: bounce-in 0.6s cubic-bezier(0.34,1.56,0.64,1) both 1s;
     }
-    .hero-cta:active {
-      transform: translateY(4px);
-      box-shadow: 0 2px 0 rgba(180,40,10,0.35);
-    }
-    .hero-cta:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 9px 0 rgba(180,40,10,0.35);
-    }
-
-    /* ── WAVE DIVIDERS ── */
-    .wave-down {
-      display: block;
-      width: 100%;
-      height: 60px;
-      margin-top: -2px;
-    }
+    .hero-cta:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(180,40,10,0.35); }
+    .hero-cta:hover  { transform: translateY(-3px); box-shadow: 0 9px 0 rgba(180,40,10,0.35); }
 
     /* ── SECTIONS ── */
     .section-header {
@@ -406,7 +347,6 @@
       padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
       position: relative;
     }
-
     .info-section .section-tag { background: rgba(41,182,246,0.12); color: var(--sky); }
     .info-section .section-title { color: var(--navy); }
 
@@ -428,7 +368,6 @@
       transition: transform 0.2s;
     }
     .info-card:hover { transform: translateY(-4px) rotate(-1deg); }
-
     .info-card::before {
       content: '';
       position: absolute;
@@ -437,128 +376,89 @@
       border-radius: 50%;
       background: rgba(255,255,255,0.2);
     }
+    .info-card.blue   { background: var(--sky);   color: white; }
+    .info-card.yellow { background: var(--sun);   color: var(--navy); }
+    .info-card.red    { background: var(--coral); color: white; }
+    .info-card.green  { background: var(--green); color: white; }
 
-    .info-card.blue   { background: var(--sky);    color: white; }
-    .info-card.yellow { background: var(--sun);    color: var(--navy); }
-    .info-card.red    { background: var(--coral);  color: white; }
-    .info-card.green  { background: var(--green);  color: white; }
+    .info-card-icon  { font-size: 40px; margin-bottom: 10px; display: block; }
+    .info-card-label { font-size: 10px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.8; margin-bottom: 6px; }
+    .info-card-value { font-size: clamp(20px, 4vw, 28px); font-weight: 900; line-height: 1.2; }
+    .info-card-sub   { font-size: 12px; font-weight: 700; opacity: 0.8; margin-top: 4px; }
 
-    .info-card-icon { font-size: 40px; margin-bottom: 10px; display: block; }
+    /* ── CONTENTS SECTION ── */
+    .contents-section {
+      background: var(--cream);
+      padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
+    }
+    .contents-section .section-tag { background: rgba(255,92,58,0.12); color: var(--coral); }
+    .contents-section .section-title { color: var(--navy); }
 
-    .info-card-label {
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      opacity: 0.8;
-      margin-bottom: 6px;
+    .contents-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      max-width: 920px;
+      margin: 0 auto;
     }
 
-    .info-card-value {
-      font-size: clamp(20px, 4vw, 28px);
-      font-weight: 900;
-      line-height: 1.2;
+    .contents-card {
+      border-radius: 24px;
+      padding: 36px 28px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-big);
+      transition: transform 0.2s;
     }
+    .contents-card:hover { transform: translateY(-5px) rotate(-1deg); }
+    .contents-card.orange { background: #FFF3E0; border: 3px solid var(--coral); }
+    .contents-card.green  { background: #E8F5E9; border: 3px solid var(--green); }
+    .contents-card.yellow { background: #FFFDE7; border: 3px solid #F9A825; }
 
-    .info-card-sub {
-      font-size: 12px;
-      font-weight: 700;
-      opacity: 0.8;
-      margin-top: 4px;
-    }
+    .contents-card-icon  { font-size: 52px; margin-bottom: 12px; }
+    .contents-card-title { font-size: 20px; font-weight: 900; color: var(--navy); margin-bottom: 10px; }
+    .contents-card-desc  { font-size: 14px; line-height: 1.8; color: #555; }
 
     /* ── PROGRAM SECTION ── */
     .program-section {
       background: #FFF8E1;
       padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
-      position: relative;
     }
-
     .program-section .section-tag { background: rgba(255,214,0,0.25); color: #B8860B; }
 
-    .timetable {
-      max-width: 620px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
+    .timetable { max-width: 620px; margin: 0 auto; display: flex; flex-direction: column; }
 
-    .tt-row {
-      display: grid;
-      grid-template-columns: 90px 24px 1fr;
-      align-items: stretch;
-      gap: 0 0;
-    }
+    .tt-row { display: grid; grid-template-columns: 90px 24px 1fr; align-items: stretch; }
 
     .tt-time {
-      font-size: 24px;
-      font-weight: 900;
-      color: var(--coral);
-      text-align: right;
-      padding: 16px 16px 16px 0;
-      line-height: 1;
-      padding-top: 18px;
+      font-size: 24px; font-weight: 900; color: var(--coral);
+      text-align: right; padding: 16px 16px 16px 0; line-height: 1; padding-top: 18px;
     }
 
-    .tt-axis {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-    }
+    .tt-axis { display: flex; flex-direction: column; align-items: center; }
 
     .tt-dot {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--sun);
-      border: 3px solid var(--navy);
-      flex-shrink: 0;
-      margin-top: 16px;
-      position: relative;
-      z-index: 1;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--sun); border: 3px solid var(--navy);
+      flex-shrink: 0; margin-top: 16px; position: relative; z-index: 1;
     }
 
     .tt-line {
-      width: 3px;
-      flex: 1;
-      background: repeating-linear-gradient(
-        to bottom,
-        var(--navy) 0px,
-        var(--navy) 5px,
-        transparent 5px,
-        transparent 10px
-      );
+      width: 3px; flex: 1;
+      background: repeating-linear-gradient(to bottom, var(--navy) 0px, var(--navy) 5px, transparent 5px, transparent 10px);
     }
 
     .tt-row:last-child .tt-line { display: none; }
 
-    .tt-content {
-      padding: 14px 0 14px 20px;
-    }
-
-    .tt-content-text {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1.4;
-    }
-
-    .tt-content-note {
-      font-size: 12px;
-      font-weight: 400;
-      color: #888;
-      margin-top: 2px;
-    }
+    .tt-content { padding: 14px 0 14px 20px; }
+    .tt-content-title { font-size: 16px; font-weight: 800; color: var(--navy); line-height: 1.4; }
+    .tt-content-desc  { font-size: 12px; color: #777; margin-top: 4px; line-height: 1.6; }
 
     /* ── YATAI SECTION ── */
     .yatai-section {
       background: var(--coral);
       padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
-      position: relative;
     }
-
     .yatai-section .section-tag { background: rgba(255,255,255,0.25); color: white; }
     .yatai-section .section-title { color: white; }
 
@@ -579,46 +479,22 @@
       transition: transform 0.2s;
     }
     .yatai-card:hover { transform: translateY(-4px) rotate(1deg); }
-
-    .yatai-card-icon { font-size: 40px; margin-bottom: 8px; }
-    .yatai-card-name {
-      font-size: 14px;
-      font-weight: 800;
-      color: var(--navy);
-    }
-    .yatai-card-genre {
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--coral);
-      letter-spacing: 0.1em;
-      margin-top: 4px;
-    }
-
-    .yatai-note {
-      text-align: center;
-      color: rgba(255,255,255,0.8);
-      font-size: 12px;
-      margin-top: 8px;
-    }
+    .yatai-card-icon  { font-size: 40px; margin-bottom: 8px; }
+    .yatai-card-name  { font-size: 14px; font-weight: 800; color: var(--navy); }
+    .yatai-card-genre { font-size: 10px; font-weight: 700; color: var(--coral); letter-spacing: 0.1em; margin-top: 4px; }
+    .yatai-note       { text-align: center; color: rgba(255,255,255,0.8); font-size: 12px; margin-top: 8px; }
 
     /* ── ACCESS SECTION ── */
     .access-section {
       background: var(--white);
       padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
     }
-
     .access-section .section-tag { background: rgba(75,199,74,0.15); color: var(--green); }
 
     #map {
-      width: 100%;
-      max-width: 800px;
-      height: 320px;
-      border-radius: 24px;
-      border: 4px solid var(--navy);
-      overflow: hidden;
-      margin: 0 auto 32px;
-      display: block;
-      box-shadow: var(--shadow-big);
+      width: 100%; max-width: 800px; height: 320px;
+      border-radius: 24px; border: 4px solid var(--navy); overflow: hidden;
+      margin: 0 auto 32px; display: block; box-shadow: var(--shadow-big);
     }
 
     .access-cards {
@@ -635,98 +511,140 @@
       border-radius: 16px;
       padding: 20px;
     }
-
-    .access-card-label {
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.2em;
-      color: var(--coral);
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-
-    .access-card-value {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1.5;
-    }
+    .access-card-label { font-size: 10px; font-weight: 800; letter-spacing: 0.2em; color: var(--coral); text-transform: uppercase; margin-bottom: 6px; }
+    .access-card-value { font-size: 14px; font-weight: 700; color: var(--navy); line-height: 1.6; }
+    .access-card-value strong { font-weight: 900; }
+    .access-card-value small { font-size: 11px; color: #888; }
 
     /* ── FAQ SECTION ── */
     .faq-section {
       background: var(--purple);
       padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
     }
-
     .faq-section .section-tag { background: rgba(255,255,255,0.2); color: white; }
     .faq-section .section-title { color: white; }
 
-    .faq-list {
-      max-width: 700px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+    .faq-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
 
-    .faq-item {
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
+    .faq-item { background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
 
     .faq-btn {
-      width: 100%;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-align: left;
-      font-family: inherit;
-      transition: background 0.2s;
+      width: 100%; background: none; border: none; cursor: pointer;
+      padding: 20px 24px; display: flex; align-items: center; gap: 14px;
+      text-align: left; font-family: inherit; transition: background 0.2s;
     }
     .faq-btn:hover { background: rgba(123,82,219,0.06); }
 
     .faq-q-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--purple);
-      color: white;
-      font-size: 16px;
-      font-weight: 900;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--purple); color: white;
+      font-size: 16px; font-weight: 900;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
-
-    .faq-q-text {
-      flex: 1;
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--navy);
-    }
-
-    .faq-chevron {
-      color: var(--purple);
-      transition: transform 0.3s;
-      flex-shrink: 0;
-    }
+    .faq-q-text { flex: 1; font-size: 15px; font-weight: 800; color: var(--navy); }
+    .faq-chevron { color: var(--purple); transition: transform 0.3s; flex-shrink: 0; }
     .faq-item.open .faq-chevron { transform: rotate(180deg); }
-
-    .faq-answer {
-      display: none;
-      padding: 0 24px 20px 70px;
-      font-size: 14px;
-      color: #555;
-      line-height: 1.8;
-    }
+    .faq-answer { display: none; padding: 0 24px 20px 70px; font-size: 14px; color: #555; line-height: 1.8; }
     .faq-item.open .faq-answer { display: block; }
+
+    /* ── SURVEY SECTION ── */
+    .survey-section {
+      background: var(--sky);
+      padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
+    }
+    .survey-section .section-tag { background: rgba(255,255,255,0.25); color: white; }
+    .survey-section .section-title { color: white; }
+
+    .survey-box {
+      max-width: 620px; margin: 0 auto;
+      background: white; border-radius: 24px;
+      padding: 40px 36px; box-shadow: var(--shadow-big);
+    }
+    @media (max-width: 480px) { .survey-box { padding: 28px 20px; } }
+
+    .survey-question { margin-bottom: 28px; }
+    .survey-question:last-of-type { margin-bottom: 0; }
+    .survey-q-text { font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+
+    .survey-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .survey-option { cursor: pointer; }
+    .survey-option input[type="radio"] { display: none; }
+    .survey-option-label {
+      display: block; font-size: 13px; font-weight: 700;
+      padding: 8px 16px; border-radius: 100px;
+      border: 2.5px solid rgba(22,32,94,0.15);
+      background: var(--cream); color: var(--navy);
+      cursor: pointer; transition: all 0.2s; user-select: none;
+    }
+    .survey-option input:checked + .survey-option-label {
+      background: var(--sky); border-color: var(--sky); color: white;
+    }
+
+    .survey-submit-btn {
+      display: block; width: 100%; margin-top: 28px;
+      padding: 16px; background: var(--coral); color: white;
+      border: none; border-radius: 100px;
+      font-size: 16px; font-weight: 900; font-family: inherit;
+      cursor: pointer; box-shadow: 0 5px 0 rgba(180,40,10,0.3);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .survey-submit-btn:hover  { transform: translateY(-2px); box-shadow: 0 7px 0 rgba(180,40,10,0.3); }
+    .survey-submit-btn:active { transform: translateY(3px);  box-shadow: 0 2px 0 rgba(180,40,10,0.3); }
+
+    .coupon-box { max-width: 620px; margin: 0 auto; display: none; }
+    .coupon-box.show { display: block; animation: bounce-in 0.5s cubic-bezier(0.34,1.56,0.64,1) both; }
+
+    .coupon-card {
+      background: white; border-radius: 24px; padding: 44px 36px;
+      text-align: center; box-shadow: var(--shadow-big);
+      border: 4px dashed var(--sun); position: relative; overflow: hidden;
+    }
+    .coupon-card::before {
+      content: '🎫'; position: absolute; top: 12px; right: 16px;
+      font-size: 48px; opacity: 0.12;
+    }
+    .coupon-title { font-size: 12px; font-weight: 800; letter-spacing: 0.2em; color: var(--coral); text-transform: uppercase; margin-bottom: 8px; }
+    .coupon-benefit { font-size: clamp(22px, 5vw, 30px); font-weight: 900; color: var(--navy); line-height: 1.5; margin-bottom: 20px; }
+    .coupon-code-wrap {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--navy); color: var(--sun);
+      font-size: 22px; font-weight: 900; letter-spacing: 0.15em;
+      padding: 14px 32px; border-radius: 16px; margin-bottom: 16px;
+    }
+    .coupon-note { font-size: 11px; color: #999; line-height: 1.7; margin-top: 8px; }
+
+    /* ── SNS SHARE SECTION ── */
+    .share-section {
+      background: var(--green);
+      padding: clamp(40px, 8vw, 72px) clamp(20px, 5vw, 80px);
+      text-align: center;
+    }
+    .share-section .section-tag { background: rgba(255,255,255,0.25); color: white; }
+    .share-section .section-title { color: white; }
+
+    .share-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 600px; margin: 0 auto; }
+
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 14px; font-weight: 800;
+      padding: 13px 24px; border-radius: 100px;
+      text-decoration: none; cursor: pointer; border: none;
+      font-family: inherit; box-shadow: 0 4px 0 rgba(0,0,0,0.2);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .share-btn:hover  { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(0,0,0,0.2); }
+    .share-btn:active { transform: translateY(2px);  box-shadow: 0 2px 0 rgba(0,0,0,0.2); }
+    .share-btn.x-btn    { background: #000; color: #fff; }
+    .share-btn.line-btn { background: #06C755; color: #fff; }
+    .share-btn.copy-btn { background: white; color: var(--navy); }
+
+    .copy-toast {
+      display: inline-block; background: var(--navy); color: white;
+      font-size: 12px; font-weight: 700; padding: 8px 20px;
+      border-radius: 100px; margin-top: 12px;
+      opacity: 0; transition: opacity 0.3s; pointer-events: none;
+    }
+    .copy-toast.show { opacity: 1; }
 
     /* ── SPONSOR SECTION ── */
     .sponsor-section {
@@ -734,73 +652,39 @@
       padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
       text-align: center;
     }
-
     .sponsor-section .section-tag { background: rgba(22,32,94,0.1); color: var(--navy); }
     .sponsor-section .section-title { color: var(--navy); }
 
     .sponsor-cta-box {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      background: white;
-      border: 4px solid var(--navy);
-      border-radius: 24px;
-      padding: 40px 48px;
-      box-shadow: var(--shadow-big);
-      margin-top: 24px;
+      display: inline-flex; flex-direction: column; align-items: center; gap: 16px;
+      background: white; border: 4px solid var(--navy);
+      border-radius: 24px; padding: 40px 48px;
+      box-shadow: var(--shadow-big); margin-top: 24px;
     }
+    @media (max-width: 480px) { .sponsor-cta-box { padding: 28px 24px; } }
 
-    .sponsor-cta-box p {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1.8;
-    }
-
-    .sponsor-cta-box p em {
-      color: var(--coral);
-      font-style: normal;
-      font-weight: 900;
-    }
+    .sponsor-cta-box p { font-size: 16px; font-weight: 700; color: var(--navy); line-height: 1.8; }
+    .sponsor-cta-box p em { color: var(--coral); font-style: normal; font-weight: 900; }
 
     .btn-sponsor-list {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--navy);
-      color: white;
-      font-size: 15px;
-      font-weight: 900;
-      padding: 14px 32px;
-      border-radius: 100px;
-      text-decoration: none;
-      box-shadow: 0 5px 0 rgba(0,0,0,0.25);
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--navy); color: white;
+      font-size: 15px; font-weight: 900;
+      padding: 14px 32px; border-radius: 100px;
+      text-decoration: none; box-shadow: 0 5px 0 rgba(0,0,0,0.25);
       transition: transform 0.15s, box-shadow 0.15s;
     }
-    .btn-sponsor-list:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 0 rgba(0,0,0,0.25);
-    }
+    .btn-sponsor-list:hover { transform: translateY(-3px); box-shadow: 0 8px 0 rgba(0,0,0,0.25); }
 
     .btn-contact {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--coral);
-      color: white;
-      font-size: 14px;
-      font-weight: 800;
-      padding: 12px 28px;
-      border-radius: 100px;
-      text-decoration: none;
-      box-shadow: 0 4px 0 rgba(180,40,10,0.3);
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--coral); color: white;
+      font-size: 14px; font-weight: 800;
+      padding: 12px 28px; border-radius: 100px;
+      text-decoration: none; box-shadow: 0 4px 0 rgba(180,40,10,0.3);
       transition: transform 0.15s, box-shadow 0.15s;
     }
-    .btn-contact:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 0 rgba(180,40,10,0.3);
-    }
+    .btn-contact:hover { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(180,40,10,0.3); }
 
     /* ── FOOTER ── */
     footer {
@@ -809,113 +693,35 @@
       text-align: center;
       color: rgba(255,255,255,0.7);
     }
+    .footer-logo { font-size: 22px; font-weight: 900; color: var(--sun); margin-bottom: 8px; }
+    .footer-sub  { font-size: 11px; letter-spacing: 0.2em; margin-bottom: 16px; opacity: 0.5; }
+    .footer-organizer { font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 24px; }
 
-    .footer-logo {
-      font-size: 22px;
-      font-weight: 900;
-      color: var(--sun);
-      margin-bottom: 8px;
-    }
-
-    .footer-sub {
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      margin-bottom: 24px;
-      opacity: 0.5;
-    }
-
-    .footer-nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px 24px;
-      margin-bottom: 32px;
-    }
-
-    .footer-nav a {
-      font-size: 12px;
-      color: rgba(255,255,255,0.5);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 24px; margin-bottom: 32px; }
+    .footer-nav a { font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
     .footer-nav a:hover { color: var(--sun); }
+    .footer-copy { font-size: 11px; opacity: 0.35; }
 
-    .footer-copy {
-      font-size: 11px;
-      opacity: 0.35;
-    }
+    /* ── MISC ── */
+    .dots-bg { background-image: radial-gradient(rgba(22,32,94,0.06) 1.5px, transparent 1.5px); background-size: 24px 24px; }
 
-    /* ── DECORATIVE DOTS ── */
-    .dots-bg {
-      background-image: radial-gradient(rgba(22,32,94,0.06) 1.5px, transparent 1.5px);
-      background-size: 24px 24px;
-    }
-
-    /* ── STRIPE DIVIDER ── */
     .stripe-bar {
       height: 14px;
-      background: repeating-linear-gradient(
-        -45deg,
-        var(--navy) 0px, var(--navy) 6px,
-        var(--sun) 6px, var(--sun) 12px
-      );
-    }
-
-    /* ── SCROLL WOBBLE ANIMATION ── */
-    @keyframes wobble {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(-3deg); }
-      75% { transform: rotate(3deg); }
+      background: repeating-linear-gradient(-45deg, var(--navy) 0px, var(--navy) 6px, var(--sun) 6px, var(--sun) 12px);
     }
 
     /* ── ILLUSTRATIONS ── */
     .hero-crowd {
-      position: absolute;
-      bottom: 46px;
-      left: 0; right: 0;
-      z-index: 3;
-      pointer-events: none;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      gap: 0;
+      position: absolute; bottom: 46px; left: 0; right: 0;
+      z-index: 3; pointer-events: none;
+      display: flex; justify-content: center; align-items: flex-end;
       padding: 0 3%;
     }
-    .hero-illus-family {
-      height: clamp(130px, 22vw, 210px);
-      width: auto;
-      flex-shrink: 0;
-    }
-    .hero-illus-visitors {
-      height: clamp(110px, 17vw, 165px);
-      width: auto;
-      flex-shrink: 0;
-    }
+    .hero-illus-family   { height: clamp(130px, 22vw, 210px); width: auto; flex-shrink: 0; }
+    .hero-illus-visitors { height: clamp(110px, 17vw, 165px); width: auto; flex-shrink: 0; }
 
-    .yatai-illus-wrap {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 36px;
-    }
-    .yatai-illus-wrap img {
-      width: 100%;
-      max-width: 480px;
-      height: auto;
-      filter: drop-shadow(5px 5px 0 rgba(22,32,94,0.12));
-    }
-
-    @keyframes dog-tail {
-      0%,100% { transform: rotate(-10deg); }
-      50%      { transform: rotate(20deg); }
-    }
-    @keyframes balloon-bob {
-      0%,100% { transform: translateY(0); }
-      50%      { transform: translateY(-6px); }
-    }
-    @keyframes wave-arm {
-      0%,100% { transform: rotate(0deg); }
-      50%      { transform: rotate(-30deg); }
-    }
+    .yatai-illus-wrap { display: flex; justify-content: center; margin-bottom: 36px; }
+    .yatai-illus-wrap img { width: 100%; max-width: 480px; height: auto; filter: drop-shadow(5px 5px 0 rgba(22,32,94,0.12)); }
   </style>
 </head>
 <body>
@@ -924,17 +730,17 @@
   <nav>
     <a href="#top" class="nav-logo">🏮 宇美町夏祭り</a>
     <div class="nav-links">
-      <a href="#info" class="nav-link">開催情報</a>
-      <a href="#program" class="nav-link">プログラム</a>
-      <a href="#yatai" class="nav-link">屋台</a>
-      <a href="#access" class="nav-link">アクセス</a>
+      <a href="#info"     class="nav-link">開催情報</a>
+      <a href="#contents" class="nav-link">楽しみ方</a>
+      <a href="#program"  class="nav-link">プログラム</a>
+      <a href="#access"   class="nav-link">アクセス</a>
+      <a href="#survey"   class="nav-link">クーポン🎁</a>
     </div>
     <a href="sponsor.html" target="_blank" class="nav-sponsor-btn">協賛企業一覧</a>
   </nav>
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <!-- 太陽 -->
     <div class="sun-decor">
       <div class="sun-ray" style="transform: rotate(0deg)"></div>
       <div class="sun-ray" style="transform: rotate(30deg)"></div>
@@ -944,51 +750,23 @@
       <div class="sun-ray" style="transform: rotate(150deg)"></div>
     </div>
 
-    <!-- 雲 -->
     <div class="cloud cloud-1"></div>
     <div class="cloud cloud-2"></div>
     <div class="cloud cloud-3"></div>
 
-    <!-- 提灯行列 -->
     <div class="lantern-row">
-      <div class="lantern">
-        <div class="lantern-rope"></div>
-        <div class="lantern-body" style="background:#FF4D93;--sw:3.2s;--sd:0s;">🏮</div>
-      </div>
-      <div class="lantern">
-        <div class="lantern-rope"></div>
-        <div class="lantern-body" style="background:#FFD600;--sw:2.8s;--sd:0.4s;">🏮</div>
-      </div>
-      <div class="lantern">
-        <div class="lantern-rope"></div>
-        <div class="lantern-body" style="background:#FF5C3A;--sw:3.5s;--sd:0.8s;">🏮</div>
-      </div>
-      <div class="lantern">
-        <div class="lantern-rope"></div>
-        <div class="lantern-body" style="background:#4AC74A;--sw:3.0s;--sd:1.2s;">🏮</div>
-      </div>
-      <div class="lantern">
-        <div class="lantern-rope"></div>
-        <div class="lantern-body" style="background:#29B6F6;--sw:2.6s;--sd:0.2s;">🏮</div>
-      </div>
-      <div class="lantern">
-        <div class="lantern-rope"></div>
-        <div class="lantern-body" style="background:#7B52DB;--sw:3.3s;--sd:0.6s;">🏮</div>
-      </div>
-      <div class="lantern">
-        <div class="lantern-rope"></div>
-        <div class="lantern-body" style="background:#FF4D93;--sw:2.9s;--sd:1.0s;">🏮</div>
-      </div>
-      <div class="lantern">
-        <div class="lantern-rope"></div>
-        <div class="lantern-body" style="background:#FFD600;--sw:3.4s;--sd:0.3s;">🏮</div>
-      </div>
+      <div class="lantern"><div class="lantern-rope"></div><div class="lantern-body" style="background:#FF4D93;--sw:3.2s;--sd:0s;">🏮</div></div>
+      <div class="lantern"><div class="lantern-rope"></div><div class="lantern-body" style="background:#FFD600;--sw:2.8s;--sd:0.4s;">🏮</div></div>
+      <div class="lantern"><div class="lantern-rope"></div><div class="lantern-body" style="background:#FF5C3A;--sw:3.5s;--sd:0.8s;">🏮</div></div>
+      <div class="lantern"><div class="lantern-rope"></div><div class="lantern-body" style="background:#4AC74A;--sw:3.0s;--sd:1.2s;">🏮</div></div>
+      <div class="lantern"><div class="lantern-rope"></div><div class="lantern-body" style="background:#29B6F6;--sw:2.6s;--sd:0.2s;">🏮</div></div>
+      <div class="lantern"><div class="lantern-rope"></div><div class="lantern-body" style="background:#7B52DB;--sw:3.3s;--sd:0.6s;">🏮</div></div>
+      <div class="lantern"><div class="lantern-rope"></div><div class="lantern-body" style="background:#FF4D93;--sw:2.9s;--sd:1.0s;">🏮</div></div>
+      <div class="lantern"><div class="lantern-rope"></div><div class="lantern-body" style="background:#FFD600;--sw:3.4s;--sd:0.3s;">🏮</div></div>
     </div>
 
-    <!-- 草 -->
     <div class="grass"></div>
 
-    <!-- 来場者イラスト -->
     <div class="hero-crowd">
       <img src="images/illus-visitors.png" alt="" class="hero-illus-visitors" aria-hidden="true">
       <img src="images/illus-family.png"   alt="" class="hero-illus-family"   aria-hidden="true">
@@ -996,18 +774,14 @@
 
     <div class="hero-content">
       <div class="hero-badge">🎉 糟屋郡 宇美町 夏の大イベント</div>
-
       <h1 class="hero-title">宇美町<br>夏祭り</h1>
       <p class="hero-year" id="hero-year">2026</p>
-
       <div class="hero-free-badge">🎟 入場無料！</div>
-
       <div class="hero-meta">
-        <div class="hero-meta-chip">📅 <span id="hero-date">2026.8.XX（SAT）</span></div>
-        <div class="hero-meta-chip">📍 <span id="hero-venue">宇美町〇〇公園</span></div>
-        <div class="hero-meta-chip">⏰ <span id="hero-time">16:00 OPEN</span></div>
+        <div class="hero-meta-chip">📅 <span id="hero-date">2026.7.XX（SUN）</span></div>
+        <div class="hero-meta-chip">📍 <span id="hero-venue">宇美駅前 JA駐車場</span></div>
+        <div class="hero-meta-chip">⏰ <span id="hero-time">10:00 OPEN</span></div>
       </div>
-
       <a href="#info" class="hero-cta">くわしく見る ▼</a>
     </div>
   </section>
@@ -1021,23 +795,22 @@
       <div class="section-tag">INFORMATION</div>
       <h2 class="section-title">📋 開催情報</h2>
     </div>
-
     <div class="info-cards">
       <div class="info-card blue">
         <span class="info-card-icon">📅</span>
         <div class="info-card-label">DATE</div>
-        <div class="info-card-value" id="info-date">2026.8.XX</div>
-        <div class="info-card-sub" id="info-day">SAT</div>
+        <div class="info-card-value" id="info-date">2026.7.XX</div>
+        <div class="info-card-sub" id="info-day">SUN</div>
       </div>
       <div class="info-card yellow">
         <span class="info-card-icon">📍</span>
         <div class="info-card-label">VENUE</div>
-        <div class="info-card-value" id="info-venue" style="font-size:18px;">宇美町<br>〇〇公園</div>
+        <div class="info-card-value" id="info-venue" style="font-size:18px;">宇美駅前<br>JA駐車場</div>
       </div>
       <div class="info-card red">
         <span class="info-card-icon">⏰</span>
         <div class="info-card-label">TIME</div>
-        <div class="info-card-value" id="info-time">16:00〜21:00</div>
+        <div class="info-card-value" id="info-time">10:00〜17:00</div>
         <div class="info-card-sub">OPEN〜END</div>
       </div>
       <div class="info-card green">
@@ -1047,13 +820,21 @@
         <div class="info-card-sub">どなたでも入場OK</div>
       </div>
     </div>
-
     <div style="max-width:600px;margin:0 auto;text-align:center;">
-      <p id="info-desc" style="font-size:16px;font-weight:700;line-height:2;color:var(--navy);">
-        宇美町を盛り上げる夏の一夜。<br>
-        地域の人が集い、音楽と食と笑顔があふれる夏祭り。
-      </p>
+      <p id="info-desc" style="font-size:16px;font-weight:700;line-height:2;color:var(--navy);"></p>
     </div>
+  </section>
+
+  <!-- STRIPE -->
+  <div class="stripe-bar"></div>
+
+  <!-- CONTENTS -->
+  <section class="contents-section dots-bg" id="contents">
+    <div class="section-header">
+      <div class="section-tag">CONTENTS</div>
+      <h2 class="section-title">🎪 楽しみ方いろいろ！</h2>
+    </div>
+    <div class="contents-cards" id="contents-cards"></div>
   </section>
 
   <!-- STRIPE -->
@@ -1074,14 +855,12 @@
   <!-- YATAI -->
   <section class="yatai-section" id="yatai">
     <div class="section-header">
-      <div class="section-tag">FOOD & SHOPS</div>
+      <div class="section-tag">FOOD &amp; SHOPS</div>
       <h2 class="section-title">🏮 屋台・出店</h2>
     </div>
-    <!-- 屋台イラスト -->
     <div class="yatai-illus-wrap">
       <img src="images/illus-yatai.png" alt="夏祭り屋台イラスト" loading="lazy">
     </div>
-
     <div class="yatai-grid" id="yatai-grid"></div>
     <p class="yatai-note">※出店内容は変更になる場合があります</p>
   </section>
@@ -1114,6 +893,40 @@
   <!-- STRIPE -->
   <div class="stripe-bar"></div>
 
+  <!-- SURVEY + COUPON -->
+  <section class="survey-section" id="survey">
+    <div class="section-header">
+      <div class="section-tag">PRESENT</div>
+      <h2 class="section-title">🎁 アンケートに答えてクーポンゲット！</h2>
+    </div>
+    <div class="survey-box" id="survey-box">
+      <!-- JS で描画 -->
+    </div>
+    <div class="coupon-box" id="coupon-box">
+      <!-- JS で描画 -->
+    </div>
+  </section>
+
+  <!-- STRIPE -->
+  <div class="stripe-bar"></div>
+
+  <!-- SNS SHARE -->
+  <section class="share-section" id="share">
+    <div class="section-header">
+      <div class="section-tag">SHARE</div>
+      <h2 class="section-title">📱 友だちにシェアしよう！</h2>
+    </div>
+    <div class="share-buttons">
+      <a class="share-btn x-btn" id="share-x" href="#" target="_blank" rel="noopener">𝕏 Xでシェア</a>
+      <a class="share-btn line-btn" id="share-line" href="#" target="_blank" rel="noopener">💬 LINEで送る</a>
+      <button class="share-btn copy-btn" onclick="copyURL()">🔗 URLをコピー</button>
+    </div>
+    <div class="copy-toast" id="copy-toast">コピーしました！</div>
+  </section>
+
+  <!-- STRIPE -->
+  <div class="stripe-bar"></div>
+
   <!-- SPONSOR CTA -->
   <section class="sponsor-section" id="sponsor">
     <div class="section-header">
@@ -1129,7 +942,7 @@
       <a href="sponsor.html" target="_blank" class="btn-sponsor-list">
         🏅 協賛企業・協力一覧を見る
       </a>
-      <a href="mailto:" class="btn-contact" id="sponsor-contact-btn">
+      <a href="#" class="btn-contact" id="sponsor-contact-btn">
         📩 協賛のお問い合わせ
       </a>
     </div>
@@ -1139,12 +952,15 @@
   <footer>
     <div class="footer-logo">🏮 宇美町夏祭り 2026</div>
     <div class="footer-sub">UMI NATSU MATSURI 2026</div>
+    <div class="footer-organizer" id="footer-organizer"></div>
     <nav class="footer-nav">
       <a href="#info">開催情報</a>
+      <a href="#contents">楽しみ方</a>
       <a href="#program">プログラム</a>
       <a href="#yatai">屋台・出店</a>
       <a href="#access">アクセス</a>
       <a href="#faq">FAQ</a>
+      <a href="#survey">クーポン</a>
       <a href="sponsor.html" target="_blank">協賛企業一覧</a>
     </nav>
     <div class="footer-copy">© 2026 宇美町夏祭り実行委員会. All rights reserved.</div>
@@ -1156,44 +972,62 @@
 
   <script>
     const YATAI_ICONS = { 'フード':'🍢', 'ドリンク':'🍹', 'マルシェ':'🥬', '体験':'🎪', '雑貨':'🛍' };
+    const DOT_COLORS  = { orange: '#FF5C3A', yellow: '#FFD600', green: '#4AC74A' };
 
     fetch('data.json')
       .then(r => r.json())
       .then(data => {
         const ev = data.event;
 
-        // Hero
+        // ── Hero ──
         document.getElementById('hero-date').textContent  = `${ev.date}（${ev.day}）`;
         document.getElementById('hero-venue').textContent = ev.venue;
         document.getElementById('hero-time').textContent  = `${ev.open} OPEN`;
 
-        // Info
+        // ── Info ──
         document.getElementById('info-date').textContent  = ev.date;
         document.getElementById('info-day').textContent   = ev.day;
         document.getElementById('info-venue').innerHTML   = ev.venue;
         document.getElementById('info-time').textContent  = `${ev.open}〜${ev.end}`;
         document.getElementById('info-desc').innerHTML    = ev.description.replace(/\n/g, '<br>');
 
-        // Timetable
+        // ── Contents ──
+        if (data.contents) {
+          const cc = document.getElementById('contents-cards');
+          data.contents.forEach(c => {
+            const card = document.createElement('div');
+            card.className = `contents-card ${c.color}`;
+            card.innerHTML = `
+              <div class="contents-card-icon">${c.icon}</div>
+              <div class="contents-card-title">${c.title}</div>
+              <div class="contents-card-desc">${c.desc}</div>
+            `;
+            cc.appendChild(card);
+          });
+        }
+
+        // ── Timetable ──
         const tt = document.getElementById('timetable');
         data.program.forEach((item, i) => {
-          const isLast = i === data.program.length - 1;
-          const row = document.createElement('div');
-          row.className = 'tt-row';
-          row.innerHTML = `
+          const isLast   = i === data.program.length - 1;
+          const dotColor = DOT_COLORS[item.color] || '#FFD600';
+          const row      = document.createElement('div');
+          row.className  = 'tt-row';
+          row.innerHTML  = `
             <div class="tt-time">${item.time}</div>
             <div class="tt-axis">
-              <div class="tt-dot"></div>
+              <div class="tt-dot" style="background:${dotColor}"></div>
               ${!isLast ? '<div class="tt-line"></div>' : ''}
             </div>
             <div class="tt-content">
-              <div class="tt-content-text">${item.content}</div>
+              <div class="tt-content-title">${item.icon || ''} ${item.content}</div>
+              ${item.desc ? `<div class="tt-content-desc">${item.desc}</div>` : ''}
             </div>
           `;
           tt.appendChild(row);
         });
 
-        // Yatai
+        // ── Yatai ──
         const yg = document.getElementById('yatai-grid');
         data.yatai.forEach(y => {
           const card = document.createElement('div');
@@ -1206,38 +1040,32 @@
           yg.appendChild(card);
         });
 
-        // Map
+        // ── Map ──
         const map = L.map('map', { zoomControl: true }).setView([ev.lat, ev.lng], 15);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '© OpenStreetMap contributors',
-          maxZoom: 19
+          attribution: '© OpenStreetMap contributors', maxZoom: 19
         }).addTo(map);
-
         const icon = L.divIcon({
           className: '',
-          html: `<div style="width:44px;height:44px;background:var(--coral, #FF5C3A);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;border:3px solid #16205E;box-shadow:4px 4px 0 rgba(22,32,94,0.3);">🏮</div>`,
+          html: `<div style="width:44px;height:44px;background:#FF5C3A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;border:3px solid #16205E;box-shadow:4px 4px 0 rgba(22,32,94,0.3);">🏮</div>`,
           iconSize: [44, 44], iconAnchor: [22, 22]
         });
-
         L.marker([ev.lat, ev.lng], { icon }).addTo(map)
           .bindPopup(`<b>${ev.venue}</b><br>${ev.venue_addr}`).openPopup();
 
-        // Access cards
+        // ── Access cards ──
         const ac = document.getElementById('access-cards');
-        const accessItems = [
-          { label: 'VENUE', value: ev.venue },
-          { label: 'ADDRESS', value: ev.venue_addr },
-          { label: 'TRAIN', value: '西鉄バス 宇美バス停より徒歩〇分' },
-          { label: 'PARKING', value: '近隣コインパーキングをご利用ください' }
-        ];
-        accessItems.forEach(item => {
+        (data.access || []).forEach(item => {
           const div = document.createElement('div');
           div.className = 'access-card';
-          div.innerHTML = `<div class="access-card-label">${item.label}</div><div class="access-card-value">${item.value}</div>`;
+          div.innerHTML = `
+            <div class="access-card-label">${item.icon} ${item.label}</div>
+            <div class="access-card-value">${item.text}</div>
+          `;
           ac.appendChild(div);
         });
 
-        // FAQ
+        // ── FAQ ──
         const faqList = document.getElementById('faq-list');
         data.faq.forEach(item => {
           const div = document.createElement('div');
@@ -1255,7 +1083,91 @@
           div.querySelector('.faq-btn').addEventListener('click', () => div.classList.toggle('open'));
           faqList.appendChild(div);
         });
+
+        // ── Survey + Coupon ──
+        if (data.survey) {
+          const surveyBox = document.getElementById('survey-box');
+          const surveyAnswers = {};
+
+          data.survey.questions.forEach(q => {
+            const qDiv = document.createElement('div');
+            qDiv.className = 'survey-question';
+            qDiv.innerHTML = `<div class="survey-q-text">${q.text}</div>`;
+
+            const optDiv = document.createElement('div');
+            optDiv.className = 'survey-options';
+            q.options.forEach(opt => {
+              const label = document.createElement('label');
+              label.className = 'survey-option';
+              label.innerHTML = `
+                <input type="radio" name="${q.id}" value="${opt}">
+                <span class="survey-option-label">${opt}</span>
+              `;
+              label.querySelector('input').addEventListener('change', () => {
+                surveyAnswers[q.id] = opt;
+              });
+              optDiv.appendChild(label);
+            });
+
+            qDiv.appendChild(optDiv);
+            surveyBox.appendChild(qDiv);
+          });
+
+          const btn = document.createElement('button');
+          btn.className = 'survey-submit-btn';
+          btn.textContent = '🎁 クーポンをゲット！';
+          btn.addEventListener('click', () => {
+            if (Object.keys(surveyAnswers).length < data.survey.questions.length) {
+              alert('全ての質問に答えてください！');
+              return;
+            }
+            surveyBox.style.display = 'none';
+            const couponBox = document.getElementById('coupon-box');
+            couponBox.classList.add('show');
+            const cp = data.survey.coupon;
+            couponBox.innerHTML = `
+              <div class="coupon-card">
+                <div class="coupon-title">${cp.title}</div>
+                <div class="coupon-benefit">${cp.benefit}</div>
+                <div class="coupon-code-wrap">🎫 ${cp.code}</div>
+                <div class="coupon-note">${cp.note}</div>
+              </div>
+            `;
+          });
+          surveyBox.appendChild(btn);
+        }
+
+        // ── SNS Share ──
+        const shareText = encodeURIComponent(
+          `${ev.name} 開催決定！🏮\n${ev.date}（${ev.day}）${ev.venue}\n入場無料！ ${ev.hashtag}`
+        );
+        const shareUrl = encodeURIComponent(location.href);
+        document.getElementById('share-x').href    = `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`;
+        document.getElementById('share-line').href = `https://social-plugins.line.me/lineit/share?url=${shareUrl}&text=${shareText}`;
+
+        // ── Footer ──
+        const footerOrg = document.getElementById('footer-organizer');
+        if (footerOrg && ev.organizer) {
+          footerOrg.textContent = `主催：${ev.organizer}${ev.tel ? ' ／ TEL：' + ev.tel : ''}`;
+        }
+
+        // ── Sponsor contact ──
+        const contactBtn = document.getElementById('sponsor-contact-btn');
+        if (contactBtn && ev.tel) {
+          contactBtn.href = `tel:${ev.tel.replace(/-/g, '')}`;
+          contactBtn.textContent = `📞 ${ev.tel}`;
+        }
       });
+
+    function copyURL() {
+      navigator.clipboard.writeText(location.href).then(() => {
+        const toast = document.getElementById('copy-toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      }).catch(() => {
+        alert('URLをコピーできませんでした。');
+      });
+    }
   </script>
 </body>
 </html>
