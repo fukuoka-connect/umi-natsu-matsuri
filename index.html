@@ -279,8 +279,10 @@
       padding: 120px 24px 80px;
       overflow: hidden;
       background:
-        radial-gradient(circle at 20% 30%, rgba(196,72,83,0.18), transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(201,163,86,0.12), transparent 50%),
+        linear-gradient(180deg, rgba(10,19,48,0.78) 0%, rgba(10,19,48,0.92) 100%),
+        radial-gradient(circle at 20% 30%, rgba(196,72,83,0.20), transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(201,163,86,0.14), transparent 50%),
+        url('images/hero-night-lanterns.png') center/cover no-repeat,
         var(--ink);
     }
     .hero-meta-top {
@@ -751,11 +753,15 @@
 
     /* ── HEAT NOTICE （熱中症） ── */
     .heat {
-      background: linear-gradient(180deg, var(--ink-2), var(--ink));
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(20,28,64,0.94), rgba(10,19,48,0.97)),
+        url('images/heat-restarea.png') center/cover no-repeat;
       padding: 80px 24px;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
+    .heat .heat-wrap { position: relative; z-index: 2; }
     .heat-wrap {
       max-width: 880px;
       margin: 0 auto;
@@ -974,6 +980,107 @@
       color: var(--smoke);
       letter-spacing: 0.2em;
     }
+
+    /* ── 写真要素（セクションアクセント） ── */
+    .section-photo,
+    .intro-photo {
+      position: relative;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto 64px;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      isolation: isolate;
+    }
+    .intro-photo {
+      max-width: 1000px;
+      aspect-ratio: 21/9;
+    }
+    .section-photo img,
+    .intro-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.78) saturate(0.92) contrast(1.04);
+      transition: transform 1.4s ease, filter 1.4s ease;
+      display: block;
+    }
+    .section-photo:hover img,
+    .intro-photo:hover img {
+      transform: scale(1.03);
+      filter: brightness(0.88) saturate(1) contrast(1.04);
+    }
+    .section-photo::after,
+    .intro-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 35%, rgba(10,19,48,0.55) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .photo-caption {
+      position: absolute;
+      left: 24px;
+      bottom: 18px;
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.4em;
+      opacity: 0.92;
+      z-index: 2;
+      text-shadow: 0 2px 12px rgba(10,19,48,0.6);
+    }
+    @media (max-width: 768px) {
+      .section-photo,
+      .intro-photo { margin: 0 auto 36px; }
+      .photo-caption { font-size: 10px; left: 14px; bottom: 12px; letter-spacing: 0.3em; }
+    }
+
+    /* ── 屋台カードに実写背景 ── */
+    .yatai-card-photo {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .yatai-card-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.42) saturate(0.85) contrast(1.05);
+      transition: transform 0.8s ease, filter 0.8s ease;
+      display: block;
+    }
+    .yatai-card-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10,19,48,0.25) 0%, rgba(10,19,48,0.78) 100%);
+      pointer-events: none;
+    }
+    .yatai-card:hover .yatai-card-photo img {
+      transform: scale(1.08);
+      filter: brightness(0.6) saturate(1) contrast(1.05);
+    }
+    .yatai-card.has-photo {
+      background: var(--ink);
+    }
+    .yatai-card.has-photo .yatai-card-name,
+    .yatai-card.has-photo .yatai-card-genre {
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 10px rgba(10,19,48,0.7);
+    }
+    .yatai-card.has-photo .yatai-card-name {
+      font-size: 18px;
+      letter-spacing: 0.08em;
+    }
+    .yatai-card.has-photo:hover {
+      background: var(--ink);
+    }
   </style>
 </head>
 <body>
@@ -1038,6 +1145,10 @@
 
   <!-- INTRO -->
   <section class="intro noise reveal">
+    <figure class="intro-photo">
+      <img src="images/intro-yagura.png" alt="夕焼け空に浮かぶやぐらと提灯のシルエット" loading="lazy">
+      <span class="photo-caption">YAGURA AT DUSK</span>
+    </figure>
     <div class="intro-text">
       <p class="intro-lead">
         宇美の夜が、<br>
@@ -1106,6 +1217,10 @@
         <h2 class="section-head-jp">当日のプログラム</h2>
         <div class="section-head-mark">14:00 — 21:00</div>
       </div>
+      <figure class="section-photo">
+        <img src="images/program-taiko.png" alt="宇美太鼓演奏のドキュメンタリー写真" loading="lazy">
+        <span class="photo-caption">TAIKO ／ 16:00</span>
+      </figure>
       <div class="timetable" id="timetable"></div>
     </div>
   </section>
@@ -1250,6 +1365,13 @@
     const YATAI_ICONS = {
       'フード':'🍢', 'ドリンク':'🍹', 'マルシェ':'🥬', '体験':'🎯', '雑貨':'🧧'
     };
+    const YATAI_PHOTOS = {
+      'フード':    'images/yatai-food.png',
+      'ドリンク':  'images/yatai-drink.png',
+      'マルシェ':  'images/yatai-marche.png',
+      '体験':      'images/yatai-experience.png',
+      '雑貨':      'images/yatai-zakka.png'
+    };
 
     // 時刻に応じた小さな金の添え字（タイポ装飾）
     function timeMark(timeStr) {
@@ -1335,12 +1457,19 @@
         const yg = document.getElementById('yatai-grid');
         data.yatai.forEach(y => {
           const card = document.createElement('div');
-          card.className = 'yatai-card';
-          card.innerHTML = `
-            <div class="yatai-card-icon">${YATAI_ICONS[y.genre] || '🏮'}</div>
-            <div class="yatai-card-name">${y.name}</div>
-            <div class="yatai-card-genre">${y.genre.toUpperCase()}</div>
-          `;
+          const photo = YATAI_PHOTOS[y.genre];
+          card.className = photo ? 'yatai-card has-photo' : 'yatai-card';
+          card.innerHTML = photo
+            ? `
+              <div class="yatai-card-photo"><img src="${photo}" alt="${y.name}" loading="lazy"></div>
+              <div class="yatai-card-name">${y.name}</div>
+              <div class="yatai-card-genre">${y.genre.toUpperCase()}</div>
+            `
+            : `
+              <div class="yatai-card-icon">${YATAI_ICONS[y.genre] || '🏮'}</div>
+              <div class="yatai-card-name">${y.name}</div>
+              <div class="yatai-card-genre">${y.genre.toUpperCase()}</div>
+            `;
           yg.appendChild(card);
         });
 
