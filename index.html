@@ -3,972 +3,1019 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>宇美町夏祭り 2026</title>
+  <title>宇美町夏祭り 2026 ｜ UMI NATSU MATSURI 2026</title>
   <meta name="description" content="宇美町最大の夏のお祭り。屋台・ライブ・盆踊りが楽しめる地域フェス。2026年7月開催・14:00〜21:00・入場無料。">
   <meta property="og:title" content="宇美町夏祭り 2026">
-  <meta property="og:description" content="この夏は宇美町に集まろう！入場無料の夏祭り">
+  <meta property="og:description" content="宇美の夜が、一晩だけ祭りになる。2026年7月開催・入場無料。">
+  <meta property="og:type" content="website">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800;900&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --sun:      #FFD600;
-      --sky:      #6FC3E8;
-      --coral:    #D73848;   /* 和の赤（papercut基調色） */
-      --red-deep: #B82A38;
-      --red-soft: #E85A68;
-      --pink:     #FF4D93;
-      --green:    #4AC74A;
-      --purple:   #7B52DB;
-      --navy:     #1B2D5E;   /* 和の紺（papercut基調色） */
-      --navy-deep:#101D44;
-      --cream:    #FAF6EC;   /* 和紙風オフホワイト */
-      --paper:    #FFFCF3;
-      --white:    #FFFFFF;
-      --shadow:     4px 4px 0px rgba(27,45,94,0.15);
-      --shadow-big: 6px 6px 0px rgba(27,45,94,0.2);
+      --ink:        #0A1330;
+      --ink-2:      #141C40;
+      --ink-3:      #1F2A55;
+      --shu:        #C44853;
+      --shu-deep:   #962A36;
+      --gold:       #C9A356;
+      --gold-light: #E0C489;
+      --paper:      #F4EFE3;
+      --paper-2:    #FBF8F0;
+      --smoke:      #8A8F9E;
+      --smoke-2:    #B8BBC7;
+      --line:       rgba(201,163,86,0.25);
+      --line-strong:rgba(201,163,86,0.55);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
     body {
-      font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
-      background: var(--cream);
-      color: var(--navy);
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--ink);
+      color: var(--paper);
       overflow-x: hidden;
+      font-weight: 400;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: 0.02em;
     }
+
+    /* 共通: 紙ノイズ質感 */
+    .noise::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.06;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+      mix-blend-mode: overlay;
+      z-index: 1;
+    }
+
+    a { color: inherit; text-decoration: none; }
 
     /* ── NAV ── */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      background: var(--navy);
-      padding: 12px 24px;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 18px 36px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(10,19,48,0.65);
+      border-bottom: 1px solid var(--line);
     }
-
     .nav-logo {
-      font-size: 15px;
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 17px;
       font-weight: 800;
-      color: var(--sun);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      color: var(--gold);
+      letter-spacing: 0.1em;
     }
-
+    .nav-logo small {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 400;
+      color: var(--smoke);
+      letter-spacing: 0.3em;
+      margin-top: 2px;
+    }
     .nav-links {
       display: flex;
-      gap: 4px;
+      gap: 28px;
+      align-items: center;
     }
-
     .nav-link {
       font-size: 12px;
-      font-weight: 700;
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
-      padding: 6px 12px;
-      border-radius: 100px;
-      transition: all 0.2s;
+      font-weight: 500;
+      color: var(--paper);
+      letter-spacing: 0.15em;
+      opacity: 0.8;
+      transition: opacity 0.2s, color 0.2s;
     }
-    .nav-link:hover {
-      background: rgba(255,214,0,0.15);
-      color: var(--sun);
-    }
-
-    .nav-sponsor-btn {
+    .nav-link:hover { opacity: 1; color: var(--gold); }
+    .nav-cta {
       font-size: 11px;
-      font-weight: 800;
-      color: var(--navy);
-      background: var(--sun);
-      text-decoration: none;
-      padding: 7px 14px;
-      border-radius: 100px;
-      letter-spacing: 0.05em;
-      transition: transform 0.2s;
+      font-weight: 700;
+      color: var(--ink);
+      background: var(--gold);
+      padding: 9px 18px;
+      letter-spacing: 0.15em;
+      transition: background 0.2s;
     }
-    .nav-sponsor-btn:hover { transform: scale(1.05); }
-
-    @media (max-width: 640px) {
-      .nav-links { display: none; }
+    .nav-cta:hover { background: var(--gold-light); }
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { gap: 14px; }
+      .nav-link:not(.nav-cta) { display: none; }
     }
 
     /* ── HERO ── */
     .hero {
       position: relative;
-      min-height: 100svh;
-      background: var(--paper);
-      display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      align-items: center;
-      gap: clamp(20px, 4vw, 60px);
-      padding: clamp(70px, 10vw, 110px) clamp(24px, 6vw, 80px) clamp(60px, 8vw, 100px);
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 12% 18%, rgba(215,56,72,0.06) 0, transparent 38%),
-        radial-gradient(circle at 88% 78%, rgba(27,45,94,0.07) 0, transparent 42%),
-        repeating-linear-gradient(45deg, transparent 0 22px, rgba(27,45,94,0.025) 22px 23px);
-      pointer-events: none;
-    }
-
-    @media (max-width: 880px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding-top: 80px;
-      }
-    }
-
-    .lantern-row {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      min-height: 100vh;
       display: flex;
-      justify-content: space-around;
-      padding: 0 40px;
-      pointer-events: none;
-      z-index: 4;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 120px 24px 80px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(196,72,83,0.18), transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(201,163,86,0.12), transparent 50%),
+        var(--ink);
     }
-
-    .lantern { display: flex; flex-direction: column; align-items: center; }
-    .lantern-rope { width: 1px; height: 36px; background: rgba(27,45,94,0.45); }
-    .lantern-body {
-      width: 26px; height: 36px;
-      border-radius: 50% / 45%;
-      display: flex; align-items: center; justify-content: center;
+    .hero-meta-top {
+      font-family: 'Inter', sans-serif;
       font-size: 11px;
-      box-shadow: inset 0 0 8px rgba(255,255,255,0.25), 0 2px 6px rgba(27,45,94,0.25);
-      animation: lantern-swing var(--sw, 3s) ease-in-out infinite var(--sd, 0s);
-      transform-origin: top center;
-    }
-
-    @keyframes lantern-swing {
-      0%, 100% { transform: rotate(-5deg); }
-      50% { transform: rotate(5deg); }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 560px;
-      justify-self: start;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 0.5em;
+      margin-bottom: 24px;
+      opacity: 0.9;
       text-align: center;
     }
-    @media (max-width: 880px) {
-      .hero-content { justify-self: center; max-width: 100%; }
-    }
-
-    .hero-visual {
+    .hero-title-jp {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: clamp(120px, 22vw, 280px);
+      font-weight: 800;
+      line-height: 0.95;
+      color: var(--paper);
+      writing-mode: vertical-rl;
+      letter-spacing: 0.1em;
+      margin: 0 auto;
+      text-shadow: 0 4px 40px rgba(196,72,83,0.3);
       position: relative;
       z-index: 2;
-      width: 100%;
-      max-width: 540px;
-      justify-self: end;
-      filter: drop-shadow(8px 10px 0 rgba(27,45,94,0.10));
-      animation: hero-float 6s ease-in-out infinite;
     }
-    @media (max-width: 880px) {
-      .hero-visual { justify-self: center; max-width: 360px; margin-bottom: 12px; }
+    .hero-title-jp .accent {
+      color: var(--shu);
     }
-
-    @keyframes hero-float {
-      0%, 100% { transform: translateY(0) rotate(-0.5deg); }
-      50%      { transform: translateY(-10px) rotate(0.5deg); }
+    .hero-sub-en {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(11px, 1.2vw, 13px);
+      font-weight: 300;
+      color: var(--smoke);
+      letter-spacing: 0.5em;
+      margin-top: 36px;
+      text-align: center;
     }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--coral);
-      color: white;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      padding: 6px 18px;
-      border-radius: 100px;
-      margin-bottom: 20px;
-      box-shadow: var(--shadow);
-      animation: bounce-in 0.6s cubic-bezier(0.34,1.56,0.64,1) both 0.2s;
+    .hero-divider {
+      width: 1px;
+      height: 80px;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+      margin: 28px auto;
     }
-
-    @keyframes bounce-in {
-      from { opacity: 0; transform: scale(0.5) translateY(20px); }
-      to   { opacity: 1; transform: scale(1) translateY(0); }
-    }
-
-    .hero-title {
-      font-size: clamp(56px, 13vw, 108px);
-      font-weight: 900;
-      line-height: 0.98;
-      color: var(--navy);
-      text-shadow: 5px 5px 0 rgba(215,56,72,0.18), 9px 9px 0 rgba(27,45,94,0.10);
-      margin-bottom: 6px;
-      letter-spacing: 0.02em;
-      animation: bounce-in 0.6s cubic-bezier(0.34,1.56,0.64,1) both 0.4s;
-    }
-
-    .hero-year {
-      font-size: clamp(22px, 5vw, 36px);
-      font-weight: 900;
-      color: var(--coral);
-      letter-spacing: 0.18em;
-      text-shadow: 3px 3px 0 rgba(27,45,94,0.12);
-      margin-bottom: 24px;
-      animation: bounce-in 0.6s cubic-bezier(0.34,1.56,0.64,1) both 0.55s;
-    }
-
-    .hero-free-badge {
-      display: inline-block;
-      background: var(--navy);
-      color: var(--sun);
-      font-size: clamp(18px, 3.5vw, 22px);
-      font-weight: 900;
-      padding: 10px 32px;
-      border-radius: 100px;
-      margin-bottom: 32px;
-      box-shadow: var(--shadow-big);
-      transform: rotate(-2deg);
-      letter-spacing: 0.05em;
-      animation: bounce-in 0.6s cubic-bezier(0.34,1.56,0.64,1) both 0.7s;
-    }
-
     .hero-meta {
       display: flex;
+      gap: 48px;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
-      margin-bottom: 36px;
-      animation: bounce-in 0.6s cubic-bezier(0.34,1.56,0.64,1) both 0.85s;
+      align-items: flex-start;
+      margin-top: 8px;
+      position: relative;
+      z-index: 2;
     }
-
-    .hero-meta-chip {
-      background: white;
-      color: var(--navy);
-      font-size: 14px;
-      font-weight: 800;
-      padding: 10px 20px;
-      border-radius: 100px;
-      box-shadow: var(--shadow);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--coral);
-      color: white;
-      font-size: 16px;
-      font-weight: 900;
-      padding: 16px 40px;
-      border-radius: 100px;
-      text-decoration: none;
-      box-shadow: 0 6px 0 var(--red-deep);
-      transition: transform 0.15s, box-shadow 0.15s;
-      animation: bounce-in 0.6s cubic-bezier(0.34,1.56,0.64,1) both 1s;
-    }
-    .hero-cta:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--red-deep); }
-    .hero-cta:hover  { transform: translateY(-3px); box-shadow: 0 9px 0 var(--red-deep); }
-
-    /* ── SECTIONS ── */
-    .section-header {
+    .hero-meta-item {
       text-align: center;
-      margin-bottom: 48px;
+      min-width: 100px;
     }
-
-    .section-tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 800;
+    .hero-meta-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 0.4em;
+      margin-bottom: 8px;
+    }
+    .hero-meta-value {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--paper);
+      letter-spacing: 0.05em;
+    }
+    .hero-meta-value small {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--smoke);
+      margin-top: 4px;
       letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 100px;
-      margin-bottom: 12px;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.4em;
+      color: var(--smoke);
+      writing-mode: vertical-rl;
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.5; }
+      50% { transform: translateX(-50%) translateY(8px); opacity: 1; }
+    }
+    /* 提灯（控えめに2つだけ） */
+    .hero-lantern {
+      position: absolute;
+      width: 36px; height: 50px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, var(--shu), var(--shu-deep));
+      box-shadow: 0 0 40px rgba(196,72,83,0.6), 0 0 80px rgba(196,72,83,0.3);
+      opacity: 0.85;
+    }
+    .hero-lantern::before {
+      content: "";
+      position: absolute;
+      top: -40px; left: 50%;
+      width: 1px; height: 40px;
+      background: var(--gold);
+      transform: translateX(-50%);
+    }
+    .hero-lantern.l1 { top: 18%; left: 12%; animation: sway 4s ease-in-out infinite; }
+    .hero-lantern.l2 { top: 22%; right: 14%; animation: sway 3.5s ease-in-out infinite 0.8s; }
+    @keyframes sway {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
     }
 
-    .section-title {
-      font-size: clamp(28px, 6vw, 44px);
-      font-weight: 900;
+    /* ── SECTION 共通 ── */
+    section {
+      position: relative;
+      padding: 120px 24px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .section-head {
+      margin-bottom: 64px;
+      text-align: center;
+    }
+    .section-head-en {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 0.5em;
+      margin-bottom: 16px;
+    }
+    .section-head-jp {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      color: var(--paper);
+      letter-spacing: 0.1em;
       line-height: 1.2;
     }
-
-    /* ── INFO SECTION ── */
-    .info-section {
-      background: var(--white);
-      padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
-      position: relative;
-    }
-    .info-section .section-tag { background: rgba(41,182,246,0.12); color: var(--sky); }
-    .info-section .section-title { color: var(--navy); }
-
-    .info-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      max-width: 900px;
-      margin: 0 auto 40px;
+    .section-head-jp::after {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 20px auto 0;
     }
 
-    .info-card {
-      border-radius: 20px;
-      padding: 28px 20px;
-      text-align: center;
-      box-shadow: var(--shadow-big);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.2s;
+    /* ── INTRO ステートメント ── */
+    .intro {
+      background: var(--ink);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 100px 24px;
     }
-    .info-card:hover { transform: translateY(-4px) rotate(-1deg); }
-    .info-card::before {
-      content: '';
-      position: absolute;
-      top: -20px; right: -20px;
-      width: 80px; height: 80px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.2);
-    }
-    .info-card.blue   { background: var(--sky);   color: white; }
-    .info-card.yellow { background: var(--sun);   color: var(--navy); }
-    .info-card.red    { background: var(--coral); color: white; }
-    .info-card.green  { background: var(--green); color: white; }
-
-    .info-card-icon  { font-size: 40px; margin-bottom: 10px; display: block; }
-    .info-card-label { font-size: 10px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.8; margin-bottom: 6px; }
-    .info-card-value { font-size: clamp(20px, 4vw, 28px); font-weight: 900; line-height: 1.2; }
-    .info-card-sub   { font-size: 12px; font-weight: 700; opacity: 0.8; margin-top: 4px; }
-
-    /* ── CONTENTS SECTION ── */
-    .contents-section {
-      background: var(--cream);
-      padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
-    }
-    .contents-section .section-tag { background: rgba(255,92,58,0.12); color: var(--coral); }
-    .contents-section .section-title { color: var(--navy); }
-
-    .contents-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-      max-width: 920px;
+    .intro-text {
+      max-width: 720px;
       margin: 0 auto;
+      text-align: center;
+    }
+    .intro-lead {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 500;
+      line-height: 2;
+      color: var(--paper);
+      margin-bottom: 32px;
+      letter-spacing: 0.1em;
+    }
+    .intro-lead em {
+      font-style: normal;
+      color: var(--shu);
+      font-weight: 700;
+    }
+    .intro-body {
+      font-size: 14px;
+      line-height: 2;
+      color: var(--smoke-2);
+      letter-spacing: 0.05em;
     }
 
-    .contents-card {
-      border-radius: 24px;
-      padding: 36px 28px;
+    /* ── INFO ── */
+    .info {
+      background: var(--ink-2);
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--line);
+    }
+    .info-cell {
+      padding: 36px 24px;
+      text-align: center;
+      border-right: 1px solid var(--line);
+      background: var(--ink-2);
+      transition: background 0.3s;
+    }
+    .info-cell:last-child { border-right: none; }
+    .info-cell:hover { background: var(--ink-3); }
+    .info-cell-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 0.4em;
+      margin-bottom: 14px;
+    }
+    .info-cell-value {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--paper);
+      line-height: 1.4;
+      letter-spacing: 0.05em;
+    }
+    .info-cell-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      color: var(--smoke);
+      margin-top: 8px;
+      letter-spacing: 0.2em;
+    }
+    @media (max-width: 768px) {
+      .info-grid { grid-template-columns: repeat(2, 1fr); }
+      .info-cell:nth-child(2) { border-right: none; }
+      .info-cell:nth-child(1), .info-cell:nth-child(2) { border-bottom: 1px solid var(--line); }
+    }
+
+    /* ── PROGRAM ── */
+    .program {
+      background: var(--ink);
+    }
+    .timetable {
+      max-width: 720px;
+      margin: 0 auto;
       position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow-big);
-      transition: transform 0.2s;
     }
-    .contents-card:hover { transform: translateY(-5px) rotate(-1deg); }
-    .contents-card.orange { background: #FFF3E0; border: 3px solid var(--coral); }
-    .contents-card.green  { background: #E8F5E9; border: 3px solid var(--green); }
-    .contents-card.yellow { background: #FFFDE7; border: 3px solid #F9A825; }
-
-    .contents-card-icon  { font-size: 52px; margin-bottom: 12px; }
-    .contents-card-title { font-size: 20px; font-weight: 900; color: var(--navy); margin-bottom: 10px; }
-    .contents-card-desc  { font-size: 14px; line-height: 1.8; color: #555; }
-
-    /* ── PROGRAM SECTION ── */
-    .program-section {
-      background: #FFF8E1;
-      padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
+    .timetable::before {
+      content: "";
+      position: absolute;
+      left: 88px;
+      top: 12px;
+      bottom: 12px;
+      width: 1px;
+      background: var(--line-strong);
     }
-    .program-section .section-tag { background: rgba(255,214,0,0.25); color: #B8860B; }
-
-    .timetable { max-width: 620px; margin: 0 auto; display: flex; flex-direction: column; }
-
-    .tt-row { display: grid; grid-template-columns: 90px 24px 1fr; align-items: stretch; }
-
+    .tt-row {
+      display: grid;
+      grid-template-columns: 80px 24px 1fr;
+      gap: 0;
+      padding: 24px 0;
+      align-items: flex-start;
+      position: relative;
+    }
+    .tt-row + .tt-row { border-top: 1px solid var(--line); }
     .tt-time {
-      font-size: 24px; font-weight: 900; color: var(--coral);
-      text-align: right; padding: 16px 16px 16px 0; line-height: 1; padding-top: 18px;
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      padding-top: 2px;
     }
-
-    .tt-axis { display: flex; flex-direction: column; align-items: center; }
-
     .tt-dot {
-      width: 20px; height: 20px; border-radius: 50%;
-      background: var(--sun); border: 3px solid var(--navy);
-      flex-shrink: 0; margin-top: 16px; position: relative; z-index: 1;
+      position: relative;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--shu);
+      margin: 8px auto 0;
+      box-shadow: 0 0 12px rgba(196,72,83,0.6);
+      z-index: 2;
+    }
+    .tt-content { padding-left: 12px; }
+    .tt-content-title {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--paper);
+      margin-bottom: 6px;
+      letter-spacing: 0.05em;
+    }
+    .tt-content-desc {
+      font-size: 13px;
+      color: var(--smoke-2);
+      line-height: 1.7;
+    }
+    @media (max-width: 600px) {
+      .timetable::before { left: 64px; }
+      .tt-row { grid-template-columns: 56px 20px 1fr; }
+      .tt-time { font-size: 18px; }
     }
 
-    .tt-line {
-      width: 3px; flex: 1;
-      background: repeating-linear-gradient(to bottom, var(--navy) 0px, var(--navy) 5px, transparent 5px, transparent 10px);
+    /* ── YATAI ── */
+    .yatai {
+      background: var(--ink-2);
     }
-
-    .tt-row:last-child .tt-line { display: none; }
-
-    .tt-content { padding: 14px 0 14px 20px; }
-    .tt-content-title { font-size: 16px; font-weight: 800; color: var(--navy); line-height: 1.4; }
-    .tt-content-desc  { font-size: 12px; color: #777; margin-top: 4px; line-height: 1.6; }
-
-    /* ── YATAI SECTION ── */
-    .yatai-section {
-      background: var(--coral);
-      padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
-    }
-    .yatai-section .section-tag { background: rgba(255,255,255,0.25); color: white; }
-    .yatai-section .section-title { color: white; }
-
     .yatai-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 16px;
-      max-width: 800px;
-      margin: 0 auto 16px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
     }
-
     .yatai-card {
-      background: white;
-      border-radius: 20px;
-      padding: 24px 16px;
+      aspect-ratio: 1;
+      background: var(--ink-2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
       text-align: center;
-      box-shadow: var(--shadow-big);
-      transition: transform 0.2s;
+      transition: background 0.3s, transform 0.3s;
+      cursor: default;
     }
-    .yatai-card:hover { transform: translateY(-4px) rotate(1deg); }
-    .yatai-card-icon  { font-size: 40px; margin-bottom: 8px; }
-    .yatai-card-name  { font-size: 14px; font-weight: 800; color: var(--navy); }
-    .yatai-card-genre { font-size: 10px; font-weight: 700; color: var(--coral); letter-spacing: 0.1em; margin-top: 4px; }
-    .yatai-note       { text-align: center; color: rgba(255,255,255,0.8); font-size: 12px; margin-top: 8px; }
-
-    /* ── ACCESS SECTION ── */
-    .access-section {
-      background: var(--white);
-      padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
+    .yatai-card:hover {
+      background: var(--ink-3);
+      transform: scale(1.02);
+      z-index: 2;
     }
-    .access-section .section-tag { background: rgba(75,199,74,0.15); color: var(--green); }
-
-    #map {
-      width: 100%; max-width: 800px; height: 320px;
-      border-radius: 24px; border: 4px solid var(--navy); overflow: hidden;
-      margin: 0 auto 32px; display: block; box-shadow: var(--shadow-big);
+    .yatai-card-icon {
+      font-size: 36px;
+      margin-bottom: 14px;
+      opacity: 0.9;
+      filter: grayscale(0.3);
+    }
+    .yatai-card-name {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--paper);
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+    .yatai-card-genre {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.3em;
+    }
+    .yatai-note {
+      text-align: center;
+      margin-top: 36px;
+      font-size: 12px;
+      color: var(--smoke);
+      letter-spacing: 0.1em;
+    }
+    @media (max-width: 768px) {
+      .yatai-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
-    .access-cards {
+    /* ── ACCESS ── */
+    .access {
+      background: var(--ink);
+    }
+    .access-wrap {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: stretch;
+    }
+    #map {
+      width: 100%;
+      height: 480px;
+      border: 1px solid var(--line);
+      filter: grayscale(0.3) contrast(0.95);
+    }
+    .leaflet-container { background: var(--ink-2); }
+    .access-cards {
+      display: flex;
+      flex-direction: column;
       gap: 16px;
-      max-width: 800px;
-      margin: 0 auto;
+      justify-content: center;
     }
-
     .access-card {
-      background: var(--cream);
-      border: 3px solid var(--navy);
-      border-radius: 16px;
-      padding: 20px;
+      padding: 20px 24px;
+      border-left: 2px solid var(--gold);
+      background: rgba(20,28,64,0.4);
     }
-    .access-card-label { font-size: 10px; font-weight: 800; letter-spacing: 0.2em; color: var(--coral); text-transform: uppercase; margin-bottom: 6px; }
-    .access-card-value { font-size: 14px; font-weight: 700; color: var(--navy); line-height: 1.6; }
-    .access-card-value strong { font-weight: 900; }
-    .access-card-value small { font-size: 11px; color: #888; }
-
-    /* ── FAQ SECTION ── */
-    .faq-section {
-      background: var(--purple);
-      padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
+    .access-card-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 0.3em;
+      margin-bottom: 6px;
+      font-weight: 500;
     }
-    .faq-section .section-tag { background: rgba(255,255,255,0.2); color: white; }
-    .faq-section .section-title { color: white; }
+    .access-card-value {
+      font-size: 14px;
+      color: var(--paper);
+      line-height: 1.7;
+    }
+    .access-card-value small { color: var(--smoke); font-size: 11px; }
+    .access-card-value strong { color: var(--gold-light); font-weight: 700; }
+    @media (max-width: 900px) {
+      .access-wrap { grid-template-columns: 1fr; }
+      #map { height: 360px; }
+    }
 
-    .faq-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    /* ── HEAT NOTICE （熱中症） ── */
+    .heat {
+      background: linear-gradient(180deg, var(--ink-2), var(--ink));
+      padding: 80px 24px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .heat-wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+    .heat-mark {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 64px;
+      font-weight: 800;
+      color: var(--shu);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+    .heat-content-en {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.5em;
+      margin-bottom: 8px;
+    }
+    .heat-content-title {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--paper);
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+    }
+    .heat-content-body {
+      font-size: 13px;
+      color: var(--smoke-2);
+      line-height: 1.9;
+    }
+    .heat-points {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .heat-point {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      color: var(--gold-light);
+      letter-spacing: 0.15em;
+      padding: 4px 12px;
+      border: 1px solid var(--line-strong);
+    }
+    @media (max-width: 600px) {
+      .heat-wrap { grid-template-columns: 1fr; gap: 16px; text-align: center; }
+      .heat-points { justify-content: center; }
+    }
 
-    .faq-item { background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
-
+    /* ── FAQ ── */
+    .faq {
+      background: var(--ink);
+    }
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      border-top: 1px solid var(--line);
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--line);
+    }
     .faq-btn {
-      width: 100%; background: none; border: none; cursor: pointer;
-      padding: 20px 24px; display: flex; align-items: center; gap: 14px;
-      text-align: left; font-family: inherit; transition: background 0.2s;
+      width: 100%;
+      padding: 28px 0;
+      background: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      cursor: pointer;
+      text-align: left;
+      color: var(--paper);
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
     }
-    .faq-btn:hover { background: rgba(123,82,219,0.06); }
-
-    .faq-q-icon {
-      width: 32px; height: 32px; border-radius: 50%;
-      background: var(--purple); color: white;
-      font-size: 16px; font-weight: 900;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    .faq-btn:hover { color: var(--gold); }
+    .faq-q-mark {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      flex-shrink: 0;
+      width: 36px;
     }
-    .faq-q-text { flex: 1; font-size: 15px; font-weight: 800; color: var(--navy); }
-    .faq-chevron { color: var(--purple); transition: transform 0.3s; flex-shrink: 0; }
+    .faq-q-text { flex: 1; line-height: 1.6; }
+    .faq-chevron {
+      flex-shrink: 0;
+      color: var(--gold);
+      transition: transform 0.3s;
+    }
     .faq-item.open .faq-chevron { transform: rotate(180deg); }
-    .faq-answer { display: none; padding: 0 24px 20px 70px; font-size: 14px; color: #555; line-height: 1.8; }
-    .faq-item.open .faq-answer { display: block; }
-
-    /* ── SURVEY SECTION ── */
-    .survey-section {
-      background: var(--sky);
-      padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      font-size: 13px;
+      color: var(--smoke-2);
+      line-height: 2;
+      padding: 0 0 0 56px;
     }
-    .survey-section .section-tag { background: rgba(255,255,255,0.25); color: white; }
-    .survey-section .section-title { color: white; }
-
-    .survey-box {
-      max-width: 620px; margin: 0 auto;
-      background: white; border-radius: 24px;
-      padding: 40px 36px; box-shadow: var(--shadow-big);
+    .faq-item.open .faq-answer {
+      max-height: 400px;
+      padding: 0 0 28px 56px;
     }
-    @media (max-width: 480px) { .survey-box { padding: 28px 20px; } }
+    .faq-answer strong { color: var(--gold-light); font-weight: 700; }
 
-    .survey-question { margin-bottom: 28px; }
-    .survey-question:last-of-type { margin-bottom: 0; }
-    .survey-q-text { font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
-
-    .survey-options { display: flex; flex-wrap: wrap; gap: 8px; }
-    .survey-option { cursor: pointer; }
-    .survey-option input[type="radio"] { display: none; }
-    .survey-option-label {
-      display: block; font-size: 13px; font-weight: 700;
-      padding: 8px 16px; border-radius: 100px;
-      border: 2.5px solid rgba(22,32,94,0.15);
-      background: var(--cream); color: var(--navy);
-      cursor: pointer; transition: all 0.2s; user-select: none;
+    /* ── SPONSOR ── */
+    .sponsor {
+      background: var(--ink-2);
+      border-top: 1px solid var(--line);
     }
-    .survey-option input:checked + .survey-option-label {
-      background: var(--sky); border-color: var(--sky); color: white;
-    }
-
-    .survey-submit-btn {
-      display: block; width: 100%; margin-top: 28px;
-      padding: 16px; background: var(--coral); color: white;
-      border: none; border-radius: 100px;
-      font-size: 16px; font-weight: 900; font-family: inherit;
-      cursor: pointer; box-shadow: 0 5px 0 rgba(180,40,10,0.3);
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
-    .survey-submit-btn:hover  { transform: translateY(-2px); box-shadow: 0 7px 0 rgba(180,40,10,0.3); }
-    .survey-submit-btn:active { transform: translateY(3px);  box-shadow: 0 2px 0 rgba(180,40,10,0.3); }
-
-    .coupon-box { max-width: 620px; margin: 0 auto; display: none; }
-    .coupon-box.show { display: block; animation: bounce-in 0.5s cubic-bezier(0.34,1.56,0.64,1) both; }
-
-    .coupon-card {
-      background: white; border-radius: 24px; padding: 44px 36px;
-      text-align: center; box-shadow: var(--shadow-big);
-      border: 4px dashed var(--sun); position: relative; overflow: hidden;
-    }
-    .coupon-card::before {
-      content: '🎫'; position: absolute; top: 12px; right: 16px;
-      font-size: 48px; opacity: 0.12;
-    }
-    .coupon-title { font-size: 12px; font-weight: 800; letter-spacing: 0.2em; color: var(--coral); text-transform: uppercase; margin-bottom: 8px; }
-    .coupon-benefit { font-size: clamp(22px, 5vw, 30px); font-weight: 900; color: var(--navy); line-height: 1.5; margin-bottom: 20px; }
-    .coupon-code-wrap {
-      display: inline-flex; align-items: center; gap: 12px;
-      background: var(--navy); color: var(--sun);
-      font-size: 22px; font-weight: 900; letter-spacing: 0.15em;
-      padding: 14px 32px; border-radius: 16px; margin-bottom: 16px;
-    }
-    .coupon-note { font-size: 11px; color: #999; line-height: 1.7; margin-top: 8px; }
-
-    /* ── SNS SHARE SECTION ── */
-    .share-section {
-      background: var(--green);
-      padding: clamp(40px, 8vw, 72px) clamp(20px, 5vw, 80px);
+    .sponsor-cta-wrap {
+      max-width: 720px;
+      margin: 0 auto;
       text-align: center;
     }
-    .share-section .section-tag { background: rgba(255,255,255,0.25); color: white; }
-    .share-section .section-title { color: white; }
-
-    .share-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 600px; margin: 0 auto; }
-
-    .share-btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 14px; font-weight: 800;
-      padding: 13px 24px; border-radius: 100px;
-      text-decoration: none; cursor: pointer; border: none;
-      font-family: inherit; box-shadow: 0 4px 0 rgba(0,0,0,0.2);
-      transition: transform 0.15s, box-shadow 0.15s;
+    .sponsor-lead {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 18px;
+      color: var(--paper);
+      line-height: 2;
+      margin-bottom: 32px;
+      letter-spacing: 0.05em;
     }
-    .share-btn:hover  { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(0,0,0,0.2); }
-    .share-btn:active { transform: translateY(2px);  box-shadow: 0 2px 0 rgba(0,0,0,0.2); }
-    .share-btn.x-btn    { background: #000; color: #fff; }
-    .share-btn.line-btn { background: #06C755; color: #fff; }
-    .share-btn.copy-btn { background: white; color: var(--navy); }
-
-    .copy-toast {
-      display: inline-block; background: var(--navy); color: white;
-      font-size: 12px; font-weight: 700; padding: 8px 20px;
-      border-radius: 100px; margin-top: 12px;
-      opacity: 0; transition: opacity 0.3s; pointer-events: none;
+    .sponsor-btn {
+      display: inline-block;
+      padding: 18px 56px;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      transition: background 0.3s, color 0.3s;
     }
-    .copy-toast.show { opacity: 1; }
-
-    /* ── SPONSOR SECTION ── */
-    .sponsor-section {
-      background: var(--sun);
-      padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 80px);
-      text-align: center;
+    .sponsor-btn:hover {
+      background: var(--gold);
+      color: var(--ink);
     }
-    .sponsor-section .section-tag { background: rgba(22,32,94,0.1); color: var(--navy); }
-    .sponsor-section .section-title { color: var(--navy); }
-
-    .sponsor-cta-box {
-      display: inline-flex; flex-direction: column; align-items: center; gap: 16px;
-      background: white; border: 4px solid var(--navy);
-      border-radius: 24px; padding: 40px 48px;
-      box-shadow: var(--shadow-big); margin-top: 24px;
+    .sponsor-btn-en {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 400;
+      color: var(--smoke);
+      letter-spacing: 0.4em;
+      margin-top: 4px;
     }
-    @media (max-width: 480px) { .sponsor-cta-box { padding: 28px 24px; } }
-
-    .sponsor-cta-box p { font-size: 16px; font-weight: 700; color: var(--navy); line-height: 1.8; }
-    .sponsor-cta-box p em { color: var(--coral); font-style: normal; font-weight: 900; }
-
-    .btn-sponsor-list {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--navy); color: white;
-      font-size: 15px; font-weight: 900;
-      padding: 14px 32px; border-radius: 100px;
-      text-decoration: none; box-shadow: 0 5px 0 rgba(0,0,0,0.25);
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
-    .btn-sponsor-list:hover { transform: translateY(-3px); box-shadow: 0 8px 0 rgba(0,0,0,0.25); }
-
-    .btn-contact {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--coral); color: white;
-      font-size: 14px; font-weight: 800;
-      padding: 12px 28px; border-radius: 100px;
-      text-decoration: none; box-shadow: 0 4px 0 rgba(180,40,10,0.3);
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
-    .btn-contact:hover { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(180,40,10,0.3); }
+    .sponsor-btn:hover .sponsor-btn-en { color: var(--ink); opacity: 0.7; }
 
     /* ── FOOTER ── */
     footer {
-      background: var(--navy);
-      padding: 48px 24px;
+      background: var(--ink);
+      padding: 80px 24px 40px;
+      border-top: 1px solid var(--line);
       text-align: center;
-      color: rgba(255,255,255,0.7);
+      position: relative;
     }
-    .footer-logo { font-size: 22px; font-weight: 900; color: var(--sun); margin-bottom: 8px; }
-    .footer-sub  { font-size: 11px; letter-spacing: 0.2em; margin-bottom: 16px; opacity: 0.5; }
-    .footer-organizer { font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 24px; }
-
-    .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 24px; margin-bottom: 32px; }
-    .footer-nav a { font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
-    .footer-nav a:hover { color: var(--sun); }
-    .footer-copy { font-size: 11px; opacity: 0.35; }
-
-    /* ── MISC ── */
-    .dots-bg { background-image: radial-gradient(rgba(22,32,94,0.06) 1.5px, transparent 1.5px); background-size: 24px 24px; }
-
-    .stripe-bar {
-      height: 14px;
-      background: repeating-linear-gradient(-45deg, var(--navy) 0px, var(--navy) 6px, var(--sun) 6px, var(--sun) 12px);
+    .footer-logo {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--paper);
+      letter-spacing: 0.15em;
+      margin-bottom: 6px;
     }
-
-    /* ── ILLUSTRATIONS ── */
-    .yatai-illus-wrap { display: flex; justify-content: center; margin-bottom: 36px; }
-    .yatai-illus-wrap img { width: 100%; max-width: 480px; height: auto; filter: drop-shadow(5px 5px 0 rgba(27,45,94,0.12)); }
+    .footer-en {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.5em;
+      margin-bottom: 32px;
+    }
+    .footer-organizer {
+      font-size: 13px;
+      color: var(--smoke-2);
+      margin-bottom: 8px;
+    }
+    .footer-organizer strong { color: var(--gold-light); }
+    .footer-tag {
+      font-size: 11px;
+      color: var(--smoke);
+      margin-bottom: 28px;
+      letter-spacing: 0.2em;
+    }
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .footer-nav a {
+      font-size: 11px;
+      color: var(--smoke-2);
+      letter-spacing: 0.2em;
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover { color: var(--gold); }
+    .footer-copy {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      color: var(--smoke);
+      letter-spacing: 0.2em;
+    }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
-    <a href="#top" class="nav-logo">🏮 宇美町夏祭り</a>
+    <a href="#top" class="nav-logo">
+      宇美町夏祭り 2026
+      <small>UMI NATSU MATSURI</small>
+    </a>
     <div class="nav-links">
-      <a href="#info"     class="nav-link">開催情報</a>
-      <a href="#contents" class="nav-link">楽しみ方</a>
-      <a href="#program"  class="nav-link">プログラム</a>
-      <a href="#access"   class="nav-link">アクセス</a>
-      <a href="#survey"   class="nav-link">クーポン🎁</a>
+      <a href="#info" class="nav-link">INFO</a>
+      <a href="#program" class="nav-link">PROGRAM</a>
+      <a href="#yatai" class="nav-link">FOOD</a>
+      <a href="#access" class="nav-link">ACCESS</a>
+      <a href="sponsor.html" target="_blank" class="nav-cta">SPONSOR</a>
     </div>
-    <a href="sponsor.html" target="_blank" class="nav-sponsor-btn">協賛企業一覧</a>
   </nav>
 
   <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="lantern-row">
-      <div class="lantern"><div class="lantern-rope"></div><div class="lantern-body" style="background:var(--coral);--sw:3.2s;--sd:0s;">🏮</div></div>
-      <div class="lantern"><div class="lantern-rope"></div><div class="lantern-body" style="background:var(--navy);--sw:2.8s;--sd:0.4s;">🏮</div></div>
-      <div class="lantern"><div class="lantern-rope"></div><div class="lantern-body" style="background:var(--coral);--sw:3.5s;--sd:0.8s;">🏮</div></div>
-      <div class="lantern"><div class="lantern-rope"></div><div class="lantern-body" style="background:var(--navy);--sw:3.0s;--sd:1.2s;">🏮</div></div>
-      <div class="lantern"><div class="lantern-rope"></div><div class="lantern-body" style="background:var(--coral);--sw:2.6s;--sd:0.2s;">🏮</div></div>
-      <div class="lantern"><div class="lantern-rope"></div><div class="lantern-body" style="background:var(--navy);--sw:3.3s;--sd:0.6s;">🏮</div></div>
-      <div class="lantern"><div class="lantern-rope"></div><div class="lantern-body" style="background:var(--coral);--sw:2.9s;--sd:1.0s;">🏮</div></div>
-      <div class="lantern"><div class="lantern-rope"></div><div class="lantern-body" style="background:var(--navy);--sw:3.4s;--sd:0.3s;">🏮</div></div>
-    </div>
+  <section class="hero noise" id="top">
+    <div class="hero-lantern l1"></div>
+    <div class="hero-lantern l2"></div>
 
-    <img src="images/hero-natsumatsuri-pattern.png" alt="夏祭りの風物詩イラスト（花火・提灯・団扇・金魚など）" class="hero-visual">
+    <div class="hero-meta-top">糟屋郡 宇美町 ／ ANNUAL FESTIVAL</div>
 
-    <div class="hero-content">
-      <div class="hero-badge">🎉 糟屋郡 宇美町 夏の大イベント</div>
-      <h1 class="hero-title">宇美町<br>夏祭り</h1>
-      <p class="hero-year" id="hero-year">2026</p>
-      <div class="hero-free-badge">🎟 入場無料！</div>
-      <div class="hero-meta">
-        <div class="hero-meta-chip">📅 <span id="hero-date">2026.7.XX（SUN）</span></div>
-        <div class="hero-meta-chip">📍 <span id="hero-venue">宇美駅前 JA駐車場</span></div>
-        <div class="hero-meta-chip">⏰ <span id="hero-time">14:00 OPEN</span></div>
+    <h1 class="hero-title-jp">夏<span class="accent">祭</span></h1>
+
+    <div class="hero-sub-en">UMI NATSU MATSURI 2026</div>
+
+    <div class="hero-divider"></div>
+
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">DATE</div>
+        <div class="hero-meta-value" id="hero-date">2026.7.XX<small>SUN</small></div>
       </div>
-      <a href="#info" class="hero-cta">くわしく見る ▼</a>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">TIME</div>
+        <div class="hero-meta-value" id="hero-time">14:00 — 21:00</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">VENUE</div>
+        <div class="hero-meta-value" id="hero-venue">宇美駅前 JA駐車場</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">ENTRY</div>
+        <div class="hero-meta-value">無料<small>FREE</small></div>
+      </div>
     </div>
+
+    <div class="hero-scroll">SCROLL</div>
   </section>
 
-  <!-- STRIPE -->
-  <div class="stripe-bar"></div>
+  <!-- INTRO -->
+  <section class="intro noise">
+    <div class="intro-text">
+      <p class="intro-lead">
+        宇美の夜が、<br>
+        <em>一晩だけ祭りになる。</em>
+      </p>
+      <p class="intro-body">
+        宇美町商工会青年部が一年に一度、町ぐるみで仕掛ける夏のイベント。<br>
+        屋台の煙、太鼓の鼓動、提灯のあかり、盆踊りの輪。<br>
+        家族連れも、中高生も、大人だけの夜も。<br>
+        宇美町に関わる全ての人へ、この夏いちばんの夜をお届けします。
+      </p>
+    </div>
+  </section>
 
   <!-- INFO -->
-  <section class="info-section dots-bg" id="info">
-    <div class="section-header">
-      <div class="section-tag">INFORMATION</div>
-      <h2 class="section-title">📋 開催情報</h2>
-    </div>
-    <div class="info-cards">
-      <div class="info-card blue">
-        <span class="info-card-icon">📅</span>
-        <div class="info-card-label">DATE</div>
-        <div class="info-card-value" id="info-date">2026.7.XX</div>
-        <div class="info-card-sub" id="info-day">SUN</div>
+  <section class="info noise" id="info">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-en">INFORMATION</div>
+        <h2 class="section-head-jp">開催情報</h2>
       </div>
-      <div class="info-card yellow">
-        <span class="info-card-icon">📍</span>
-        <div class="info-card-label">VENUE</div>
-        <div class="info-card-value" id="info-venue" style="font-size:18px;">宇美駅前<br>JA駐車場</div>
+      <div class="info-grid">
+        <div class="info-cell">
+          <div class="info-cell-label">DATE</div>
+          <div class="info-cell-value" id="info-date">2026.7.XX</div>
+          <div class="info-cell-sub" id="info-day">SUNDAY</div>
+        </div>
+        <div class="info-cell">
+          <div class="info-cell-label">TIME</div>
+          <div class="info-cell-value" id="info-time">14:00 — 21:00</div>
+          <div class="info-cell-sub">OPEN — END</div>
+        </div>
+        <div class="info-cell">
+          <div class="info-cell-label">VENUE</div>
+          <div class="info-cell-value" id="info-venue">宇美駅前<br>JA駐車場</div>
+          <div class="info-cell-sub">UMI STATION</div>
+        </div>
+        <div class="info-cell">
+          <div class="info-cell-label">ENTRY</div>
+          <div class="info-cell-value">無料</div>
+          <div class="info-cell-sub">FREE ADMISSION</div>
+        </div>
       </div>
-      <div class="info-card red">
-        <span class="info-card-icon">⏰</span>
-        <div class="info-card-label">TIME</div>
-        <div class="info-card-value" id="info-time">14:00〜21:00</div>
-        <div class="info-card-sub">OPEN〜END</div>
-      </div>
-      <div class="info-card green">
-        <span class="info-card-icon">🎟</span>
-        <div class="info-card-label">ADMISSION</div>
-        <div class="info-card-value">無料！</div>
-        <div class="info-card-sub">どなたでも入場OK</div>
-      </div>
-    </div>
-    <div style="max-width:600px;margin:0 auto;text-align:center;">
-      <p id="info-desc" style="font-size:16px;font-weight:700;line-height:2;color:var(--navy);"></p>
     </div>
   </section>
-
-  <!-- STRIPE -->
-  <div class="stripe-bar"></div>
-
-  <!-- CONTENTS -->
-  <section class="contents-section dots-bg" id="contents">
-    <div class="section-header">
-      <div class="section-tag">CONTENTS</div>
-      <h2 class="section-title">🎪 楽しみ方いろいろ！</h2>
-    </div>
-    <div class="contents-cards" id="contents-cards"></div>
-  </section>
-
-  <!-- STRIPE -->
-  <div class="stripe-bar"></div>
 
   <!-- PROGRAM -->
-  <section class="program-section" id="program">
-    <div class="section-header">
-      <div class="section-tag">TIME TABLE</div>
-      <h2 class="section-title">🕐 当日のプログラム</h2>
+  <section class="program noise" id="program">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-en">TIME TABLE</div>
+        <h2 class="section-head-jp">当日のプログラム</h2>
+      </div>
+      <div class="timetable" id="timetable"></div>
     </div>
-    <div class="timetable" id="timetable"></div>
   </section>
-
-  <!-- STRIPE -->
-  <div class="stripe-bar"></div>
 
   <!-- YATAI -->
-  <section class="yatai-section" id="yatai">
-    <div class="section-header">
-      <div class="section-tag">FOOD &amp; SHOPS</div>
-      <h2 class="section-title">🏮 屋台・出店</h2>
+  <section class="yatai noise" id="yatai">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-en">FOOD &amp; SHOPS</div>
+        <h2 class="section-head-jp">屋台・出店</h2>
+      </div>
+      <div class="yatai-grid" id="yatai-grid"></div>
+      <p class="yatai-note">※ 出店内容は当日変更となる場合があります</p>
     </div>
-    <div class="yatai-illus-wrap">
-      <img src="images/illus-yatai.png" alt="夏祭り屋台イラスト" loading="lazy">
-    </div>
-    <div class="yatai-grid" id="yatai-grid"></div>
-    <p class="yatai-note">※出店内容は変更になる場合があります</p>
   </section>
-
-  <!-- STRIPE -->
-  <div class="stripe-bar"></div>
 
   <!-- ACCESS -->
-  <section class="access-section" id="access">
-    <div class="section-header">
-      <div class="section-tag">ACCESS</div>
-      <h2 class="section-title">🗺 アクセス</h2>
+  <section class="access noise" id="access">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-en">ACCESS</div>
+        <h2 class="section-head-jp">会場へのアクセス</h2>
+      </div>
+      <div class="access-wrap">
+        <div id="map"></div>
+        <div class="access-cards" id="access-cards"></div>
+      </div>
     </div>
-    <div id="map"></div>
-    <div class="access-cards" id="access-cards"></div>
   </section>
 
-  <!-- STRIPE -->
-  <div class="stripe-bar"></div>
+  <!-- HEAT 熱中症 -->
+  <section class="heat noise">
+    <div class="heat-wrap">
+      <div class="heat-mark">熱中症対策</div>
+      <div class="heat-content">
+        <div class="heat-content-en">SAFETY ／ HEATSTROKE PREVENTION</div>
+        <div class="heat-content-title">安心して楽しんでいただくために</div>
+        <p class="heat-content-body">
+          会場内に <strong style="color:var(--gold-light)">給水ポイント・休憩スペース・救護所</strong> を設置しています。
+          帽子・うちわ・水分の持参を推奨します。お子さま連れの方は、こまめな水分補給と休憩をお願いいたします。
+          気分が悪くなった方は遠慮なく救護スタッフへお声がけください。
+        </p>
+        <div class="heat-points">
+          <span class="heat-point">給水ポイント</span>
+          <span class="heat-point">休憩スペース</span>
+          <span class="heat-point">救護所</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- FAQ -->
-  <section class="faq-section" id="faq">
-    <div class="section-header">
-      <div class="section-tag">FAQ</div>
-      <h2 class="section-title">❓ よくある質問</h2>
-    </div>
-    <div class="faq-list" id="faq-list"></div>
-  </section>
-
-  <!-- STRIPE -->
-  <div class="stripe-bar"></div>
-
-  <!-- SURVEY + COUPON -->
-  <section class="survey-section" id="survey">
-    <div class="section-header">
-      <div class="section-tag">PRESENT</div>
-      <h2 class="section-title">🎁 アンケートに答えてクーポンゲット！</h2>
-    </div>
-    <div class="survey-box" id="survey-box">
-      <!-- JS で描画 -->
-    </div>
-    <div class="coupon-box" id="coupon-box">
-      <!-- JS で描画 -->
+  <section class="faq noise" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-en">FAQ</div>
+        <h2 class="section-head-jp">よくある質問</h2>
+      </div>
+      <div class="faq-list" id="faq-list"></div>
     </div>
   </section>
-
-  <!-- STRIPE -->
-  <div class="stripe-bar"></div>
-
-  <!-- SNS SHARE -->
-  <section class="share-section" id="share">
-    <div class="section-header">
-      <div class="section-tag">SHARE</div>
-      <h2 class="section-title">📱 友だちにシェアしよう！</h2>
-    </div>
-    <div class="share-buttons">
-      <a class="share-btn x-btn" id="share-x" href="#" target="_blank" rel="noopener">𝕏 Xでシェア</a>
-      <a class="share-btn line-btn" id="share-line" href="#" target="_blank" rel="noopener">💬 LINEで送る</a>
-      <button class="share-btn copy-btn" onclick="copyURL()">🔗 URLをコピー</button>
-    </div>
-    <div class="copy-toast" id="copy-toast">コピーしました！</div>
-  </section>
-
-  <!-- STRIPE -->
-  <div class="stripe-bar"></div>
 
   <!-- SPONSOR CTA -->
-  <section class="sponsor-section" id="sponsor">
-    <div class="section-header">
-      <div class="section-tag">SPONSOR</div>
-      <h2 class="section-title">🤝 協賛企業・協力</h2>
-    </div>
-    <div class="sponsor-cta-box">
-      <p>
-        宇美町夏祭りは地域の企業・お店の<br>
-        <em>ご支援・ご協力</em>によって開催されています。<br>
-        ご協賛いただいた企業・店舗の皆様に感謝申し上げます。
-      </p>
-      <a href="sponsor.html" target="_blank" class="btn-sponsor-list">
-        🏅 協賛企業・協力一覧を見る
-      </a>
-      <a href="#" class="btn-contact" id="sponsor-contact-btn">
-        📩 協賛のお問い合わせ
-      </a>
+  <section class="sponsor noise" id="sponsor">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-en">SPONSOR</div>
+        <h2 class="section-head-jp">協賛企業・協力</h2>
+      </div>
+      <div class="sponsor-cta-wrap">
+        <p class="sponsor-lead">
+          地域の祭りは、地域の力で。<br>
+          ご協賛・ご協力のお問い合わせは下記より。
+        </p>
+        <a href="sponsor.html" target="_blank" class="sponsor-btn">
+          協賛企業一覧へ
+          <span class="sponsor-btn-en">VIEW SPONSORS</span>
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-logo">🏮 宇美町夏祭り 2026</div>
-    <div class="footer-sub">UMI NATSU MATSURI 2026</div>
-    <div class="footer-organizer" id="footer-organizer"></div>
+  <footer class="noise">
+    <div class="footer-logo">宇美町夏祭り 2026</div>
+    <div class="footer-en">UMI NATSU MATSURI 2026</div>
+    <div class="footer-organizer">主催 ／ <strong id="footer-organizer">宇美町商工会青年部</strong></div>
+    <div class="footer-tag" id="footer-hashtag">#宇美夏祭り2026</div>
     <nav class="footer-nav">
-      <a href="#info">開催情報</a>
-      <a href="#contents">楽しみ方</a>
-      <a href="#program">プログラム</a>
-      <a href="#yatai">屋台・出店</a>
-      <a href="#access">アクセス</a>
+      <a href="#info">INFO</a>
+      <a href="#program">PROGRAM</a>
+      <a href="#yatai">FOOD</a>
+      <a href="#access">ACCESS</a>
       <a href="#faq">FAQ</a>
-      <a href="#survey">クーポン</a>
-      <a href="sponsor.html" target="_blank">協賛企業一覧</a>
+      <a href="sponsor.html" target="_blank">SPONSOR</a>
     </nav>
-    <div class="footer-copy">© 2026 宇美町夏祭り実行委員会. All rights reserved.</div>
+    <div class="footer-copy">© 2026 UMI NATSU MATSURI 2026 / 宇美町商工会青年部</div>
   </footer>
 
-  <!-- LEAFLET -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <script>
-    const YATAI_ICONS = { 'フード':'🍢', 'ドリンク':'🍹', 'マルシェ':'🥬', '体験':'🎪', '雑貨':'🛍' };
-    const DOT_COLORS  = { orange: '#FF5C3A', yellow: '#FFD600', green: '#4AC74A' };
+    const YATAI_ICONS = {
+      'フード':'🍢', 'ドリンク':'🍹', 'マルシェ':'🥬', '体験':'🎯', '雑貨':'🧧'
+    };
 
     fetch('data.json')
       .then(r => r.json())
       .then(data => {
         const ev = data.event;
 
-        // ── Hero ──
-        document.getElementById('hero-date').textContent  = `${ev.date}（${ev.day}）`;
+        // ── HERO ──
+        document.getElementById('hero-date').innerHTML  = `${ev.date}<small>${ev.day}</small>`;
+        document.getElementById('hero-time').textContent = `${ev.open} — ${ev.end}`;
         document.getElementById('hero-venue').textContent = ev.venue;
-        document.getElementById('hero-time').textContent  = `${ev.open} OPEN`;
 
-        // ── Info ──
-        document.getElementById('info-date').textContent  = ev.date;
-        document.getElementById('info-day').textContent   = ev.day;
-        document.getElementById('info-venue').innerHTML   = ev.venue;
-        document.getElementById('info-time').textContent  = `${ev.open}〜${ev.end}`;
-        document.getElementById('info-desc').innerHTML    = ev.description.replace(/\n/g, '<br>');
+        // ── INFO ──
+        document.getElementById('info-date').textContent = ev.date;
+        document.getElementById('info-day').textContent  = ev.day === 'SUN' ? 'SUNDAY' : ev.day;
+        document.getElementById('info-venue').innerHTML  = ev.venue.replace(/(.+?)\s+(.+)/, '$1<br>$2');
+        document.getElementById('info-time').textContent = `${ev.open} — ${ev.end}`;
 
-        // ── Contents ──
-        if (data.contents) {
-          const cc = document.getElementById('contents-cards');
-          data.contents.forEach(c => {
-            const card = document.createElement('div');
-            card.className = `contents-card ${c.color}`;
-            card.innerHTML = `
-              <div class="contents-card-icon">${c.icon}</div>
-              <div class="contents-card-title">${c.title}</div>
-              <div class="contents-card-desc">${c.desc}</div>
-            `;
-            cc.appendChild(card);
-          });
-        }
-
-        // ── Timetable ──
+        // ── TIMETABLE ──
         const tt = document.getElementById('timetable');
-        data.program.forEach((item, i) => {
-          const isLast   = i === data.program.length - 1;
-          const dotColor = DOT_COLORS[item.color] || '#FFD600';
-          const row      = document.createElement('div');
-          row.className  = 'tt-row';
-          row.innerHTML  = `
+        data.program.forEach(item => {
+          const row = document.createElement('div');
+          row.className = 'tt-row';
+          row.innerHTML = `
             <div class="tt-time">${item.time}</div>
-            <div class="tt-axis">
-              <div class="tt-dot" style="background:${dotColor}"></div>
-              ${!isLast ? '<div class="tt-line"></div>' : ''}
-            </div>
+            <div><div class="tt-dot"></div></div>
             <div class="tt-content">
-              <div class="tt-content-title">${item.icon || ''} ${item.content}</div>
+              <div class="tt-content-title">${item.content}</div>
               ${item.desc ? `<div class="tt-content-desc">${item.desc}</div>` : ''}
             </div>
           `;
           tt.appendChild(row);
         });
 
-        // ── Yatai ──
+        // ── YATAI ──
         const yg = document.getElementById('yatai-grid');
         data.yatai.forEach(y => {
           const card = document.createElement('div');
@@ -976,31 +1023,31 @@
           card.innerHTML = `
             <div class="yatai-card-icon">${YATAI_ICONS[y.genre] || '🏮'}</div>
             <div class="yatai-card-name">${y.name}</div>
-            <div class="yatai-card-genre">${y.genre}</div>
+            <div class="yatai-card-genre">${y.genre.toUpperCase()}</div>
           `;
           yg.appendChild(card);
         });
 
-        // ── Map ──
-        const map = L.map('map', { zoomControl: true }).setView([ev.lat, ev.lng], 15);
+        // ── MAP ──
+        const map = L.map('map', { zoomControl: true, scrollWheelZoom: false }).setView([ev.lat, ev.lng], 15);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '© OpenStreetMap contributors', maxZoom: 19
+          attribution: '© OpenStreetMap', maxZoom: 19
         }).addTo(map);
         const icon = L.divIcon({
           className: '',
-          html: `<div style="width:44px;height:44px;background:#FF5C3A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;border:3px solid #16205E;box-shadow:4px 4px 0 rgba(22,32,94,0.3);">🏮</div>`,
-          iconSize: [44, 44], iconAnchor: [22, 22]
+          html: `<div style="width:36px;height:36px;background:#C44853;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;border:2px solid #C9A356;box-shadow:0 0 20px rgba(196,72,83,0.6);">🏮</div>`,
+          iconSize: [36, 36], iconAnchor: [18, 18]
         });
         L.marker([ev.lat, ev.lng], { icon }).addTo(map)
-          .bindPopup(`<b>${ev.venue}</b><br>${ev.venue_addr}`).openPopup();
+          .bindPopup(`<b>${ev.venue}</b><br>${ev.venue_addr}`);
 
-        // ── Access cards ──
+        // ── ACCESS CARDS ──
         const ac = document.getElementById('access-cards');
         (data.access || []).forEach(item => {
           const div = document.createElement('div');
           div.className = 'access-card';
           div.innerHTML = `
-            <div class="access-card-label">${item.icon} ${item.label}</div>
+            <div class="access-card-label">${item.label}</div>
             <div class="access-card-value">${item.text}</div>
           `;
           ac.appendChild(div);
@@ -1013,9 +1060,9 @@
           div.className = 'faq-item';
           div.innerHTML = `
             <button class="faq-btn">
-              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-mark">Q.</div>
               <div class="faq-q-text">${item.q}</div>
-              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
             </button>
@@ -1025,90 +1072,10 @@
           faqList.appendChild(div);
         });
 
-        // ── Survey + Coupon ──
-        if (data.survey) {
-          const surveyBox = document.getElementById('survey-box');
-          const surveyAnswers = {};
-
-          data.survey.questions.forEach(q => {
-            const qDiv = document.createElement('div');
-            qDiv.className = 'survey-question';
-            qDiv.innerHTML = `<div class="survey-q-text">${q.text}</div>`;
-
-            const optDiv = document.createElement('div');
-            optDiv.className = 'survey-options';
-            q.options.forEach(opt => {
-              const label = document.createElement('label');
-              label.className = 'survey-option';
-              label.innerHTML = `
-                <input type="radio" name="${q.id}" value="${opt}">
-                <span class="survey-option-label">${opt}</span>
-              `;
-              label.querySelector('input').addEventListener('change', () => {
-                surveyAnswers[q.id] = opt;
-              });
-              optDiv.appendChild(label);
-            });
-
-            qDiv.appendChild(optDiv);
-            surveyBox.appendChild(qDiv);
-          });
-
-          const btn = document.createElement('button');
-          btn.className = 'survey-submit-btn';
-          btn.textContent = '🎁 クーポンをゲット！';
-          btn.addEventListener('click', () => {
-            if (Object.keys(surveyAnswers).length < data.survey.questions.length) {
-              alert('全ての質問に答えてください！');
-              return;
-            }
-            surveyBox.style.display = 'none';
-            const couponBox = document.getElementById('coupon-box');
-            couponBox.classList.add('show');
-            const cp = data.survey.coupon;
-            couponBox.innerHTML = `
-              <div class="coupon-card">
-                <div class="coupon-title">${cp.title}</div>
-                <div class="coupon-benefit">${cp.benefit}</div>
-                <div class="coupon-code-wrap">🎫 ${cp.code}</div>
-                <div class="coupon-note">${cp.note}</div>
-              </div>
-            `;
-          });
-          surveyBox.appendChild(btn);
-        }
-
-        // ── SNS Share ──
-        const shareText = encodeURIComponent(
-          `${ev.name} 開催決定！🏮\n${ev.date}（${ev.day}）${ev.venue}\n入場無料！ ${ev.hashtag}`
-        );
-        const shareUrl = encodeURIComponent(location.href);
-        document.getElementById('share-x').href    = `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`;
-        document.getElementById('share-line').href = `https://social-plugins.line.me/lineit/share?url=${shareUrl}&text=${shareText}`;
-
-        // ── Footer ──
-        const footerOrg = document.getElementById('footer-organizer');
-        if (footerOrg && ev.organizer) {
-          footerOrg.textContent = `主催：${ev.organizer}${ev.tel ? ' ／ TEL：' + ev.tel : ''}`;
-        }
-
-        // ── Sponsor contact ──
-        const contactBtn = document.getElementById('sponsor-contact-btn');
-        if (contactBtn && ev.tel) {
-          contactBtn.href = `tel:${ev.tel.replace(/-/g, '')}`;
-          contactBtn.textContent = `📞 ${ev.tel}`;
-        }
+        // ── FOOTER ──
+        document.getElementById('footer-organizer').textContent = ev.organizer;
+        document.getElementById('footer-hashtag').textContent = ev.hashtag;
       });
-
-    function copyURL() {
-      navigator.clipboard.writeText(location.href).then(() => {
-        const toast = document.getElementById('copy-toast');
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2000);
-      }).catch(() => {
-        alert('URLをコピーできませんでした。');
-      });
-    }
   </script>
 </body>
 </html>
