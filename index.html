@@ -55,6 +55,157 @@
       z-index: 1;
     }
 
+    /* ── 背景パターン（麻の葉・小紋・点描） ── */
+    /* 朱の点描（広い面積セクション用） */
+    .pattern-dot::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(196,72,83,0.18) 1px, transparent 1.2px);
+      background-size: 28px 28px;
+      opacity: 0.35;
+      z-index: 0;
+    }
+    /* 金の小紋（菱形の細密パターン） */
+    .pattern-komon::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(45deg, rgba(201,163,86,0.06) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(201,163,86,0.06) 25%, transparent 25%);
+      background-size: 16px 16px;
+      background-position: 0 0, 0 8px;
+      opacity: 0.6;
+      z-index: 0;
+    }
+    /* 麻の葉風（金線の細密格子） */
+    .pattern-asanoha::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(60deg, transparent 49.5%, rgba(201,163,86,0.10) 49.5%, rgba(201,163,86,0.10) 50.5%, transparent 50.5%),
+        linear-gradient(-60deg, transparent 49.5%, rgba(201,163,86,0.10) 49.5%, rgba(201,163,86,0.10) 50.5%, transparent 50.5%);
+      background-size: 36px 62px;
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    /* ── セクションデバイダ（SVGウェーブ・青海波） ── */
+    .divider {
+      position: relative;
+      width: 100%;
+      height: 56px;
+      pointer-events: none;
+      overflow: hidden;
+      background: var(--ink);
+      z-index: 3;
+    }
+    @media (max-width: 600px) {
+      .divider { height: 44px; }
+      .divider svg { width: 92%; height: 28px; }
+      .divider-mini { height: 36px; }
+      .divider-mini::before, .divider-mini::after { width: 60px; }
+    }
+    .divider svg {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: min(640px, 86%);
+      height: 40px;
+      opacity: 0.55;
+    }
+    /* 短い装飾デバイダ：金の細線＋菱 */
+    .divider-mini {
+      position: relative;
+      width: 100%;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      pointer-events: none;
+      background: var(--ink);
+      z-index: 3;
+    }
+    .divider-mini::before,
+    .divider-mini::after {
+      content: "";
+      width: clamp(80px, 22vw, 220px);
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--line-strong), transparent);
+    }
+    .divider-mini .mark {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: 0.4em;
+      opacity: 0.85;
+      transform: translateY(-1px);
+    }
+    .divider-mini .mark .diamond {
+      display: inline-block;
+      width: 5px; height: 5px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      margin: 0 6px;
+      vertical-align: middle;
+      opacity: 0.7;
+    }
+
+    /* ── スクロール演出 ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* 見出し下線アニメ（reveal時に伸びる） */
+    .section-head-jp::after {
+      width: 0 !important;
+      transition: width 0.9s ease 0.2s;
+    }
+    .reveal.is-visible .section-head-jp::after {
+      width: 40px !important;
+    }
+
+    /* ヒーローまわりの金の粒子 */
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-particles span {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: var(--gold-light);
+      border-radius: 50%;
+      opacity: 0;
+      box-shadow: 0 0 6px rgba(224,196,137,0.7);
+      animation: floatUp linear infinite;
+    }
+    @keyframes floatUp {
+      0%   { opacity: 0; transform: translateY(0) translateX(0); }
+      10%  { opacity: 0.8; }
+      90%  { opacity: 0.6; }
+      100% { opacity: 0; transform: translateY(-120vh) translateX(20px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-particles span { animation: none; opacity: 0; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
     a { color: inherit; text-decoration: none; }
 
     /* ── NAV ── */
@@ -246,6 +397,16 @@
     }
     .hero-lantern.l1 { top: 18%; left: 12%; animation: sway 4s ease-in-out infinite; }
     .hero-lantern.l2 { top: 22%; right: 14%; animation: sway 3.5s ease-in-out infinite 0.8s; }
+    /* HERO 底のフェード（次セクションへの導線） */
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, transparent, var(--ink));
+      pointer-events: none;
+      z-index: 1;
+    }
     @keyframes sway {
       0%, 100% { transform: rotate(-3deg); }
       50% { transform: rotate(3deg); }
@@ -289,6 +450,24 @@
       height: 1px;
       background: var(--gold);
       margin: 20px auto 0;
+    }
+    .section-head-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 0.4em;
+      margin-top: 14px;
+      opacity: 0.7;
+    }
+    .section-head-mark::before,
+    .section-head-mark::after {
+      content: "";
+      width: 18px;
+      height: 1px;
+      background: var(--line-strong);
     }
 
     /* ── INTRO ステートメント ── */
@@ -417,6 +596,16 @@
       z-index: 2;
     }
     .tt-content { padding-left: 12px; }
+    .tt-time-mark {
+      display: block;
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      margin-top: 4px;
+      opacity: 0.75;
+    }
     .tt-content-title {
       font-family: 'Shippori Mincho B1', serif;
       font-size: 18px;
@@ -459,11 +648,28 @@
       transition: background 0.3s, transform 0.3s;
       cursor: default;
     }
+    .yatai-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .yatai-card::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.4s ease;
+      transform: translateX(-50%);
+    }
     .yatai-card:hover {
       background: var(--ink-3);
       transform: scale(1.02);
       z-index: 2;
+      box-shadow: inset 0 0 0 1px rgba(201,163,86,0.25), 0 0 24px rgba(201,163,86,0.08);
     }
+    .yatai-card:hover::before { width: 36px; }
     .yatai-card-icon {
       font-size: 36px;
       margin-bottom: 14px;
@@ -788,6 +994,7 @@
 
   <!-- HERO -->
   <section class="hero noise" id="top">
+    <div class="hero-particles" id="hero-particles" aria-hidden="true"></div>
     <div class="hero-lantern l1"></div>
     <div class="hero-lantern l2"></div>
 
@@ -821,8 +1028,16 @@
     <div class="hero-scroll">SCROLL</div>
   </section>
 
+  <!-- DIVIDER : 煙のなみ -->
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 600 40" preserveAspectRatio="none" fill="none" stroke="#C9A356" stroke-width="1">
+      <path d="M0,20 C75,4 150,36 225,20 S375,4 450,20 525,36 600,20" opacity="0.7"/>
+      <path d="M0,28 C75,12 150,44 225,28 S375,12 450,28 525,44 600,28" opacity="0.35"/>
+    </svg>
+  </div>
+
   <!-- INTRO -->
-  <section class="intro noise">
+  <section class="intro noise reveal">
     <div class="intro-text">
       <p class="intro-lead">
         宇美の夜が、<br>
@@ -837,12 +1052,21 @@
     </div>
   </section>
 
+  <!-- DIVIDER : 青海波 -->
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 600 40" preserveAspectRatio="none" fill="none" stroke="#C9A356" stroke-width="1">
+      <path d="M0,30 Q30,10 60,30 T120,30 T180,30 T240,30 T300,30 T360,30 T420,30 T480,30 T540,30 T600,30" opacity="0.6"/>
+      <path d="M0,36 Q30,16 60,36 T120,36 T180,36 T240,36 T300,36 T360,36 T420,36 T480,36 T540,36 T600,36" opacity="0.3"/>
+    </svg>
+  </div>
+
   <!-- INFO -->
-  <section class="info noise" id="info">
+  <section class="info noise pattern-komon reveal" id="info">
     <div class="container">
       <div class="section-head">
         <div class="section-head-en">INFORMATION</div>
         <h2 class="section-head-jp">開催情報</h2>
+        <div class="section-head-mark">DETAILS</div>
       </div>
       <div class="info-grid">
         <div class="info-cell">
@@ -869,35 +1093,56 @@
     </div>
   </section>
 
+  <!-- DIVIDER : ミニ装飾 -->
+  <div class="divider-mini" aria-hidden="true">
+    <span class="mark"><span class="diamond"></span>程<span class="diamond"></span></span>
+  </div>
+
   <!-- PROGRAM -->
-  <section class="program noise" id="program">
+  <section class="program noise reveal" id="program">
     <div class="container">
       <div class="section-head">
         <div class="section-head-en">TIME TABLE</div>
         <h2 class="section-head-jp">当日のプログラム</h2>
+        <div class="section-head-mark">14:00 — 21:00</div>
       </div>
       <div class="timetable" id="timetable"></div>
     </div>
   </section>
 
+  <!-- DIVIDER : 煙のなみ -->
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 600 40" preserveAspectRatio="none" fill="none" stroke="#C44853" stroke-width="1">
+      <path d="M0,20 C75,4 150,36 225,20 S375,4 450,20 525,36 600,20" opacity="0.45"/>
+      <path d="M0,28 C75,12 150,44 225,28 S375,12 450,28 525,44 600,28" opacity="0.22"/>
+    </svg>
+  </div>
+
   <!-- YATAI -->
-  <section class="yatai noise" id="yatai">
+  <section class="yatai noise pattern-asanoha reveal" id="yatai">
     <div class="container">
       <div class="section-head">
         <div class="section-head-en">FOOD &amp; SHOPS</div>
         <h2 class="section-head-jp">屋台・出店</h2>
+        <div class="section-head-mark">SHOPS</div>
       </div>
       <div class="yatai-grid" id="yatai-grid"></div>
       <p class="yatai-note">※ 出店内容は当日変更となる場合があります</p>
     </div>
   </section>
 
+  <!-- DIVIDER : ミニ装飾 -->
+  <div class="divider-mini" aria-hidden="true">
+    <span class="mark"><span class="diamond"></span>道<span class="diamond"></span></span>
+  </div>
+
   <!-- ACCESS -->
-  <section class="access noise" id="access">
+  <section class="access noise reveal" id="access">
     <div class="container">
       <div class="section-head">
         <div class="section-head-en">ACCESS</div>
         <h2 class="section-head-jp">会場へのアクセス</h2>
+        <div class="section-head-mark">UMI STATION</div>
       </div>
       <div class="access-wrap">
         <div id="map"></div>
@@ -906,8 +1151,16 @@
     </div>
   </section>
 
+  <!-- DIVIDER : 青海波（朱） -->
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 600 40" preserveAspectRatio="none" fill="none" stroke="#C44853" stroke-width="1">
+      <path d="M0,30 Q30,10 60,30 T120,30 T180,30 T240,30 T300,30 T360,30 T420,30 T480,30 T540,30 T600,30" opacity="0.45"/>
+      <path d="M0,36 Q30,16 60,36 T120,36 T180,36 T240,36 T300,36 T360,36 T420,36 T480,36 T540,36 T600,36" opacity="0.22"/>
+    </svg>
+  </div>
+
   <!-- HEAT 熱中症 -->
-  <section class="heat noise">
+  <section class="heat noise reveal"
     <div class="heat-wrap">
       <div class="heat-mark">熱中症対策</div>
       <div class="heat-content">
@@ -927,23 +1180,38 @@
     </div>
   </section>
 
+  <!-- DIVIDER : ミニ装飾 -->
+  <div class="divider-mini" aria-hidden="true">
+    <span class="mark"><span class="diamond"></span>問<span class="diamond"></span></span>
+  </div>
+
   <!-- FAQ -->
-  <section class="faq noise" id="faq">
+  <section class="faq noise pattern-dot reveal" id="faq">
     <div class="container">
       <div class="section-head">
         <div class="section-head-en">FAQ</div>
         <h2 class="section-head-jp">よくある質問</h2>
+        <div class="section-head-mark">QUESTIONS</div>
       </div>
       <div class="faq-list" id="faq-list"></div>
     </div>
   </section>
 
+  <!-- DIVIDER : 青海波 -->
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 600 40" preserveAspectRatio="none" fill="none" stroke="#C9A356" stroke-width="1">
+      <path d="M0,30 Q30,10 60,30 T120,30 T180,30 T240,30 T300,30 T360,30 T420,30 T480,30 T540,30 T600,30" opacity="0.6"/>
+      <path d="M0,36 Q30,16 60,36 T120,36 T180,36 T240,36 T300,36 T360,36 T420,36 T480,36 T540,36 T600,36" opacity="0.3"/>
+    </svg>
+  </div>
+
   <!-- SPONSOR CTA -->
-  <section class="sponsor noise" id="sponsor">
+  <section class="sponsor noise pattern-komon reveal" id="sponsor">
     <div class="container">
       <div class="section-head">
         <div class="section-head-en">SPONSOR</div>
         <h2 class="section-head-jp">協賛企業・協力</h2>
+        <div class="section-head-mark">PARTNERS</div>
       </div>
       <div class="sponsor-cta-wrap">
         <p class="sponsor-lead">
@@ -983,6 +1251,54 @@
       'フード':'🍢', 'ドリンク':'🍹', 'マルシェ':'🥬', '体験':'🎯', '雑貨':'🧧'
     };
 
+    // 時刻に応じた小さな金の添え字（タイポ装飾）
+    function timeMark(timeStr) {
+      const m = String(timeStr).match(/(\d{1,2})/);
+      if (!m) return '';
+      const h = parseInt(m[1], 10);
+      if (h < 15) return '昼 ／ 鐘';
+      if (h < 17) return '陽 ／ 風';
+      if (h < 19) return '宵 ／ 灯';
+      if (h < 20) return '夕 ／ 提灯';
+      return '夜 ／ 月';
+    }
+
+    // ヒーローの金粒子を生成
+    (function makeParticles() {
+      const host = document.getElementById('hero-particles');
+      if (!host) return;
+      const N = window.innerWidth < 600 ? 14 : 24;
+      for (let i = 0; i < N; i++) {
+        const s = document.createElement('span');
+        s.style.left = Math.random() * 100 + '%';
+        s.style.bottom = (-10 - Math.random() * 30) + 'px';
+        s.style.animationDuration = (12 + Math.random() * 14) + 's';
+        s.style.animationDelay = (Math.random() * 12) + 's';
+        s.style.opacity = (0.3 + Math.random() * 0.4).toFixed(2);
+        const sz = 1 + Math.random() * 2;
+        s.style.width = sz + 'px';
+        s.style.height = sz + 'px';
+        host.appendChild(s);
+      }
+    })();
+
+    // スクロール演出（IntersectionObserver）
+    (function revealOnScroll() {
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    })();
+
     fetch('data.json')
       .then(r => r.json())
       .then(data => {
@@ -1005,7 +1321,7 @@
           const row = document.createElement('div');
           row.className = 'tt-row';
           row.innerHTML = `
-            <div class="tt-time">${item.time}</div>
+            <div class="tt-time">${item.time}<span class="tt-time-mark">${timeMark(item.time)}</span></div>
             <div><div class="tt-dot"></div></div>
             <div class="tt-content">
               <div class="tt-content-title">${item.content}</div>
