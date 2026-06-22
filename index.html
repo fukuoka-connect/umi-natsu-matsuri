@@ -3,1538 +3,686 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>宇美町夏祭り 2026 ｜ UMI NATSU MATSURI 2026</title>
-  <meta name="description" content="宇美町商工会が贈る夏まつり。屋台・ステージ・縁日が楽しめる地域のお祭り。2026年7月20日（月・祝）12:00〜19:00開催・入場無料・会場：JA粕屋 宇美支所 駐車場。">
-  <meta property="og:title" content="宇美町夏祭り 2026">
-  <meta property="og:description" content="夏の思い出づくり。2026年7月20日（月・祝）12:00〜19:00開催・入場無料。会場：JA粕屋 宇美支所 駐車場。">
+  <title>宇美町夏まつり 2026 ｜ 7月20日(月・祝) 12:00〜19:00 入場無料</title>
+  <meta name="description" content="宇美町商工会が贈る夏まつり。屋台・ステージ・縁日が楽しめる地域のお祭り。2026年7月20日（月・祝）12:00〜19:00、会場：JA粕屋 宇美支所 駐車場。入場無料。">
+  <meta property="og:title" content="宇美町夏まつり 2026 ｜ 夏の思い出づくり">
+  <meta property="og:description" content="2026年7月20日（月・祝）12:00〜19:00開催。屋台・ステージ・縁日で楽しむ宇美町の夏まつり。入場無料・会場：JA粕屋 宇美支所 駐車場。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://umi-natsu-matsuri.vercel.app/">
-  <meta property="og:image" content="https://umi-natsu-matsuri.vercel.app/images/hero-night-lanterns.png">
-  <meta property="og:image:alt" content="宇美町夏祭り 2026 キービジュアル">
+  <meta property="og:image" content="https://umi-natsu-matsuri.vercel.app/images/festival-day.jpg">
+  <meta property="og:image:alt" content="宇美町夏まつり 2026 ／ 青空と赤い提灯">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="宇美町夏祭り 2026">
-  <meta name="twitter:description" content="夏の思い出づくり。2026年7月20日（月・祝）12:00〜19:00開催・入場無料。">
-  <meta name="twitter:image" content="https://umi-natsu-matsuri.vercel.app/images/hero-night-lanterns.png">
+  <meta name="twitter:title" content="宇美町夏まつり 2026 ｜ 夏の思い出づくり">
+  <meta name="twitter:description" content="2026年7月20日（月・祝）12:00〜19:00開催・入場無料。屋台・ステージ・縁日で楽しむ宇美町の夏まつり。">
+  <meta name="twitter:image" content="https://umi-natsu-matsuri.vercel.app/images/festival-day.jpg">
+  <meta name="theme-color" content="#1b2a5e">
+  <link rel="preload" as="image" href="images/festival-day.jpg" fetchpriority="high">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --ink:        #0A1330;
-      --ink-2:      #141C40;
-      --ink-3:      #1F2A55;
-      --shu:        #C44853;
-      --shu-deep:   #962A36;
-      --gold:       #C9A356;
-      --gold-light: #E0C489;
-      --paper:      #F4EFE3;
-      --paper-2:    #FBF8F0;
-      --smoke:      #8A8F9E;
-      --smoke-2:    #B8BBC7;
-      --line:       rgba(201,163,86,0.25);
-      --line-strong:rgba(201,163,86,0.55);
+    :root{
+      --navy:#1b2a5e;        /* 主役の濃紺（見出し・本文） */
+      --navy-soft:#33417a;
+      --ink:#2b3a66;         /* 本文 */
+      --shu:#e0382b;         /* 朱赤（日付・アクセント） */
+      --shu-deep:#bf2a20;
+      --green:#2f7d41;       /* ステージ（AA確保のため濃いめ） */
+      --orange:#f08a2c;      /* 屋台 */
+      --gold:#f6c23a;        /* 提灯・差し色 */
+      --cream:#fbf6ea;       /* 紙の白 */
+      --paper:#ffffff;
+      --line:rgba(27,42,94,.14);
+      --shadow:0 10px 30px rgba(27,42,94,.10);
+      --shadow-sm:0 4px 14px rgba(27,42,94,.10);
+      /* スクロールで昼→夕に移ろう背景 */
+      --bg-sky:#eaf6ff;
+      --bg-noon:#fbf6ea;
+      --bg-after:#fff1df;
+      --bg-eve:#ffe6cf;
+      --bg-dusk:#fcd9b8;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Noto Sans JP', sans-serif;
-      background: var(--ink);
-      color: var(--paper);
-      overflow-x: hidden;
-      font-weight: 400;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      letter-spacing: 0.02em;
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+    body{
+      font-family:'M PLUS Rounded 1c','Noto Sans JP',sans-serif;
+      color:var(--ink);
+      background:var(--cream);
+      line-height:1.85;
+      font-weight:500;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+    img{max-width:100%;display:block;}
+    a{color:inherit;text-decoration:none;}
+
+    /* 見出し：和文の改行/回り込みに配慮 */
+    h1,h2,h3{
+      color:var(--navy);
+      line-height:1.35;
+      font-weight:800;
+      text-wrap:balance;
+      word-break:keep-all;
+      overflow-wrap:break-word;
+    }
+    p{line-break:strict;overflow-wrap:anywhere;}
+    .brush{font-family:'Yuji Syuku',serif;font-weight:400;}
+    .nowrap{white-space:nowrap;}
+    /* モバイルのみ改行する <br class="sp"> ／ PCのみ <br class="pc"> */
+    br.sp{display:inline;}
+    br.pc{display:none;}
+    @media(min-width:760px){
+      br.sp{display:none;}
+      br.pc{display:inline;}
     }
 
-    /* 共通: 紙ノイズ質感 */
-    .noise::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.06;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
-      mix-blend-mode: overlay;
-      z-index: 1;
-    }
+    .wrap{width:100%;max-width:1040px;margin-inline:auto;padding-inline:20px;}
+    .center{text-align:center;}
 
-    /* ── 背景パターン（麻の葉・小紋・点描） ── */
-    /* 朱の点描（広い面積セクション用） */
-    .pattern-dot::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background-image: radial-gradient(rgba(196,72,83,0.18) 1px, transparent 1.2px);
-      background-size: 28px 28px;
-      opacity: 0.35;
-      z-index: 0;
+    /* ── 提灯の飾り（写真の無い区切りに） ── */
+    .lanterns{
+      display:flex;justify-content:center;align-items:flex-start;gap:clamp(14px,5vw,34px);
+      position:relative;padding-top:14px;
     }
-    /* 金の小紋（菱形の細密パターン） */
-    .pattern-komon::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(45deg, rgba(201,163,86,0.06) 25%, transparent 25%),
-        linear-gradient(-45deg, rgba(201,163,86,0.06) 25%, transparent 25%);
-      background-size: 16px 16px;
-      background-position: 0 0, 0 8px;
-      opacity: 0.6;
-      z-index: 0;
+    .lanterns::before{
+      content:"";position:absolute;top:6px;left:8%;right:8%;height:2px;
+      background:repeating-linear-gradient(90deg,var(--navy) 0 6px,transparent 6px 12px);
+      opacity:.28;border-radius:2px;
     }
-    /* 麻の葉風（金線の細密格子） */
-    .pattern-asanoha::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(60deg, transparent 49.5%, rgba(201,163,86,0.10) 49.5%, rgba(201,163,86,0.10) 50.5%, transparent 50.5%),
-        linear-gradient(-60deg, transparent 49.5%, rgba(201,163,86,0.10) 49.5%, rgba(201,163,86,0.10) 50.5%, transparent 50.5%);
-      background-size: 36px 62px;
-      opacity: 0.5;
-      z-index: 0;
+    .lantern{
+      width:18px;height:26px;border-radius:48% 48% 46% 46%/40% 40% 60% 60%;
+      position:relative;flex:0 0 auto;
+      box-shadow:inset 0 -3px 6px rgba(0,0,0,.12),0 4px 10px rgba(224,56,43,.25);
     }
-
-    /* ── セクションデバイダ（SVGウェーブ・青海波） ── */
-    .divider {
-      position: relative;
-      width: 100%;
-      height: 56px;
-      pointer-events: none;
-      overflow: hidden;
-      background: var(--ink);
-      z-index: 3;
-    }
-    @media (max-width: 600px) {
-      .divider { height: 44px; }
-      .divider svg { width: 92%; height: 28px; }
-      .divider-mini { height: 36px; }
-      .divider-mini::before, .divider-mini::after { width: 60px; }
-    }
-    .divider svg {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: min(640px, 86%);
-      height: 40px;
-      opacity: 0.55;
-    }
-    /* 短い装飾デバイダ：金の細線＋菱 */
-    .divider-mini {
-      position: relative;
-      width: 100%;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      pointer-events: none;
-      background: var(--ink);
-      z-index: 3;
-    }
-    .divider-mini::before,
-    .divider-mini::after {
-      content: "";
-      width: clamp(80px, 22vw, 220px);
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--line-strong), transparent);
-    }
-    .divider-mini .mark {
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: 12px;
-      color: var(--gold);
-      letter-spacing: 0.4em;
-      opacity: 0.85;
-      transform: translateY(-1px);
-    }
-    .divider-mini .mark .diamond {
-      display: inline-block;
-      width: 5px; height: 5px;
-      background: var(--gold);
-      transform: rotate(45deg);
-      margin: 0 6px;
-      vertical-align: middle;
-      opacity: 0.7;
-    }
-
-    /* ── スクロール演出 ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    /* 見出し下線アニメ（reveal時に伸びる） */
-    .section-head-jp::after {
-      width: 0 !important;
-      transition: width 0.9s ease 0.2s;
-    }
-    .reveal.is-visible .section-head-jp::after {
-      width: 40px !important;
-    }
-
-    /* ヒーローまわりの金の粒子 */
-    .hero-particles {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-      overflow: hidden;
-    }
-    .hero-particles span {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: var(--gold-light);
-      border-radius: 50%;
-      opacity: 0;
-      box-shadow: 0 0 6px rgba(224,196,137,0.7);
-      animation: floatUp linear infinite;
-    }
-    @keyframes floatUp {
-      0%   { opacity: 0; transform: translateY(0) translateX(0); }
-      10%  { opacity: 0.8; }
-      90%  { opacity: 0.6; }
-      100% { opacity: 0; transform: translateY(-120vh) translateX(20px); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .hero-particles span { animation: none; opacity: 0; }
-      .reveal { opacity: 1; transform: none; transition: none; }
-    }
-
-    a { color: inherit; text-decoration: none; }
+    .lantern::before{content:"";position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:2px;height:7px;background:var(--navy);opacity:.4;}
+    .lantern::after{content:"";position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);width:5px;height:4px;background:var(--gold);border-radius:0 0 2px 2px;}
+    .lantern:nth-child(odd){background:radial-gradient(circle at 38% 30%,#ff6a52,var(--shu));}
+    .lantern:nth-child(even){background:radial-gradient(circle at 38% 30%,#ffd25a,var(--orange));}
+    .lantern.big{width:24px;height:34px;}
 
     /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 18px 36px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      background: rgba(10,19,48,0.65);
-      border-bottom: 1px solid var(--line);
+    nav{
+      position:sticky;top:0;z-index:50;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding:10px 16px;
+      background:rgba(251,246,234,.86);
+      backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
     }
-    .nav-logo {
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: 17px;
-      font-weight: 800;
-      color: var(--gold);
-      letter-spacing: 0.1em;
+    .nav-logo{font-weight:900;color:var(--navy);font-size:15px;letter-spacing:.02em;line-height:1.2;}
+    .nav-logo small{display:block;font-size:9.5px;color:var(--shu-deep);font-weight:700;letter-spacing:.18em;}
+    .nav-links{display:none;gap:20px;align-items:center;}
+    .nav-links a{font-weight:700;font-size:13px;color:var(--navy);transition:color .2s;}
+    .nav-links a:hover{color:var(--shu);}
+    .nav-cta{
+      display:inline-block;background:var(--shu-deep);color:#fff;font-weight:800;font-size:12.5px;
+      padding:8px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 12px rgba(191,42,32,.32);
+      transition:transform .15s,background .2s;
     }
-    .nav-logo small {
-      display: block;
-      font-family: 'Inter', sans-serif;
-      font-size: 9px;
-      font-weight: 400;
-      color: var(--smoke);
-      letter-spacing: 0.3em;
-      margin-top: 2px;
-    }
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
-    .nav-link {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--paper);
-      letter-spacing: 0.15em;
-      opacity: 0.8;
-      transition: opacity 0.2s, color 0.2s;
-    }
-    .nav-link:hover { opacity: 1; color: var(--gold); }
-    .nav-cta {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--ink);
-      background: var(--gold);
-      padding: 9px 18px;
-      letter-spacing: 0.15em;
-      transition: background 0.2s;
-    }
-    .nav-cta:hover { background: var(--gold-light); }
-    @media (max-width: 768px) {
-      nav { padding: 14px 20px; }
-      .nav-links { gap: 14px; }
-      .nav-link:not(.nav-cta) { display: none; }
+    .nav-cta:hover{background:var(--shu-deep);transform:translateY(-1px);}
+    @media(min-width:760px){
+      nav{padding:12px 28px;}
+      .nav-logo{font-size:17px;}
+      .nav-links{display:flex;}
     }
 
     /* ── HERO ── */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 120px 24px 80px;
-      overflow: hidden;
+    .hero{
+      position:relative;
+      min-height:88vh;
+      display:flex;flex-direction:column;justify-content:flex-end;align-items:center;
+      text-align:center;
+      padding:80px 20px 48px;
       background:
-        linear-gradient(180deg, rgba(10,19,48,0.78) 0%, rgba(10,19,48,0.92) 100%),
-        radial-gradient(circle at 20% 30%, rgba(196,72,83,0.20), transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(201,163,86,0.14), transparent 50%),
-        url('images/hero-night-lanterns.png') center/cover no-repeat,
-        var(--ink);
+        linear-gradient(180deg,rgba(234,246,255,.05) 0%,rgba(251,246,234,.15) 38%,rgba(251,246,234,.86) 74%,var(--cream) 100%),
+        url('images/festival-day.jpg') center 28%/cover no-repeat;
     }
-    .hero-meta-top {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      font-weight: 400;
-      color: var(--gold);
-      letter-spacing: 0.5em;
-      margin-bottom: 24px;
-      opacity: 0.9;
-      text-align: center;
+    .hero-badge{
+      display:inline-block;background:var(--navy);color:#fff;font-weight:700;font-size:11.5px;
+      letter-spacing:.12em;padding:6px 16px;border-radius:999px;margin-bottom:18px;box-shadow:var(--shadow-sm);
     }
-    .hero-title-jp {
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: clamp(120px, 22vw, 280px);
-      font-weight: 800;
-      line-height: 0.95;
-      color: var(--paper);
-      writing-mode: vertical-rl;
-      letter-spacing: 0.1em;
-      margin: 0 auto;
-      text-shadow: 0 4px 40px rgba(196,72,83,0.3);
-      position: relative;
-      z-index: 2;
+    .hero-catch{
+      color:var(--shu-deep);font-weight:800;font-size:clamp(15px,4.6vw,20px);letter-spacing:.1em;
+      margin-bottom:6px;text-shadow:0 1px 8px rgba(255,255,255,.7);
     }
-    .hero-title-jp .accent {
-      color: var(--shu);
+    .hero-title{margin:0;line-height:1;}
+    .hero-town{display:block;color:var(--navy);font-weight:800;font-size:clamp(16px,5vw,24px);letter-spacing:.16em;margin-bottom:2px;}
+    /* Yuji Syuku は字幅が広い(約1.67em)。vwだと環境差で見切れるためpx段階で確実に収める */
+    .hero-main{
+      display:inline-block;max-width:100%;color:var(--navy);font-size:34px;line-height:1.04;letter-spacing:.01em;
+      word-break:keep-all;overflow-wrap:normal;
+      text-shadow:0 3px 0 rgba(255,255,255,.5),0 8px 24px rgba(27,42,94,.12);
     }
-    .hero-sub-en {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(11px, 1.2vw, 13px);
-      font-weight: 300;
-      color: var(--smoke);
-      letter-spacing: 0.5em;
-      margin-top: 36px;
-      text-align: center;
+    @media(min-width:360px){.hero-main{font-size:40px;}}
+    @media(min-width:400px){.hero-main{font-size:46px;}}
+    @media(min-width:480px){.hero-main{font-size:58px;}}
+    @media(min-width:768px){.hero-main{font-size:90px;}}
+    @media(min-width:1024px){.hero-main{font-size:118px;}}
+    .hero-main .yr{
+      display:block;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:900;color:var(--shu);
+      font-size:clamp(22px,6vw,44px);letter-spacing:.08em;margin-top:6px;
     }
-    .hero-divider {
-      width: 1px;
-      height: 80px;
-      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
-      margin: 28px auto;
+    .hero-chips{
+      display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:24px auto 0;max-width:640px;
     }
-    .hero-meta {
-      display: flex;
-      gap: 48px;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: flex-start;
-      margin-top: 8px;
-      position: relative;
-      z-index: 2;
+    .chip{
+      display:inline-flex;align-items:center;gap:6px;background:var(--paper);color:var(--navy);
+      font-weight:800;font-size:13px;padding:9px 14px;border-radius:999px;border:1.5px solid var(--line);
+      box-shadow:var(--shadow-sm);white-space:nowrap;
     }
-    .hero-meta-item {
-      text-align: center;
-      min-width: 100px;
+    .chip .ic{font-size:15px;}
+    .chip.free{background:var(--shu-deep);color:#fff;border-color:var(--shu-deep);}
+    .hero-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:24px;}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:14px;
+      padding:13px 26px;border-radius:999px;transition:transform .15s,box-shadow .2s,background .2s;white-space:nowrap;
     }
-    .hero-meta-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      font-weight: 400;
-      color: var(--gold);
-      letter-spacing: 0.4em;
-      margin-bottom: 8px;
-    }
-    .hero-meta-value {
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--paper);
-      letter-spacing: 0.05em;
-    }
-    .hero-meta-value small {
-      display: block;
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      font-weight: 400;
-      color: var(--smoke);
-      margin-top: 4px;
-      letter-spacing: 0.2em;
-    }
-    .hero-scroll {
-      position: absolute;
-      bottom: 36px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      letter-spacing: 0.4em;
-      color: var(--smoke);
-      writing-mode: vertical-rl;
-      animation: scrollBounce 2s ease-in-out infinite;
-    }
-    @keyframes scrollBounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.5; }
-      50% { transform: translateX(-50%) translateY(8px); opacity: 1; }
-    }
-    /* 提灯（控えめに2つだけ） */
-    .hero-lantern {
-      position: absolute;
-      width: 36px; height: 50px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, var(--shu), var(--shu-deep));
-      box-shadow: 0 0 40px rgba(196,72,83,0.6), 0 0 80px rgba(196,72,83,0.3);
-      opacity: 0.85;
-    }
-    .hero-lantern::before {
-      content: "";
-      position: absolute;
-      top: -40px; left: 50%;
-      width: 1px; height: 40px;
-      background: var(--gold);
-      transform: translateX(-50%);
-    }
-    .hero-lantern.l1 { top: 18%; left: 12%; animation: sway 4s ease-in-out infinite; }
-    .hero-lantern.l2 { top: 22%; right: 14%; animation: sway 3.5s ease-in-out infinite 0.8s; }
-    /* HERO 底のフェード（次セクションへの導線） */
-    .hero::after {
-      content: "";
-      position: absolute;
-      left: 0; right: 0; bottom: 0;
-      height: 80px;
-      background: linear-gradient(to bottom, transparent, var(--ink));
-      pointer-events: none;
-      z-index: 1;
-    }
-    @keyframes sway {
-      0%, 100% { transform: rotate(-3deg); }
-      50% { transform: rotate(3deg); }
+    .btn-primary{background:var(--navy);color:#fff;box-shadow:0 8px 20px rgba(27,42,94,.28);}
+    .btn-primary:hover{transform:translateY(-2px);background:#13205a;}
+    .btn-ghost{background:var(--paper);color:var(--navy);border:1.5px solid var(--navy);}
+    .btn-ghost:hover{transform:translateY(-2px);background:var(--navy);color:#fff;}
+
+    /* ── セクション共通 ── */
+    section{padding:64px 0;position:relative;}
+    .sec-head{text-align:center;margin-bottom:36px;}
+    .sec-kicker{display:inline-block;color:var(--shu-deep);font-weight:800;font-size:12.5px;letter-spacing:.22em;margin-bottom:8px;}
+    .sec-title{font-size:clamp(24px,6.4vw,38px);letter-spacing:.06em;}
+    .sec-title .brush{font-weight:400;}
+    .sec-lead{margin-top:14px;color:var(--ink);font-size:14.5px;}
+
+    /* 背景：昼→夕 */
+    .bg-sky{background:linear-gradient(180deg,var(--bg-sky),var(--bg-noon));}
+    .bg-noon{background:var(--bg-noon);}
+    .bg-after{background:var(--bg-after);}
+    .bg-eve{background:var(--bg-eve);}
+    .bg-dusk{background:var(--bg-dusk);}
+
+    /* ── INTRO ── */
+    .intro-grid{display:grid;gap:28px;align-items:center;}
+    .intro-copy h2{font-size:clamp(22px,6vw,32px);margin-bottom:16px;line-height:1.5;}
+    .intro-copy h2 em{font-style:normal;color:var(--shu);}
+    .intro-copy p{font-size:15px;color:var(--ink);}
+    .intro-photo{border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:4px solid #fff;}
+    .intro-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;}
+    @media(min-width:820px){
+      .intro-grid{grid-template-columns:1.05fr .95fr;gap:44px;}
     }
 
-    /* ── SECTION 共通 ── */
-    section {
-      position: relative;
-      padding: 120px 24px;
+    /* ── INFO 開催情報 ── */
+    .date-hero{
+      text-align:center;background:#fff;border-radius:24px;box-shadow:var(--shadow);
+      border:2px solid var(--line);padding:28px 18px;margin-bottom:22px;position:relative;overflow:hidden;
     }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
+    .date-hero::before{content:"";position:absolute;inset:0 0 auto 0;height:8px;
+      background:repeating-linear-gradient(-45deg,var(--navy) 0 8px,var(--gold) 8px 16px);opacity:.9;}
+    .date-day{display:inline-block;margin-top:8px;color:var(--navy);font-weight:800;font-size:14px;letter-spacing:.08em;}
+    .date-big{font-weight:900;color:var(--shu);font-size:clamp(54px,17vw,104px);line-height:1;letter-spacing:-.01em;}
+    .date-big .sun{font-size:.42em;color:var(--navy);vertical-align:.5em;margin-left:.12em;}
+    .date-sub{color:var(--navy);font-weight:800;font-size:clamp(14px,4vw,18px);margin-top:4px;}
+    .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .info-card{
+      background:#fff;border-radius:18px;padding:18px 14px;text-align:center;box-shadow:var(--shadow-sm);
+      border:1.5px solid var(--line);
     }
-    .section-head {
-      margin-bottom: 64px;
-      text-align: center;
+    .info-card .ic{font-size:26px;}
+    .info-card .lb{display:block;color:var(--shu-deep);font-weight:800;font-size:11.5px;letter-spacing:.14em;margin:6px 0 4px;}
+    .info-card .vl{color:var(--navy);font-weight:800;font-size:15px;line-height:1.5;}
+    .info-card .vl small{display:block;color:var(--ink);font-weight:600;font-size:11.5px;margin-top:3px;}
+    .info-note{
+      margin-top:18px;display:grid;gap:10px;
     }
-    .section-head-en {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      font-weight: 400;
-      color: var(--gold);
-      letter-spacing: 0.5em;
-      margin-bottom: 16px;
+    .note-line{
+      display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;
+      background:#fff;border:1.5px dashed var(--line);border-radius:14px;padding:12px 16px;
+      font-weight:700;font-size:13.5px;color:var(--navy);text-align:center;
     }
-    .section-head-jp {
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: clamp(28px, 4vw, 40px);
-      font-weight: 800;
-      color: var(--paper);
-      letter-spacing: 0.1em;
-      line-height: 1.2;
-    }
-    .section-head-jp::after {
-      content: "";
-      display: block;
-      width: 40px;
-      height: 1px;
-      background: var(--gold);
-      margin: 20px auto 0;
-    }
-    .section-head-mark {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: 11px;
-      color: var(--gold);
-      letter-spacing: 0.4em;
-      margin-top: 14px;
-      opacity: 0.7;
-    }
-    .section-head-mark::before,
-    .section-head-mark::after {
-      content: "";
-      width: 18px;
-      height: 1px;
-      background: var(--line-strong);
-    }
-
-    /* ── INTRO ステートメント ── */
-    .intro {
-      background: var(--ink);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 100px 24px;
-    }
-    .intro-text {
-      max-width: 720px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .intro-lead {
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: clamp(20px, 2.5vw, 28px);
-      font-weight: 500;
-      line-height: 2;
-      color: var(--paper);
-      margin-bottom: 32px;
-      letter-spacing: 0.1em;
-    }
-    .intro-lead em {
-      font-style: normal;
-      color: var(--shu);
-      font-weight: 700;
-    }
-    .intro-body {
-      font-size: 14px;
-      line-height: 2;
-      color: var(--smoke-2);
-      letter-spacing: 0.05em;
-    }
-
-    /* ── INFO ── */
-    .info {
-      background: var(--ink-2);
-    }
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      border: 1px solid var(--line);
-    }
-    .info-cell {
-      padding: 36px 24px;
-      text-align: center;
-      border-right: 1px solid var(--line);
-      background: var(--ink-2);
-      transition: background 0.3s;
-    }
-    .info-cell:last-child { border-right: none; }
-    .info-cell:hover { background: var(--ink-3); }
-    .info-cell-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      font-weight: 400;
-      color: var(--gold);
-      letter-spacing: 0.4em;
-      margin-bottom: 14px;
-    }
-    .info-cell-value {
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--paper);
-      line-height: 1.4;
-      letter-spacing: 0.05em;
-    }
-    .info-cell-sub {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      color: var(--smoke);
-      margin-top: 8px;
-      letter-spacing: 0.2em;
-    }
-    @media (max-width: 768px) {
-      .info-grid { grid-template-columns: repeat(2, 1fr); }
-      .info-cell:nth-child(2) { border-right: none; }
-      .info-cell:nth-child(1), .info-cell:nth-child(2) { border-bottom: 1px solid var(--line); }
+    .note-line .tag{background:var(--green);color:#fff;font-size:11.5px;font-weight:800;padding:4px 10px;border-radius:999px;white-space:nowrap;}
+    .note-line.rain .tag{background:var(--shu-deep);}
+    .note-line strong{color:var(--shu-deep);}
+    @media(min-width:680px){
+      .info-grid{grid-template-columns:repeat(4,1fr);}
+      .note-line{font-size:14.5px;}
     }
 
     /* ── PROGRAM ── */
-    .program {
-      background: var(--ink);
+    .band{
+      width:100%;max-width:1040px;margin:0 auto 30px;border-radius:22px;overflow:hidden;
+      box-shadow:var(--shadow);border:4px solid #fff;aspect-ratio:16/7;
     }
-    .timetable {
-      max-width: 720px;
-      margin: 0 auto;
-      position: relative;
+    .band img{width:100%;height:100%;object-fit:cover;}
+    .tt{max-width:680px;margin-inline:auto;display:grid;gap:12px;}
+    .tt-row{
+      display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+      background:#fff;border-radius:16px;padding:16px 18px;box-shadow:var(--shadow-sm);border:1.5px solid var(--line);
     }
-    .timetable::before {
-      content: "";
-      position: absolute;
-      left: 88px;
-      top: 12px;
-      bottom: 12px;
-      width: 1px;
-      background: var(--line-strong);
+    .tt-time{
+      font-weight:900;color:#fff;background:var(--navy);border-radius:12px;
+      padding:8px 10px;min-width:64px;text-align:center;font-size:16px;letter-spacing:.02em;
     }
-    .tt-row {
-      display: grid;
-      grid-template-columns: 80px 24px 1fr;
-      gap: 0;
-      padding: 24px 0;
-      align-items: flex-start;
-      position: relative;
-    }
-    .tt-row + .tt-row { border-top: 1px solid var(--line); }
-    .tt-time {
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--gold);
-      letter-spacing: 0.05em;
-      padding-top: 2px;
-    }
-    .tt-dot {
-      position: relative;
-      width: 9px; height: 9px;
-      border-radius: 50%;
-      background: var(--shu);
-      margin: 8px auto 0;
-      box-shadow: 0 0 12px rgba(196,72,83,0.6);
-      z-index: 2;
-    }
-    .tt-content { padding-left: 12px; }
-    .tt-time-mark {
-      display: block;
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: 10px;
-      font-weight: 500;
-      color: var(--gold);
-      letter-spacing: 0.2em;
-      margin-top: 4px;
-      opacity: 0.75;
-    }
-    .tt-content-title {
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--paper);
-      margin-bottom: 6px;
-      letter-spacing: 0.05em;
-    }
-    .tt-content-desc {
-      font-size: 13px;
-      color: var(--smoke-2);
-      line-height: 1.7;
-    }
-    @media (max-width: 600px) {
-      .timetable::before { left: 64px; }
-      .tt-row { grid-template-columns: 56px 20px 1fr; }
-      .tt-time { font-size: 18px; }
-    }
+    .tt-body .ti{font-weight:800;color:var(--navy);font-size:16px;margin-bottom:2px;}
+    .tt-body .de{font-size:13px;color:var(--ink);line-height:1.7;}
 
-    /* ── YATAI ── */
-    .yatai {
-      background: var(--ink-2);
+    /* ── おたのしみ（屋台・ステージ催し） ── */
+    .fun-grid{display:grid;gap:20px;}
+    @media(min-width:820px){.fun-grid{grid-template-columns:1fr 1fr;gap:26px;align-items:start;}}
+    .panel{background:#fff;border-radius:22px;box-shadow:var(--shadow);overflow:hidden;border:1.5px solid var(--line);}
+    .panel-head{color:#fff;font-weight:900;font-size:16px;letter-spacing:.06em;padding:14px 18px;display:flex;align-items:center;gap:8px;}
+    .panel-head.stage{background:var(--green);}
+    .panel-head.food{background:var(--orange);color:var(--navy);}
+    .panel-body{padding:18px;}
+    .acts{display:flex;flex-wrap:wrap;gap:8px;}
+    .acts li{list-style:none;background:#eef7ef;color:var(--navy);font-weight:700;font-size:13.5px;padding:8px 13px;border-radius:999px;}
+    .acts li.more{background:transparent;color:var(--ink);font-weight:600;}
+    .yatai-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .yatai-card{
+      background:var(--cream);border-radius:16px;padding:16px 10px;text-align:center;border:1.5px solid var(--line);
+      transition:transform .15s,box-shadow .2s;
     }
-    .yatai-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-    }
-    .yatai-card {
-      aspect-ratio: 1;
-      background: var(--ink-2);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 24px;
-      text-align: center;
-      transition: background 0.3s, transform 0.3s;
-      cursor: default;
-    }
-    .yatai-card {
-      position: relative;
-      overflow: hidden;
-    }
-    .yatai-card::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: 18px;
-      width: 0;
-      height: 1px;
-      background: var(--gold);
-      transition: width 0.4s ease;
-      transform: translateX(-50%);
-    }
-    .yatai-card:hover {
-      background: var(--ink-3);
-      transform: scale(1.02);
-      z-index: 2;
-      box-shadow: inset 0 0 0 1px rgba(201,163,86,0.25), 0 0 24px rgba(201,163,86,0.08);
-    }
-    .yatai-card:hover::before { width: 36px; }
-    .yatai-card-icon {
-      font-size: 36px;
-      margin-bottom: 14px;
-      opacity: 0.9;
-      filter: grayscale(0.3);
-    }
-    .yatai-card-name {
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--paper);
-      margin-bottom: 8px;
-      letter-spacing: 0.05em;
-    }
-    .yatai-card-genre {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      color: var(--gold);
-      letter-spacing: 0.3em;
-    }
-    .yatai-note {
-      text-align: center;
-      margin-top: 36px;
-      font-size: 12px;
-      color: var(--smoke);
-      letter-spacing: 0.1em;
-    }
-    @media (max-width: 768px) {
-      .yatai-grid { grid-template-columns: repeat(2, 1fr); }
-    }
+    .yatai-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm);}
+    .yatai-emoji{font-size:32px;line-height:1;margin-bottom:8px;}
+    .yatai-name{font-weight:800;color:var(--navy);font-size:14px;line-height:1.4;}
+    .yatai-genre{display:inline-block;margin-top:7px;font-weight:800;font-size:10.5px;color:#fff;padding:3px 10px;border-radius:999px;letter-spacing:.04em;}
+    .g-food{background:var(--shu-deep);}
+    .g-drink{background:#1f6fa8;}
+    .g-exp{background:var(--green);}
+    .fun-note{text-align:center;color:var(--ink);font-size:12.5px;margin-top:16px;}
 
     /* ── ACCESS ── */
-    .access {
-      background: var(--ink);
+    .access-grid{display:grid;gap:18px;}
+    #map{width:100%;height:300px;border-radius:20px;border:4px solid #fff;box-shadow:var(--shadow);}
+    .leaflet-container{background:#dCEAF5;font-family:inherit;}
+    .access-cards{display:grid;gap:12px;}
+    .access-card{
+      display:flex;gap:14px;align-items:flex-start;background:#fff;border-radius:16px;padding:16px;
+      box-shadow:var(--shadow-sm);border:1.5px solid var(--line);
     }
-    .access-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: stretch;
-    }
-    #map {
-      width: 100%;
-      height: 480px;
-      border: 1px solid var(--line);
-      filter: grayscale(0.3) contrast(0.95);
-    }
-    .leaflet-container { background: var(--ink-2); }
-    .access-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      justify-content: center;
-    }
-    .access-card {
-      padding: 20px 24px;
-      border-left: 2px solid var(--gold);
-      background: rgba(20,28,64,0.4);
-    }
-    .access-card-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      color: var(--gold);
-      letter-spacing: 0.3em;
-      margin-bottom: 6px;
-      font-weight: 500;
-    }
-    .access-card-value {
-      font-size: 14px;
-      color: var(--paper);
-      line-height: 1.7;
-    }
-    .access-card-value small { color: var(--smoke); font-size: 11px; }
-    .access-card-value strong { color: var(--gold-light); font-weight: 700; }
-    @media (max-width: 900px) {
-      .access-wrap { grid-template-columns: 1fr; }
-      #map { height: 360px; }
+    .access-card .ic{font-size:24px;flex:0 0 auto;}
+    .access-card .lb{color:var(--shu-deep);font-weight:800;font-size:11.5px;letter-spacing:.12em;margin-bottom:3px;}
+    .access-card .vl{color:var(--navy);font-weight:600;font-size:14px;line-height:1.65;}
+    .access-card .vl strong{color:var(--shu-deep);font-weight:800;}
+    .access-card .vl small{color:var(--ink);font-size:12px;}
+    @media(min-width:880px){
+      .access-grid{grid-template-columns:1.15fr .85fr;gap:28px;align-items:stretch;}
+      #map{height:100%;min-height:360px;}
     }
 
-    /* ── HEAT NOTICE （熱中症） ── */
-    .heat {
-      position: relative;
-      background:
-        linear-gradient(180deg, rgba(20,28,64,0.94), rgba(10,19,48,0.97)),
-        url('images/heat-restarea.png') center/cover no-repeat;
-      padding: 80px 24px;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+    /* ── HEAT 暑さ対策 ── */
+    .heat-card{
+      max-width:760px;margin-inline:auto;background:#fff;border-radius:22px;box-shadow:var(--shadow);
+      border:1.5px solid var(--line);padding:26px 22px;text-align:center;
     }
-    .heat .heat-wrap { position: relative; z-index: 2; }
-    .heat-wrap {
-      max-width: 880px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 36px;
-      align-items: center;
-    }
-    .heat-mark {
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: 64px;
-      font-weight: 800;
-      color: var(--shu);
-      line-height: 1;
-      letter-spacing: 0;
-    }
-    .heat-content-en {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      color: var(--gold);
-      letter-spacing: 0.5em;
-      margin-bottom: 8px;
-    }
-    .heat-content-title {
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--paper);
-      margin-bottom: 16px;
-      letter-spacing: 0.05em;
-    }
-    .heat-content-body {
-      font-size: 13px;
-      color: var(--smoke-2);
-      line-height: 1.9;
-    }
-    .heat-points {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      margin-top: 16px;
-    }
-    .heat-point {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      color: var(--gold-light);
-      letter-spacing: 0.15em;
-      padding: 4px 12px;
-      border: 1px solid var(--line-strong);
-    }
-    @media (max-width: 600px) {
-      .heat-wrap { grid-template-columns: 1fr; gap: 16px; text-align: center; }
-      .heat-points { justify-content: center; }
-    }
+    .heat-card .em{font-size:40px;}
+    .heat-card h3{font-size:20px;margin:8px 0 12px;}
+    .heat-card p{font-size:14px;color:var(--ink);max-width:560px;margin-inline:auto;}
+    .heat-points{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px;}
+    .heat-points span{background:#fff3e0;color:#a85207;border:1.5px solid #ffd9a8;font-weight:800;font-size:12.5px;padding:7px 14px;border-radius:999px;}
 
     /* ── FAQ ── */
-    .faq {
-      background: var(--ink);
+    .faq-list{max-width:760px;margin-inline:auto;display:grid;gap:12px;}
+    .faq-item{background:#fff;border-radius:16px;box-shadow:var(--shadow-sm);border:1.5px solid var(--line);overflow:hidden;}
+    .faq-btn{
+      width:100%;display:flex;align-items:center;gap:12px;padding:16px 18px;background:none;border:none;cursor:pointer;
+      text-align:left;font-family:inherit;font-weight:800;color:var(--navy);font-size:15px;line-height:1.5;
     }
-    .faq-list {
-      max-width: 760px;
-      margin: 0 auto;
-      border-top: 1px solid var(--line);
-    }
-    .faq-item {
-      border-bottom: 1px solid var(--line);
-    }
-    .faq-btn {
-      width: 100%;
-      padding: 28px 0;
-      background: transparent;
-      border: none;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      cursor: pointer;
-      text-align: left;
-      color: var(--paper);
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: 16px;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      transition: color 0.2s;
-    }
-    .faq-btn:hover { color: var(--gold); }
-    .faq-q-mark {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      color: var(--gold);
-      letter-spacing: 0.2em;
-      flex-shrink: 0;
-      width: 36px;
-    }
-    .faq-q-text { flex: 1; line-height: 1.6; }
-    .faq-chevron {
-      flex-shrink: 0;
-      color: var(--gold);
-      transition: transform 0.3s;
-    }
-    .faq-item.open .faq-chevron { transform: rotate(180deg); }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.4s ease;
-      font-size: 13px;
-      color: var(--smoke-2);
-      line-height: 2;
-      padding: 0 0 0 56px;
-    }
-    .faq-item.open .faq-answer {
-      max-height: 400px;
-      padding: 0 0 28px 56px;
-    }
-    .faq-answer strong { color: var(--gold-light); font-weight: 700; }
+    .faq-q{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--shu);color:#fff;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;}
+    .faq-q-text{flex:1;}
+    .faq-chev{flex:0 0 auto;color:var(--shu);transition:transform .3s;}
+    .faq-item.open .faq-chev{transform:rotate(180deg);}
+    .faq-ans{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+    .faq-ans-inner{padding:0 18px 18px 56px;font-size:13.5px;color:var(--ink);line-height:1.85;}
+    .faq-ans strong{color:var(--shu);}
+    .faq-ans a{color:var(--shu-deep);font-weight:800;border-bottom:1.5px solid rgba(191,42,32,.45);}
 
-    /* ── SPONSOR ── */
-    .sponsor {
-      background: var(--ink-2);
-      border-top: 1px solid var(--line);
-    }
-    .sponsor-cta-wrap {
-      max-width: 720px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .sponsor-lead {
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: 18px;
-      color: var(--paper);
-      line-height: 2;
-      margin-bottom: 32px;
-      letter-spacing: 0.05em;
-    }
-    .sponsor-btn {
-      display: inline-block;
-      padding: 18px 56px;
-      background: transparent;
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.3em;
-      transition: background 0.3s, color 0.3s;
-    }
-    .sponsor-btn:hover {
-      background: var(--gold);
-      color: var(--ink);
-    }
-    .sponsor-btn-en {
-      display: block;
-      font-family: 'Inter', sans-serif;
-      font-size: 9px;
-      font-weight: 400;
-      color: var(--smoke);
-      letter-spacing: 0.4em;
-      margin-top: 4px;
-    }
-    .sponsor-btn:hover .sponsor-btn-en { color: var(--ink); opacity: 0.7; }
+    /* ── SPONSOR CTA ── */
+    .sponsor-cta{max-width:720px;margin-inline:auto;text-align:center;background:#fff;border-radius:22px;box-shadow:var(--shadow);border:1.5px solid var(--line);padding:30px 22px;}
+    .sponsor-cta p{font-size:14.5px;color:var(--ink);margin-bottom:20px;}
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--ink);
-      padding: 80px 24px 40px;
-      border-top: 1px solid var(--line);
-      text-align: center;
-      position: relative;
+    /* ── FOOTER（夕暮れ） ── */
+    footer{
+      position:relative;color:#fdf3e6;text-align:center;padding:0;
     }
-    .footer-logo {
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--paper);
-      letter-spacing: 0.15em;
-      margin-bottom: 6px;
+    .footer-band{position:relative;overflow:hidden;padding:64px 20px 40px;}
+    .footer-band::before{
+      content:"";position:absolute;inset:0;z-index:0;
+      background:linear-gradient(180deg,rgba(27,42,94,.78),rgba(27,42,94,.9)),url('images/festival-dusk.jpg') center/cover no-repeat;
     }
-    .footer-en {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      color: var(--gold);
-      letter-spacing: 0.5em;
-      margin-bottom: 32px;
-    }
-    .footer-organizer {
-      font-size: 13px;
-      color: var(--smoke-2);
-      margin-bottom: 8px;
-    }
-    .footer-organizer strong { color: var(--gold-light); }
-    .footer-tag {
-      font-size: 11px;
-      color: var(--smoke);
-      margin-bottom: 28px;
-      letter-spacing: 0.2em;
-    }
-    .footer-nav {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-      margin-bottom: 36px;
-      padding: 24px 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-    .footer-nav a {
-      font-size: 11px;
-      color: var(--smoke-2);
-      letter-spacing: 0.2em;
-      transition: color 0.2s;
-    }
-    .footer-nav a:hover { color: var(--gold); }
-    .footer-copy {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      color: var(--smoke);
-      letter-spacing: 0.2em;
-    }
+    .footer-inner{position:relative;z-index:1;max-width:760px;margin-inline:auto;}
+    .footer-logo{font-weight:900;font-size:24px;color:#fff;letter-spacing:.06em;}
+    .footer-logo .brush{font-weight:400;}
+    .footer-catch{color:var(--gold);font-weight:800;font-size:13px;letter-spacing:.18em;margin-top:4px;text-shadow:0 1px 3px rgba(11,18,40,.55);}
+    .footer-org{margin-top:22px;font-size:13.5px;line-height:1.9;color:#f3e7d6;}
+    .footer-org strong{color:#fff;}
+    .footer-org .sub{font-size:12px;color:#e9dcc8;text-shadow:0 1px 3px rgba(11,18,40,.55);}
+    .footer-tel{display:inline-block;margin-top:14px;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.3);border-radius:999px;padding:9px 18px;font-weight:800;color:#fff;font-size:14px;}
+    .footer-tel a{color:#fff;white-space:nowrap;}
+    .footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;margin:24px 0;padding:18px 0;border-top:1px solid rgba(255,255,255,.18);border-bottom:1px solid rgba(255,255,255,.18);}
+    .footer-nav a{font-weight:700;font-size:13px;color:#f3e7d6;}
+    .footer-nav a:hover{color:var(--gold);}
+    .footer-tag{color:var(--gold);font-weight:800;font-size:13px;letter-spacing:.08em;text-shadow:0 1px 3px rgba(11,18,40,.55);}
+    .footer-copy{margin-top:14px;font-size:11px;color:#d9c8b2;}
 
-    /* ── 写真要素（セクションアクセント） ── */
-    .section-photo,
-    .intro-photo {
-      position: relative;
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto 64px;
-      aspect-ratio: 16/9;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      isolation: isolate;
-    }
-    .intro-photo {
-      max-width: 1000px;
-      aspect-ratio: 21/9;
-    }
-    .section-photo img,
-    .intro-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.78) saturate(0.92) contrast(1.04);
-      transition: transform 1.4s ease, filter 1.4s ease;
-      display: block;
-    }
-    .section-photo:hover img,
-    .intro-photo:hover img {
-      transform: scale(1.03);
-      filter: brightness(0.88) saturate(1) contrast(1.04);
-    }
-    .section-photo::after,
-    .intro-photo::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 35%, rgba(10,19,48,0.55) 100%);
-      pointer-events: none;
-      z-index: 1;
-    }
-    .photo-caption {
-      position: absolute;
-      left: 24px;
-      bottom: 18px;
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--gold-light);
-      letter-spacing: 0.4em;
-      opacity: 0.92;
-      z-index: 2;
-      text-shadow: 0 2px 12px rgba(10,19,48,0.6);
-    }
-    @media (max-width: 768px) {
-      .section-photo,
-      .intro-photo { margin: 0 auto 36px; }
-      .photo-caption { font-size: 10px; left: 14px; bottom: 12px; letter-spacing: 0.3em; }
-    }
-
-    /* ── 屋台カードに実写背景 ── */
-    .yatai-card-photo {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
-    }
-    .yatai-card-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.42) saturate(0.85) contrast(1.05);
-      transition: transform 0.8s ease, filter 0.8s ease;
-      display: block;
-    }
-    .yatai-card-photo::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(10,19,48,0.25) 0%, rgba(10,19,48,0.78) 100%);
-      pointer-events: none;
-    }
-    .yatai-card:hover .yatai-card-photo img {
-      transform: scale(1.08);
-      filter: brightness(0.6) saturate(1) contrast(1.05);
-    }
-    .yatai-card.has-photo {
-      background: var(--ink);
-    }
-    .yatai-card.has-photo .yatai-card-name,
-    .yatai-card.has-photo .yatai-card-genre {
-      position: relative;
-      z-index: 2;
-      text-shadow: 0 2px 10px rgba(10,19,48,0.7);
-    }
-    .yatai-card.has-photo .yatai-card-name {
-      font-size: 18px;
-      letter-spacing: 0.08em;
-    }
-    .yatai-card.has-photo:hover {
-      background: var(--ink);
+    /* ── reveal ── */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease;}
+    .reveal.vis{opacity:1;transform:none;}
+    @media(prefers-reduced-motion:reduce){
+      .reveal{opacity:1;transform:none;transition:none;}
+      html{scroll-behavior:auto;}
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="#top" class="nav-logo">
-      宇美町夏祭り 2026
-      <small>UMI NATSU MATSURI</small>
-    </a>
+  <nav aria-label="メインメニュー">
+    <a href="#top" class="nav-logo">宇美町夏まつり<small>2026 ／ 7.20 月・祝</small></a>
     <div class="nav-links">
-      <a href="#info" class="nav-link">INFO</a>
-      <a href="#program" class="nav-link">PROGRAM</a>
-      <a href="#yatai" class="nav-link">FOOD</a>
-      <a href="#access" class="nav-link">ACCESS</a>
-      <a href="sponsor.html" target="_blank" class="nav-cta">SPONSOR</a>
+      <a href="#info">開催情報</a>
+      <a href="#program">プログラム</a>
+      <a href="#fun">屋台・催し</a>
+      <a href="#access">アクセス</a>
     </div>
+    <a href="sponsor.html" target="_blank" rel="noopener" class="nav-cta">協賛のご案内</a>
   </nav>
 
   <!-- HERO -->
-  <section class="hero noise" id="top">
-    <div class="hero-particles" id="hero-particles" aria-hidden="true"></div>
-    <div class="hero-lantern l1"></div>
-    <div class="hero-lantern l2"></div>
-
-    <div class="hero-meta-top">糟屋郡 宇美町 ／ SUMMER FESTIVAL 2026</div>
-
-    <h1 class="hero-title-jp">夏<span class="accent">祭</span></h1>
-
-    <div class="hero-sub-en">UMI NATSU MATSURI 2026</div>
-
-    <div class="hero-divider"></div>
-
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">DATE</div>
-        <div class="hero-meta-value" id="hero-date">2026.7.20<small>MON ／ 祝</small></div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">TIME</div>
-        <div class="hero-meta-value" id="hero-time">12:00 — 19:00</div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">VENUE</div>
-        <div class="hero-meta-value" id="hero-venue">JA粕屋 宇美支所 駐車場</div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">ENTRY</div>
-        <div class="hero-meta-value">無料<small>FREE</small></div>
-      </div>
+  <header class="hero" id="top">
+    <span class="hero-badge">宇美町商工会 主催 ／ 糟屋郡宇美町</span>
+    <p class="hero-catch">夏の思い出づくり</p>
+    <h1 class="hero-title">
+      <span class="hero-town">宇美町</span>
+      <span class="hero-main"><span class="brush">夏まつり</span><span class="yr">2026</span></span>
+    </h1>
+    <div class="hero-chips">
+      <span class="chip"><span class="ic">📅</span>7月20日<span class="nowrap">（月・祝）</span></span>
+      <span class="chip"><span class="ic">🕛</span>12:00〜19:00</span>
+      <span class="chip"><span class="ic">📍</span>JA粕屋 宇美支所 駐車場</span>
+      <span class="chip free"><span class="ic">🎏</span>入場無料</span>
     </div>
-
-    <div class="hero-scroll">SCROLL</div>
-  </section>
-
-  <!-- DIVIDER : 煙のなみ -->
-  <div class="divider" aria-hidden="true">
-    <svg viewBox="0 0 600 40" preserveAspectRatio="none" fill="none" stroke="#C9A356" stroke-width="1">
-      <path d="M0,20 C75,4 150,36 225,20 S375,4 450,20 525,36 600,20" opacity="0.7"/>
-      <path d="M0,28 C75,12 150,44 225,28 S375,12 450,28 525,44 600,28" opacity="0.35"/>
-    </svg>
-  </div>
+    <div class="hero-cta">
+      <a href="#info" class="btn btn-primary">開催情報をみる</a>
+      <a href="#access" class="btn btn-ghost">アクセス・地図</a>
+    </div>
+  </header>
 
   <!-- INTRO -->
-  <section class="intro noise reveal">
-    <figure class="intro-photo">
-      <img src="images/intro-yagura.png" alt="夏祭りの夕暮れ、灯りのともる提灯" loading="lazy">
-      <span class="photo-caption">SUMMER EVENING</span>
-    </figure>
-    <div class="intro-text">
-      <p class="intro-lead">
-        宇美の夏が、<br>
-        <em>町じゅうのお祭りになる。</em>
-      </p>
-      <p class="intro-body">
-        宇美町商工会（女性部・壮青年部・青年部）がおくる、夏の一日。<br>
-        昼下がりの屋台、ステージの歓声、夕暮れの提灯あかり。<br>
-        小さなお子さま連れも、友だち同士も、地域の大人も。<br>
-        ご家族や友人と、この夏いちばんの思い出づくりを。
-      </p>
+  <section class="bg-sky reveal">
+    <div class="wrap">
+      <div class="intro-grid">
+        <div class="intro-copy">
+          <h2>宇美の夏を、<br class="sp"><em>家族みんなで。</em></h2>
+          <p>
+            宇美町商工会（女性部・壮青年部・青年部）がおくる、夏の一日。<br class="pc">
+            昼下がりの屋台、ステージの歓声、夕暮れの提灯あかり。<br class="pc">
+            小さなお子さま連れも、お友だち同士も、地域のみなさんも。<br class="pc">
+            ご家族や友人と、この夏いちばんの思い出づくりを。
+          </p>
+        </div>
+        <figure class="intro-photo">
+          <img src="images/festival-day2.jpg" alt="青空のもと提灯が並ぶ夏祭りの会場と屋台" loading="lazy">
+        </figure>
+      </div>
     </div>
   </section>
 
-  <!-- DIVIDER : 青海波 -->
-  <div class="divider" aria-hidden="true">
-    <svg viewBox="0 0 600 40" preserveAspectRatio="none" fill="none" stroke="#C9A356" stroke-width="1">
-      <path d="M0,30 Q30,10 60,30 T120,30 T180,30 T240,30 T300,30 T360,30 T420,30 T480,30 T540,30 T600,30" opacity="0.6"/>
-      <path d="M0,36 Q30,16 60,36 T120,36 T180,36 T240,36 T300,36 T360,36 T420,36 T480,36 T540,36 T600,36" opacity="0.3"/>
-    </svg>
-  </div>
-
-  <!-- INFO -->
-  <section class="info noise pattern-komon reveal" id="info">
-    <div class="container">
-      <div class="section-head">
-        <div class="section-head-en">INFORMATION</div>
-        <h2 class="section-head-jp">開催情報</h2>
-        <div class="section-head-mark">DETAILS</div>
+  <!-- INFO 開催情報 -->
+  <section class="bg-noon reveal" id="info">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-kicker">開催情報</span>
+        <h2 class="sec-title">いつ・どこで？</h2>
       </div>
+
+      <div class="date-hero">
+        <span class="date-day">2026年 ／ 海の日</span>
+        <div class="date-big" id="date-big">7.20<span class="sun">月・祝</span></div>
+        <div class="date-sub">日曜の翌日、月曜・祝日の開催です</div>
+      </div>
+
       <div class="info-grid">
-        <div class="info-cell">
-          <div class="info-cell-label">DATE</div>
-          <div class="info-cell-value" id="info-date">2026.7.20</div>
-          <div class="info-cell-sub" id="info-day">月曜・祝日（海の日）</div>
+        <div class="info-card">
+          <div class="ic">🕛</div><span class="lb">時間</span>
+          <div class="vl" id="info-time">12:00〜19:00<small>開場〜閉場</small></div>
         </div>
-        <div class="info-cell">
-          <div class="info-cell-label">TIME</div>
-          <div class="info-cell-value" id="info-time">12:00 — 19:00</div>
-          <div class="info-cell-sub">OPEN — END</div>
+        <div class="info-card">
+          <div class="ic">📍</div><span class="lb">会場</span>
+          <div class="vl" id="info-venue">JA粕屋 宇美支所<small>駐車場</small></div>
         </div>
-        <div class="info-cell">
-          <div class="info-cell-label">VENUE</div>
-          <div class="info-cell-value" id="info-venue">JA粕屋<br>宇美支所 駐車場</div>
-          <div class="info-cell-sub">JA KASUYA UMI</div>
+        <div class="info-card">
+          <div class="ic">🅿️</div><span class="lb">駐車場</span>
+          <div class="vl">宇美町役場<small>台数に限りあり</small></div>
         </div>
-        <div class="info-cell">
-          <div class="info-cell-label">ENTRY</div>
-          <div class="info-cell-value">無料</div>
-          <div class="info-cell-sub">FREE ADMISSION</div>
+        <div class="info-card">
+          <div class="ic">🎏</div><span class="lb">入場</span>
+          <div class="vl">無料<small>どなたでも</small></div>
         </div>
       </div>
-      <p style="text-align:center;margin-top:28px;font-size:13px;color:var(--smoke-2);letter-spacing:0.08em;line-height:1.9;">
-        ステージイベントは <strong style="color:var(--gold-light);">14:00 — 18:30</strong> を予定<br>
-        ※ 雨天の場合は <strong style="color:var(--gold-light);">8月22日（土）</strong> に順延します
-      </p>
+
+      <div class="info-note">
+        <div class="note-line"><span class="tag">ステージ</span><span>イベントは <strong>14:00〜18:30</strong> を予定</span></div>
+        <div class="note-line rain"><span class="tag">雨天時</span><span>雨天の場合は <strong>8月22日（土）</strong> に順延します</span></div>
+      </div>
     </div>
   </section>
-
-  <!-- DIVIDER : ミニ装飾 -->
-  <div class="divider-mini" aria-hidden="true">
-    <span class="mark"><span class="diamond"></span>程<span class="diamond"></span></span>
-  </div>
 
   <!-- PROGRAM -->
-  <section class="program noise reveal" id="program">
-    <div class="container">
-      <div class="section-head">
-        <div class="section-head-en">TIME TABLE</div>
-        <h2 class="section-head-jp">当日のプログラム</h2>
-        <div class="section-head-mark">12:00 — 19:00</div>
+  <section class="bg-after reveal" id="program">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-kicker">タイムテーブル</span>
+        <h2 class="sec-title">当日のながれ</h2>
+        <p class="sec-lead">12:00 開場 → ステージ 14:00〜18:30 → 19:00 閉場</p>
       </div>
-      <figure class="section-photo">
-        <img src="images/program-stage.png" alt="夏祭りステージイベントの夕暮れの様子" loading="lazy">
-        <span class="photo-caption">STAGE ／ 14:00 — 18:30</span>
-      </figure>
-      <div class="timetable" id="timetable"></div>
+      <figure class="band"><img src="images/festival-stage.jpg" alt="夕方のステージイベントの様子" loading="lazy"></figure>
+      <div class="tt" id="timetable"></div>
     </div>
   </section>
 
-  <!-- DIVIDER : 煙のなみ -->
-  <div class="divider" aria-hidden="true">
-    <svg viewBox="0 0 600 40" preserveAspectRatio="none" fill="none" stroke="#C44853" stroke-width="1">
-      <path d="M0,20 C75,4 150,36 225,20 S375,4 450,20 525,36 600,20" opacity="0.45"/>
-      <path d="M0,28 C75,12 150,44 225,28 S375,12 450,28 525,44 600,28" opacity="0.22"/>
-    </svg>
-  </div>
-
-  <!-- YATAI -->
-  <section class="yatai noise pattern-asanoha reveal" id="yatai">
-    <div class="container">
-      <div class="section-head">
-        <div class="section-head-en">FOOD &amp; SHOPS</div>
-        <h2 class="section-head-jp">屋台・出店</h2>
-        <div class="section-head-mark">SHOPS</div>
+  <!-- おたのしみ：屋台・ステージ催し -->
+  <section class="bg-eve reveal" id="fun">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-kicker">おたのしみ</span>
+        <h2 class="sec-title">屋台・ステージ催し</h2>
       </div>
-      <div class="yatai-grid" id="yatai-grid"></div>
-      <p class="yatai-note">※ 出店内容は当日変更となる場合があります</p>
+      <div class="fun-grid">
+        <div class="panel">
+          <div class="panel-head stage">🎤 ステージ・催し</div>
+          <div class="panel-body">
+            <ul class="acts">
+              <li>ストリートダンス</li>
+              <li>ヒップホップダンス</li>
+              <li>歌のパフォーマンス</li>
+              <li>射的</li>
+              <li class="more">ほか、お楽しみに！</li>
+            </ul>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head food">🍢 おいしい屋台</div>
+          <div class="panel-body">
+            <div class="yatai-grid" id="yatai-grid"></div>
+          </div>
+        </div>
+      </div>
+      <p class="fun-note">※ 出演・出店内容は当日変更となる場合があります</p>
     </div>
   </section>
-
-  <!-- DIVIDER : ミニ装飾 -->
-  <div class="divider-mini" aria-hidden="true">
-    <span class="mark"><span class="diamond"></span>道<span class="diamond"></span></span>
-  </div>
 
   <!-- ACCESS -->
-  <section class="access noise reveal" id="access">
-    <div class="container">
-      <div class="section-head">
-        <div class="section-head-en">ACCESS</div>
-        <h2 class="section-head-jp">会場へのアクセス</h2>
-        <div class="section-head-mark">MAP &amp; ROUTE</div>
+  <section class="bg-eve reveal" id="access" style="padding-top:0;">
+    <div class="wrap">
+      <div class="lanterns" style="margin-bottom:40px;">
+        <span class="lantern"></span><span class="lantern big"></span><span class="lantern"></span><span class="lantern big"></span><span class="lantern"></span>
       </div>
-      <div class="access-wrap">
+      <div class="sec-head">
+        <span class="sec-kicker">アクセス</span>
+        <h2 class="sec-title">会場へのご案内</h2>
+        <p class="sec-lead">JA粕屋 宇美支所 駐車場（宇美町宇美4丁目11-1）</p>
+      </div>
+      <div class="access-grid">
         <div id="map"></div>
         <div class="access-cards" id="access-cards"></div>
       </div>
     </div>
   </section>
 
-  <!-- DIVIDER : 青海波（朱） -->
-  <div class="divider" aria-hidden="true">
-    <svg viewBox="0 0 600 40" preserveAspectRatio="none" fill="none" stroke="#C44853" stroke-width="1">
-      <path d="M0,30 Q30,10 60,30 T120,30 T180,30 T240,30 T300,30 T360,30 T420,30 T480,30 T540,30 T600,30" opacity="0.45"/>
-      <path d="M0,36 Q30,16 60,36 T120,36 T180,36 T240,36 T300,36 T360,36 T420,36 T480,36 T540,36 T600,36" opacity="0.22"/>
-    </svg>
-  </div>
-
-  <!-- HEAT 熱中症 -->
-  <section class="heat noise reveal">
-    <div class="heat-wrap">
-      <div class="heat-mark">熱中症対策</div>
-      <div class="heat-content">
-        <div class="heat-content-en">SAFETY ／ HEATSTROKE PREVENTION</div>
-        <div class="heat-content-title">安心して楽しんでいただくために</div>
-        <p class="heat-content-body">
-          7月の日中は気温が高くなります。<strong style="color:var(--gold-light)">帽子・うちわ・水分</strong> をご持参のうえ、こまめな水分補給と休憩をお願いいたします。
-          お子さま連れの方は特にご注意ください。体調がすぐれない場合は、お近くのスタッフへお声がけください。
-        </p>
-        <div class="heat-points">
-          <span class="heat-point">水分補給</span>
-          <span class="heat-point">こまめに休憩</span>
-          <span class="heat-point">無理は禁物</span>
-        </div>
+  <!-- HEAT 暑さ対策 -->
+  <section class="bg-dusk reveal">
+    <div class="wrap">
+      <div class="heat-card">
+        <div class="em">☀️</div>
+        <h3>暑さ対策をお願いします</h3>
+        <p>7月の日中は気温が高くなります。帽子・うちわ・水分をご持参のうえ、こまめな水分補給と休憩をお願いします。お子さま連れの方は特にご注意ください。体調がすぐれない場合は、お近くのスタッフへお声がけください。</p>
+        <div class="heat-points"><span>こまめに水分</span><span>休憩しながら</span><span>無理は禁物</span></div>
       </div>
     </div>
   </section>
 
-  <!-- DIVIDER : ミニ装飾 -->
-  <div class="divider-mini" aria-hidden="true">
-    <span class="mark"><span class="diamond"></span>問<span class="diamond"></span></span>
-  </div>
-
   <!-- FAQ -->
-  <section class="faq noise pattern-dot reveal" id="faq">
-    <div class="container">
-      <div class="section-head">
-        <div class="section-head-en">FAQ</div>
-        <h2 class="section-head-jp">よくある質問</h2>
-        <div class="section-head-mark">QUESTIONS</div>
+  <section class="bg-dusk reveal" id="faq" style="padding-top:24px;">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-kicker">よくある質問</span>
+        <h2 class="sec-title">Q &amp; A</h2>
       </div>
       <div class="faq-list" id="faq-list"></div>
     </div>
   </section>
 
-  <!-- DIVIDER : 青海波 -->
-  <div class="divider" aria-hidden="true">
-    <svg viewBox="0 0 600 40" preserveAspectRatio="none" fill="none" stroke="#C9A356" stroke-width="1">
-      <path d="M0,30 Q30,10 60,30 T120,30 T180,30 T240,30 T300,30 T360,30 T420,30 T480,30 T540,30 T600,30" opacity="0.6"/>
-      <path d="M0,36 Q30,16 60,36 T120,36 T180,36 T240,36 T300,36 T360,36 T420,36 T480,36 T540,36 T600,36" opacity="0.3"/>
-    </svg>
-  </div>
-
   <!-- SPONSOR CTA -->
-  <section class="sponsor noise pattern-komon reveal" id="sponsor">
-    <div class="container">
-      <div class="section-head">
-        <div class="section-head-en">SPONSOR</div>
-        <h2 class="section-head-jp">協賛企業・協力</h2>
-        <div class="section-head-mark">PARTNERS</div>
-      </div>
-      <div class="sponsor-cta-wrap">
-        <p class="sponsor-lead">
-          地域の祭りは、地域の力で。<br>
-          ご協賛・ご協力のお問い合わせは下記より。
-        </p>
-        <a href="sponsor.html" target="_blank" class="sponsor-btn">
-          協賛企業一覧へ
-          <span class="sponsor-btn-en">VIEW SPONSORS</span>
-        </a>
+  <section class="bg-dusk reveal" style="padding-top:24px;">
+    <div class="wrap">
+      <div class="sponsor-cta">
+        <div class="sec-head" style="margin-bottom:14px;">
+          <span class="sec-kicker">協賛のご案内</span>
+          <h2 class="sec-title">地域の祭りは、<br class="sp">地域の力で。</h2>
+        </div>
+        <p>ご協賛・ご協力いただける企業・団体さまを募集しています。<br class="pc">協賛企業一覧・お問い合わせは下記より。</p>
+        <a href="sponsor.html" target="_blank" rel="noopener" class="btn btn-primary">協賛企業一覧をみる</a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="noise">
-    <div class="footer-logo">宇美町夏祭り 2026</div>
-    <div class="footer-en">UMI NATSU MATSURI 2026</div>
-    <div class="footer-organizer">主催 ／ <strong id="footer-organizer">宇美町商工会 女性部・壮青年部・青年部</strong></div>
-    <div class="footer-organizer" style="font-size:12px;color:var(--smoke);margin-top:4px;">後援 ／ 宇美町商工会　協力 ／ 宇美町・有限会社永吉運輸</div>
-    <div class="footer-organizer" style="font-size:12px;color:var(--smoke-2);margin-top:8px;">お問い合わせ ／ 宇美町商工会 <a href="tel:0929320443"><strong style="color:var(--gold-light);">092-932-0443</strong></a></div>
-    <div class="footer-tag" id="footer-hashtag" style="margin-top:14px;">#宇美町夏祭り2026</div>
-    <nav class="footer-nav">
-      <a href="#info">INFO</a>
-      <a href="#program">PROGRAM</a>
-      <a href="#yatai">FOOD</a>
-      <a href="#access">ACCESS</a>
-      <a href="#faq">FAQ</a>
-      <a href="sponsor.html" target="_blank">SPONSOR</a>
-    </nav>
-    <div class="footer-copy">© 2026 宇美町夏祭り ／ 宇美町商工会</div>
+  <footer>
+    <div class="footer-band">
+      <div class="footer-inner">
+        <div class="footer-logo">宇美町<span class="brush">夏まつり</span> 2026</div>
+        <div class="footer-catch">夏の思い出づくり</div>
+        <div class="footer-org">
+          <div>主催 ／ <strong id="footer-organizer">宇美町商工会 女性部・壮青年部・青年部</strong></div>
+          <div class="sub">後援 ／ 宇美町商工会　協力 ／ 宇美町・有限会社永吉運輸</div>
+        </div>
+        <div class="footer-tel">お問い合わせ ／ 宇美町商工会 <a href="tel:0929320443">092-932-0443</a></div>
+        <nav class="footer-nav" aria-label="フッターメニュー">
+          <a href="#info">開催情報</a>
+          <a href="#program">プログラム</a>
+          <a href="#fun">屋台・催し</a>
+          <a href="#access">アクセス</a>
+          <a href="#faq">Q&amp;A</a>
+          <a href="sponsor.html" target="_blank" rel="noopener">協賛</a>
+        </nav>
+        <div class="footer-tag" id="footer-hashtag">#宇美町夏まつり2026</div>
+        <div class="footer-copy">© 2026 宇美町夏まつり ／ 宇美町商工会</div>
+      </div>
+    </div>
   </footer>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
   <script>
-    const YATAI_ICONS = {
-      'フード':'🍢', 'ドリンク':'🍹', 'マルシェ':'🥬', '体験':'🎯', '雑貨':'🧧'
-    };
-    const YATAI_PHOTOS = {
-      'フード':    'images/yatai-food.png',
-      'ドリンク':  'images/yatai-drink.png',
-      'マルシェ':  'images/yatai-marche.png',
-      '体験':      'images/yatai-experience.png',
-      '雑貨':      'images/yatai-zakka.png'
-    };
+    // 屋台：品名から絵文字、ジャンルから色
+    const YATAI_EMOJI = [
+      [/かき氷/, '🍧'], [/やきそば|焼きそば/, '🍜'], [/たこ/, '🐙'],
+      [/ポテト|フランク/, '🍟'], [/サザエ|うなぎ/, '🍢'],
+      [/ソフトドリンク|アルコール|ドリンク|ビール/, '🍺'], [/ヨーヨー|縁日|ゲーム|射的/, '🎯']
+    ];
+    function yataiEmoji(name){ for (const [re,e] of YATAI_EMOJI){ if (re.test(name)) return e; } return '🏮'; }
+    const GENRE_CLASS = { 'フード':'g-food', 'ドリンク':'g-drink', '体験':'g-exp' };
 
-    // 時刻に応じた小さな金の添え字（タイポ装飾）
-    function timeMark(timeStr) {
-      const m = String(timeStr).match(/(\d{1,2})/);
-      if (!m) return '';
-      const h = parseInt(m[1], 10);
-      if (h < 15) return '昼 ／ 鐘';
-      if (h < 17) return '陽 ／ 風';
-      if (h < 19) return '宵 ／ 灯';
-      if (h < 20) return '夕 ／ 提灯';
-      return '夜 ／ 月';
-    }
-
-    // ヒーローの金粒子を生成
-    (function makeParticles() {
-      const host = document.getElementById('hero-particles');
-      if (!host) return;
-      const N = window.innerWidth < 600 ? 14 : 24;
-      for (let i = 0; i < N; i++) {
-        const s = document.createElement('span');
-        s.style.left = Math.random() * 100 + '%';
-        s.style.bottom = (-10 - Math.random() * 30) + 'px';
-        s.style.animationDuration = (12 + Math.random() * 14) + 's';
-        s.style.animationDelay = (Math.random() * 12) + 's';
-        s.style.opacity = (0.3 + Math.random() * 0.4).toFixed(2);
-        const sz = 1 + Math.random() * 2;
-        s.style.width = sz + 'px';
-        s.style.height = sz + 'px';
-        host.appendChild(s);
-      }
+    // reveal
+    (function(){
+      if(!('IntersectionObserver' in window)){document.querySelectorAll('.reveal').forEach(el=>el.classList.add('vis'));return;}
+      const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+      document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     })();
 
-    // スクロール演出（IntersectionObserver）
-    (function revealOnScroll() {
-      if (!('IntersectionObserver' in window)) {
-        document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
-        return;
+    fetch('data.json').then(r=>r.json()).then(data=>{
+      const ev = data.event;
+
+      // 開催情報
+      const parts = String(ev.date).split('.'); // 2026 . 7 . 20
+      if(parts.length===3){
+        document.getElementById('date-big').innerHTML = `${parts[1]}.${parts[2]}<span class="sun">月・祝</span>`;
       }
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('is-visible');
-            io.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
-      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-    })();
+      document.getElementById('info-time').innerHTML = `${ev.open}〜${ev.end}<small>開場〜閉場</small>`;
+      const venueMain = ev.venue.replace(/\s*駐車場$/, '');
+      document.getElementById('info-venue').innerHTML = `${venueMain}<small>駐車場</small>`;
 
-    fetch('data.json')
-      .then(r => r.json())
-      .then(data => {
-        const ev = data.event;
-
-        // ── HERO ──
-        const dayMark = (ev.day_label && ev.day_label.includes('祝')) ? ' ／ 祝' : '';
-        document.getElementById('hero-date').innerHTML  = `${ev.date}<small>${ev.day}${dayMark}</small>`;
-        document.getElementById('hero-time').textContent = `${ev.open} — ${ev.end}`;
-        document.getElementById('hero-venue').textContent = ev.venue;
-
-        // ── INFO ──
-        document.getElementById('info-date').textContent = ev.date;
-        document.getElementById('info-day').textContent  = ev.day_label || (ev.day === 'SUN' ? 'SUNDAY' : ev.day);
-        document.getElementById('info-venue').innerHTML  = ev.venue.replace(/(.+?)\s+(.+)/, '$1<br>$2');
-        document.getElementById('info-time').textContent = `${ev.open} — ${ev.end}`;
-
-        // ── TIMETABLE ──
-        const tt = document.getElementById('timetable');
-        data.program.forEach(item => {
-          const row = document.createElement('div');
-          row.className = 'tt-row';
-          row.innerHTML = `
-            <div class="tt-time">${item.time}<span class="tt-time-mark">${timeMark(item.time)}</span></div>
-            <div><div class="tt-dot"></div></div>
-            <div class="tt-content">
-              <div class="tt-content-title">${item.content}</div>
-              ${item.desc ? `<div class="tt-content-desc">${item.desc}</div>` : ''}
-            </div>
-          `;
-          tt.appendChild(row);
-        });
-
-        // ── YATAI ──
-        const yg = document.getElementById('yatai-grid');
-        data.yatai.forEach(y => {
-          const card = document.createElement('div');
-          const photo = YATAI_PHOTOS[y.genre];
-          card.className = photo ? 'yatai-card has-photo' : 'yatai-card';
-          card.innerHTML = photo
-            ? `
-              <div class="yatai-card-photo"><img src="${photo}" alt="${y.name}" loading="lazy"></div>
-              <div class="yatai-card-name">${y.name}</div>
-              <div class="yatai-card-genre">${y.genre.toUpperCase()}</div>
-            `
-            : `
-              <div class="yatai-card-icon">${YATAI_ICONS[y.genre] || '🏮'}</div>
-              <div class="yatai-card-name">${y.name}</div>
-              <div class="yatai-card-genre">${y.genre.toUpperCase()}</div>
-            `;
-          yg.appendChild(card);
-        });
-
-        // ── MAP ──
-        const map = L.map('map', { zoomControl: true, scrollWheelZoom: false }).setView([ev.lat, ev.lng], 15);
-        map.attributionControl.setPrefix(false);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '© OpenStreetMap', maxZoom: 19
-        }).addTo(map);
-        const icon = L.divIcon({
-          className: '',
-          html: `<div style="width:36px;height:36px;background:#C44853;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;border:2px solid #C9A356;box-shadow:0 0 20px rgba(196,72,83,0.6);">🏮</div>`,
-          iconSize: [36, 36], iconAnchor: [18, 18]
-        });
-        L.marker([ev.lat, ev.lng], { icon }).addTo(map)
-          .bindPopup(`<b>${ev.venue}</b><br>${ev.venue_addr}`);
-
-        // ── ACCESS CARDS ──
-        const ac = document.getElementById('access-cards');
-        (data.access || []).forEach(item => {
-          const div = document.createElement('div');
-          div.className = 'access-card';
-          div.innerHTML = `
-            <div class="access-card-label">${item.label}</div>
-            <div class="access-card-value">${item.text}</div>
-          `;
-          ac.appendChild(div);
-        });
-
-        // ── FAQ ──
-        const faqList = document.getElementById('faq-list');
-        data.faq.forEach(item => {
-          const div = document.createElement('div');
-          div.className = 'faq-item';
-          div.innerHTML = `
-            <button class="faq-btn">
-              <div class="faq-q-mark">Q.</div>
-              <div class="faq-q-text">${item.q}</div>
-              <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </button>
-            <div class="faq-answer">${item.a}</div>
-          `;
-          div.querySelector('.faq-btn').addEventListener('click', () => div.classList.toggle('open'));
-          faqList.appendChild(div);
-        });
-
-        // ── FOOTER ──
-        document.getElementById('footer-organizer').textContent = ev.organizer;
-        document.getElementById('footer-hashtag').textContent = ev.hashtag;
+      // タイムテーブル
+      const tt = document.getElementById('timetable');
+      (data.program||[]).forEach(p=>{
+        const row=document.createElement('div');row.className='tt-row';
+        row.innerHTML=`<div class="tt-time">${p.time}</div>
+          <div class="tt-body"><div class="ti">${p.content}</div>${p.desc?`<div class="de">${p.desc}</div>`:''}</div>`;
+        tt.appendChild(row);
       });
+
+      // 屋台
+      const yg = document.getElementById('yatai-grid');
+      (data.yatai||[]).forEach(y=>{
+        const c=document.createElement('div');c.className='yatai-card';
+        c.innerHTML=`<div class="yatai-emoji">${yataiEmoji(y.name)}</div>
+          <div class="yatai-name">${y.name}</div>
+          <span class="yatai-genre ${GENRE_CLASS[y.genre]||'g-food'}">${y.genre}</span>`;
+        yg.appendChild(c);
+      });
+
+      // 地図（CDN失敗時も他セクションが描画されるようガード）
+      try{
+        if(typeof L!=='undefined'){
+          const map=L.map('map',{zoomControl:true,scrollWheelZoom:false}).setView([ev.lat,ev.lng],16);
+          map.attributionControl.setPrefix(false);
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap',maxZoom:19}).addTo(map);
+          const icon=L.divIcon({className:'',html:`<div style="width:40px;height:40px;background:#e0382b;border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;border:3px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.3);"><span style="transform:rotate(45deg);font-size:18px;">🏮</span></div>`,iconSize:[40,40],iconAnchor:[20,38]});
+          L.marker([ev.lat,ev.lng],{icon}).addTo(map).bindPopup(`<b>${ev.venue}</b><br>${ev.venue_addr}`);
+        }
+      }catch(e){console.error('map init failed',e);}
+
+      // アクセスカード
+      const ac=document.getElementById('access-cards');
+      (data.access||[]).forEach(item=>{
+        const d=document.createElement('div');d.className='access-card';
+        d.innerHTML=`<div class="ic">${item.icon||'•'}</div><div><div class="lb">${item.label}</div><div class="vl">${item.text}</div></div>`;
+        ac.appendChild(d);
+      });
+
+      // FAQ
+      const fl=document.getElementById('faq-list');
+      (data.faq||[]).forEach((item,i)=>{
+        const d=document.createElement('div');d.className='faq-item';
+        const aid='faq-ans-'+i;
+        d.innerHTML=`<button class="faq-btn" type="button" aria-expanded="false" aria-controls="${aid}">
+            <span class="faq-q" aria-hidden="true">Q</span><span class="faq-q-text">${item.q}</span>
+            <svg class="faq-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-ans" id="${aid}" role="region" aria-hidden="true"><div class="faq-ans-inner">${item.a}</div></div>`;
+        const btn=d.querySelector('.faq-btn');const ans=d.querySelector('.faq-ans');
+        btn.addEventListener('click',()=>{
+          const open=d.classList.toggle('open');
+          btn.setAttribute('aria-expanded',open?'true':'false');
+          ans.setAttribute('aria-hidden',open?'false':'true');
+          ans.style.maxHeight=open?ans.scrollHeight+40+'px':'0';
+        });
+        fl.appendChild(d);
+      });
+
+      // フッター
+      document.getElementById('footer-organizer').textContent = ev.organizer;
+      document.getElementById('footer-hashtag').textContent = ev.hashtag;
+    }).catch(e=>console.error('data load failed',e));
   </script>
 </body>
 </html>

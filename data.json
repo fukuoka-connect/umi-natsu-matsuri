@@ -1,6 +1,6 @@
 {
   "event": {
-    "name": "宇美町夏祭り 2026",
+    "name": "宇美町夏まつり 2026",
     "name_en": "UMI NATSU MATSURI 2026",
     "date": "2026.7.20",
     "day": "MON",
@@ -13,7 +13,7 @@
     "lat": 33.5696,
     "lng": 130.5131,
     "instagram": "",
-    "hashtag": "#宇美町夏祭り2026",
+    "hashtag": "#宇美町夏まつり2026",
     "organizer": "宇美町商工会 女性部・壮青年部・青年部",
     "description": "夏の思い出づくり。屋台・ステージ・縁日で盛り上がる、宇美町の夏まつり。2026年7月20日（月・祝）開催・入場無料。",
     "catchcopy": "夏の思い出づくり"
@@ -42,10 +42,10 @@
     { "name": "ヨーヨー・縁日ゲーム",   "genre": "体験" }
   ],
   "access": [
-    { "icon": "🚃", "label": "TRAIN",   "text": "JR香椎線「宇美駅」より<strong>徒歩約5分</strong>" },
-    { "icon": "🚗", "label": "CAR",     "text": "九州自動車道「太宰府IC」より約15分<br><small>※当日は公共交通機関のご利用にご協力ください</small>" },
-    { "icon": "🅿️", "label": "PARKING", "text": "<strong>宇美町役場</strong>の駐車場をご利用ください<br><small>※台数に限りがあります</small>" },
-    { "icon": "📞", "label": "CONTACT", "text": "宇美町商工会<br><a href=\"tel:0929320443\"><strong>092-932-0443</strong></a>" }
+    { "icon": "🚃", "label": "電車",       "text": "JR香椎線「宇美駅」より<strong>徒歩約5分</strong>" },
+    { "icon": "🚗", "label": "お車",       "text": "九州自動車道「太宰府IC」より約15分<br><small>※当日は公共交通機関のご利用にご協力ください</small>" },
+    { "icon": "🅿️", "label": "駐車場",     "text": "<strong>宇美町役場</strong>の駐車場をご利用ください<br><small>※台数に限りがあります</small>" },
+    { "icon": "📞", "label": "お問い合わせ", "text": "宇美町商工会<br><a href=\"tel:0929320443\"><strong>092-932-0443</strong></a>" }
   ],
   "faq": [
     { "q": "雨天の場合は？", "a": "雨天の場合は <strong>8月22日（土）</strong> に順延します。開催可否は本サイト・宇美町商工会（<a href=\"tel:0929320443\"><strong>092-932-0443</strong></a>）でお知らせします。" },
