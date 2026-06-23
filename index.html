@@ -206,7 +206,7 @@
     .intro-copy h2 em{font-style:normal;color:var(--shu);}
     .intro-copy p{font-size:15px;color:var(--ink);}
     .intro-photo{border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:4px solid #fff;}
-    .intro-photo img{width:100%;height:100%;object-fit:cover;object-position:64% center;aspect-ratio:4/3;}
+    .intro-photo img{width:100%;height:auto;display:block;}
     @media(min-width:820px){
       .intro-grid{grid-template-columns:1.05fr .95fr;gap:44px;}
     }
@@ -344,12 +344,11 @@
     footer{
       position:relative;color:#fdf3e6;text-align:center;padding:0;
     }
-    .footer-band{position:relative;overflow:hidden;padding:64px 20px 40px;}
-    .footer-band::before{
-      content:"";position:absolute;inset:0;z-index:0;
-      background:linear-gradient(180deg,rgba(27,42,94,.78),rgba(27,42,94,.9)),url('images/festival-dusk.jpg') center/cover no-repeat;
-    }
-    .footer-inner{position:relative;z-index:1;max-width:760px;margin-inline:auto;}
+    .footer-photo{position:relative;width:100%;aspect-ratio:16/8;max-height:380px;overflow:hidden;line-height:0;background:#16204e;}
+    .footer-photo img{width:100%;height:100%;object-fit:cover;object-position:center 34%;display:block;}
+    .footer-photo::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:42%;background:linear-gradient(180deg,transparent,#16204e);pointer-events:none;}
+    .footer-main{background:#16204e;padding:12px 20px 40px;}
+    .footer-inner{max-width:760px;margin-inline:auto;}
     .footer-logo{font-weight:900;font-size:24px;color:#fff;letter-spacing:.06em;}
     .footer-logo .brush{font-weight:400;}
     .footer-catch{color:var(--gold);font-weight:800;font-size:13px;letter-spacing:.18em;margin-top:4px;text-shadow:0 1px 3px rgba(11,18,40,.55);}
@@ -567,7 +566,8 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-band">
+    <div class="footer-photo"><img src="images/festival-dusk.jpg" alt="夕暮れの屋台と提灯（やきそば・からあげ・焼きとり・りんご飴）" loading="lazy"></div>
+    <div class="footer-main">
       <div class="footer-inner">
         <div class="footer-logo">宇美町<span class="brush">夏まつり</span> 2026</div>
         <div class="footer-catch">夏の思い出づくり</div>
