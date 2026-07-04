@@ -24,15 +24,6 @@
     { "time": "18:30", "color": "green",  "icon": "🎆", "content": "ステージフィナーレ", "desc": "夏の思い出づくり、最後まで楽しもう！" },
     { "time": "19:00", "color": "orange", "icon": "👋", "content": "閉場", "desc": "また来年お会いしましょう！" }
   ],
-  "sponsors": {
-    "gold": [],
-    "silver": [],
-    "bronze": [],
-    "cooperation": [
-      { "name": "宇美町" },
-      { "name": "有限会社永吉運輸" }
-    ]
-  },
   "yatai": [
     { "name": "かき氷",                 "genre": "ドリンク" },
     { "name": "やきそば・あげたこ",     "genre": "フード" },
