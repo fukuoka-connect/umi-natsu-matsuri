@@ -259,16 +259,20 @@
       box-shadow:var(--shadow);border:4px solid #fff;aspect-ratio:16/7;
     }
     .band img{width:100%;height:100%;object-fit:cover;}
-    .tt{max-width:680px;margin-inline:auto;display:grid;gap:12px;}
+    .tt{max-width:680px;margin-inline:auto;display:grid;gap:8px;}
     .tt-row{
-      display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
-      background:#fff;border-radius:16px;padding:16px 18px;box-shadow:var(--shadow-sm);border:1.5px solid var(--line);
+      display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;
+      background:#fff;border-radius:14px;padding:12px 16px;box-shadow:var(--shadow-sm);border:1.5px solid var(--line);
     }
+    .tt-row.tt-break{background:transparent;box-shadow:none;border:none;padding:2px 16px;}
+    .tt-break .tt-time{background:transparent;color:var(--ink);font-weight:700;font-size:12.5px;opacity:.7;padding:2px 10px;min-width:64px;}
+    .tt-break .ti{font-weight:600;color:var(--ink);font-size:12.5px;}
     .tt-time{
       font-weight:900;color:#fff;background:var(--navy);border-radius:12px;
       padding:8px 10px;min-width:64px;text-align:center;font-size:16px;letter-spacing:.02em;
     }
-    .tt-body .ti{font-weight:800;color:var(--navy);font-size:16px;margin-bottom:2px;}
+    .tt-body{min-width:0;}
+    .tt-body .ti{font-weight:800;color:var(--navy);font-size:15.5px;line-height:1.5;margin-bottom:2px;overflow-wrap:anywhere;}
     .tt-body .de{font-size:13px;color:var(--ink);line-height:1.7;}
 
     /* ── おたのしみ（屋台・ステージ催し） ── */
@@ -482,11 +486,12 @@
     <div class="wrap">
       <div class="sec-head">
         <span class="sec-kicker">タイムテーブル</span>
-        <h2 class="sec-title">当日のながれ</h2>
-        <p class="sec-lead">12:00 開場 → ステージ 14:00〜18:30 → 19:00 閉場</p>
+        <h2 class="sec-title">タイムスケジュール</h2>
+        <p class="sec-lead">12:00 イベント開始 → ステージ 14:00〜18:30 → 19:00 終了</p>
       </div>
       <figure class="band"><img src="images/festival-stage.jpg" alt="夕方のステージイベントの様子" loading="lazy"></figure>
       <div class="tt" id="timetable"></div>
+      <p class="fun-note">※ プログラム・時間は変更となる場合があります</p>
     </div>
   </section>
 
@@ -621,7 +626,7 @@
       // タイムテーブル
       const tt = document.getElementById('timetable');
       (data.program||[]).forEach(p=>{
-        const row=document.createElement('div');row.className='tt-row';
+        const row=document.createElement('div');row.className = p.content==='休憩' ? 'tt-row tt-break' : 'tt-row';
         row.innerHTML=`<div class="tt-time">${p.time}</div>
           <div class="tt-body"><div class="ti">${p.content}</div>${p.desc?`<div class="de">${p.desc}</div>`:''}</div>`;
         tt.appendChild(row);
