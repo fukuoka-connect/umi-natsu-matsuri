@@ -40,7 +40,7 @@
     { "time": "19:00", "content": "夏まつり終了", "desc": "また来年お会いしましょう！" }
   ],
   "yatai": [
-    { "name": "かき氷",                 "genre": "ドリンク" },
+    { "name": "かき氷・アイス・和菓子", "genre": "デザート" },
     { "name": "やきそば・あげたこ",     "genre": "フード" },
     { "name": "ポテト・フランクフルト", "genre": "フード" },
     { "name": "サザエ・うなぎ",         "genre": "フード" },
@@ -48,8 +48,7 @@
     { "name": "ヨーヨー・縁日ゲーム",   "genre": "体験" }
   ],
   "access": [
-    { "icon": "🚃", "label": "電車",       "text": "JR香椎線「宇美駅」より<strong>徒歩約5分</strong>" },
-    { "icon": "🚗", "label": "お車",       "text": "九州自動車道「太宰府IC」より約15分<br><small>※当日は公共交通機関のご利用にご協力ください</small>" },
+    { "icon": "🚃", "label": "電車",       "text": "JR香椎線「宇美駅」より<strong>徒歩1分</strong>" },
     { "icon": "🅿️", "label": "駐車場",     "text": "<strong>宇美町役場</strong>の駐車場をご利用ください<br><small>※台数に限りがあります</small>" },
     { "icon": "📞", "label": "お問い合わせ", "text": "宇美町商工会<br><a href=\"tel:0929320443\"><strong>092-932-0443</strong></a>" }
   ],

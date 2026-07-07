@@ -298,6 +298,7 @@
     .g-food{background:var(--shu-deep);}
     .g-drink{background:#1f6fa8;}
     .g-exp{background:var(--green);}
+    .g-dessert{background:#c2578f;}
     .fun-note{text-align:center;color:var(--ink);font-size:12.5px;margin-top:16px;}
 
     /* ── ACCESS ── */
@@ -435,7 +436,7 @@
           </p>
         </div>
         <figure class="intro-photo">
-          <img src="images/festival-day2.jpg" alt="青空のもと提灯が並ぶ夏祭りの会場と屋台" loading="lazy">
+          <img src="images/festival-day2.jpg" alt="青空のもと大勢の来場者で賑わう夏まつり会場" loading="lazy">
         </figure>
       </div>
     </div>
@@ -489,7 +490,7 @@
         <h2 class="sec-title">タイムスケジュール</h2>
         <p class="sec-lead">12:00 イベント開始 → ステージ 14:00〜18:30 → 19:00 終了</p>
       </div>
-      <figure class="band"><img src="images/festival-stage.jpg" alt="夕方のステージイベントの様子" loading="lazy"></figure>
+      <figure class="band"><img src="images/festival-stage.jpg" alt="ステージイベントを楽しむ観客の様子" loading="lazy"></figure>
       <div class="tt" id="timetable"></div>
       <p class="fun-note">※ プログラム・時間は変更となる場合があります</p>
     </div>
@@ -569,7 +570,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-photo"><img src="images/festival-dusk.jpg" alt="夕暮れの屋台と提灯（やきそば・からあげ・焼きとり・りんご飴）" loading="lazy"></div>
+    <div class="footer-photo"><img src="images/festival-dusk.jpg" alt="屋台でやきそばを焼くスタッフの様子" loading="lazy"></div>
     <div class="footer-main">
       <div class="footer-inner">
         <div class="footer-logo">宇美町<span class="brush">夏まつり</span> 2026</div>
@@ -602,7 +603,7 @@
       [/ソフトドリンク|アルコール|ドリンク|ビール/, '🍺'], [/ヨーヨー|縁日|ゲーム|射的/, '🎯']
     ];
     function yataiEmoji(name){ for (const [re,e] of YATAI_EMOJI){ if (re.test(name)) return e; } return '🏮'; }
-    const GENRE_CLASS = { 'フード':'g-food', 'ドリンク':'g-drink', '体験':'g-exp' };
+    const GENRE_CLASS = { 'フード':'g-food', 'ドリンク':'g-drink', '体験':'g-exp', 'デザート':'g-dessert' };
 
     // reveal
     (function(){
